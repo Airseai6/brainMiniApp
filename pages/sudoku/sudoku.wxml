@@ -44,9 +44,5 @@
   </view>
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 约束满足与排除</view>
-    <view class="rule-text">数独不是猜，是排除：一行有了 1，其他格就不能是 1；一列、一个宫同理。6×6 的候选更少，但交叉约束更多。</view>
-    <view class="rule-example">例：一行已有 1、3、5，这一格就只能从 2、4、6 里排除；再看列和宫继续缩小。</view>
-  </view>
+  <game-rules title="能学到什么 · 约束满足与排除" text="数独不是猜，是排除：一行有了 1，其他格就不能是 1；一列、一个宫同理。6×6 的候选更少，但交叉约束更多。" example="一行已有 1、3、5，这一格就只能从 **2、4、6** 里排除；再看列和宫继续缩小。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 </view>

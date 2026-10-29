@@ -39,9 +39,5 @@
   </view>
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 欧拉路径与奇偶度</view>
-    <view class="rule-text">奇度点有 0 个或 2 个，才可能一笔画走完；超过 2 个，无论怎么试都走不通。柯尼斯堡七桥有四个奇度点。</view>
-    <view class="rule-example">例：七桥图有 4 个奇度点，超过 2 个，所以怎么走都会剩边。</view>
-  </view>
+  <game-rules title="能学到什么 · 欧拉路径与奇偶度" text="奇度点有 0 个或 2 个，才可能一笔画走完；超过 2 个，无论怎么试都走不通。柯尼斯堡七桥有四个奇度点。" example="七桥图有 **4 个奇度点**，超过 2 个，所以怎么走都会剩边。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 </view>

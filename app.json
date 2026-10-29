@@ -31,6 +31,9 @@
     "backgroundTextStyle": "dark"
   },
   "style": "v2",
+  "usingComponents": {
+    "game-rules": "/components/game-rules/game-rules"
+  },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }

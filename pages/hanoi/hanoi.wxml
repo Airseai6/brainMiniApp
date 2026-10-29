@@ -46,9 +46,5 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 递归与指数增长</view>
-    <view class="rule-text">T(n) = 2 × T(n−1) + 1，T(1) = 1，解得 T(n) = 2ⁿ − 1。每多一层，步数几乎翻倍；这不是手速问题，是指数增长。</view>
-    <view class="rule-example">例：3 层最少 7 步：先把上面 2 层搬到 B，再搬最大盘到 C，最后把 2 层搬回来。</view>
-  </view>
+  <game-rules title="能学到什么 · 递归与指数增长" text="T(n) = 2 × T(n−1) + 1，T(1) = 1，解得 T(n) = 2ⁿ − 1。每多一层，步数几乎翻倍；这不是手速问题，是指数增长。" example="3 层最少 **7 步**：先把上面 2 层搬到 B，再搬最大盘到 C，最后把 2 层搬回来。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 </view>

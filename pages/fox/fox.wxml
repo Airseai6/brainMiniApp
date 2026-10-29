@@ -56,9 +56,5 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 图论与奇偶性</view>
-    <view class="rule-text">路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。半透明狐狸是信息论里的“可能位置集合”。</view>
-    <view class="rule-example">例：路径 P5 先查 3 号洞，狐狸只能往两边跑；再查相邻洞，一步步把它逼到端点。</view>
-  </view>
+  <game-rules title="能学到什么 · 图论与奇偶性" text="路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。半透明狐狸是信息论里的“可能位置集合”。" example="路径 P5 先查 **3 号洞**，狐狸只能往两边跑；再查相邻洞，一步步把它逼到**端点**。"></game-rules>
 </view>

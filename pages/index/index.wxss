@@ -210,3 +210,6 @@
   white-space: pre-line;
 }
 
+
+.footer .version { display: block; margin-top: 8rpx; color: #4c5a70; font-size: 20rpx; font-family: Consolas, monospace; }
+

@@ -11,7 +11,6 @@ Page({
     won: false,
     hint: '',
     status: '选一个壶，再点另一个壶倒水',
-    showRules: true
   },
 
   onLoad() { this.newRound('daily'); },
@@ -36,7 +35,6 @@ Page({
 
   startDaily() { this.newRound('daily'); },
   startPractice() { this.newRound('practice'); },
-  toggleRules() { this.setData({ showRules: !this.data.showRules }); },
 
   render() {
     const jugs = this.jugs.map((amount, i) => ({

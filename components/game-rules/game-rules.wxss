@@ -1,0 +1,83 @@
+:host {
+  display: block;
+  margin-top: auto;
+}
+
+.rules {
+  margin-top: 16rpx;
+  padding: 16rpx 18rpx;
+  border-radius: 14rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+}
+
+.rules-head {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.rules-title {
+  flex: 1;
+  min-width: 0;
+  color: #f0a33a;
+  font-size: 24rpx;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.rules-toggle {
+  flex-shrink: 0;
+  color: #93a4bd;
+  font-size: 19rpx;
+  padding: 6rpx 12rpx;
+  border: 1rpx solid #2a3a56;
+  border-radius: 999rpx;
+  background: #0d1420;
+}
+
+.rules-body {
+  margin-top: 12rpx;
+}
+
+.rules-label {
+  color: #93a4bd;
+  font-size: 19rpx;
+  letter-spacing: 2rpx;
+  margin-top: 10rpx;
+}
+
+.rules-text {
+  margin-top: 6rpx;
+  padding-left: 12rpx;
+  border-left: 3rpx solid #f0a33a;
+  color: #b9c4d6;
+  font-size: 21rpx;
+  line-height: 1.7;
+}
+
+.rules-example {
+  margin-top: 6rpx;
+  padding-left: 12rpx;
+  border-left: 3rpx solid #5bd9be;
+  color: #b9c4d6;
+  font-size: 21rpx;
+  line-height: 1.7;
+}
+
+.rules-example .em {
+  color: #ffd27a;
+  font-weight: 700;
+}
+
+.rules-example .hl {
+  color: #5bd9be;
+  font-weight: 700;
+}
+
+.rules-tip {
+  margin-top: 10rpx;
+  color: #7e8aa3;
+  font-size: 20rpx;
+  line-height: 1.6;
+}

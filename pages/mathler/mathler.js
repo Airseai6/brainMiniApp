@@ -17,7 +17,6 @@ Page({
     lost: false,
     answer: '',
     status: '猜一个隐藏算式',
-    showRules: true,
     showAnswer: false
   },
 
@@ -37,7 +36,6 @@ Page({
       lost: false,
       answer: '',
       status: m === 'daily' ? '每日一题 · 6 次猜出算式' : '练习模式 · 6 次猜出算式',
-      showRules: this.data.showRules,
       showAnswer: false
     });
     this.render();
@@ -45,7 +43,6 @@ Page({
 
   startDaily() { if (this.data.mode !== 'daily' || this.data.won || this.data.lost) this.newRound('daily'); },
   startPractice() { if (this.data.mode !== 'practice' || this.data.won || this.data.lost) this.newRound('practice'); },
-  toggleRules() { this.setData({ showRules: !this.data.showRules }); },
 
   render() {
     const display = this.data.input.map((ch, i) => ({ char: ch || '·', empty: !ch, op: i === 2 || i === 5 }));

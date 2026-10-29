@@ -1,8 +1,10 @@
 const games = require('../../data/games');
+const { VERSION } = require('../../utils/version');
 
 Page({
   data: {
     games,
+    version: VERSION,
     replayGames: [],
     classicGames: [],
     streak: 0,

@@ -43,9 +43,5 @@
     <view class="btn-primary" bindtap="reset">新的一局</view>
   </view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 聚变与结合能</view>
-    <view class="rule-text">每一档对应一次真实聚变反应；越往上，结合能越高。关卡里合并的是核素，现实里放出的才是 Q 值。</view>
-    <view class="rule-example">例：D+D→He-4 会放能；但到铁峰之后，继续聚变反而要吸能。</view>
-  </view>
+  <game-rules title="能学到什么 · 聚变与结合能" text="每一档对应一次真实聚变反应；越往上，结合能越高。关卡里合并的是核素，现实里放出的才是 Q 值。" example="**D+D→He-4** 会放能；但到铁峰之后，继续聚变反而要吸能。"></game-rules>
 </view>

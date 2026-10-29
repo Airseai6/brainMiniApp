@@ -32,9 +32,5 @@
   </view>
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 不变量与可解性</view>
-    <view class="rule-text">看逆序数的奇偶：每次左右滑不改变逆序数，上下滑会改变 3 或 5 对——奇偶和空格行一起变。开局三秒就能判断。</view>
-    <view class="rule-example">例：逆序数和空格行号对不上时，怎么滑都拼不回；先算奇偶，再决定要不要重开。</view>
-  </view>
+  <game-rules title="能学到什么 · 不变量与可解性" text="看逆序数的奇偶：每次左右滑不改变逆序数，上下滑会改变 3 或 5 对——奇偶和空格行一起变。开局三秒就能判断。" example="**逆序数**和空格行号对不上时，怎么滑都拼不回；先算奇偶，再决定要不要重开。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 </view>

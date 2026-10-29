@@ -15,7 +15,6 @@
     <view class="mini-split"></view>
     <view class="mini-tab warm {{size === 4 ? 'active' : ''}}" data-size="4" bindtap="setSize">4×4</view>
     <view class="mini-tab warm {{size === 5 ? 'active' : ''}}" data-size="5" bindtap="setSize">5×5</view>
-    <view class="rules-toggle" bindtap="toggleRules">{{showRules ? '收起规则' : '规则'}}</view>
   </view>
 
   <view class="status-line">
@@ -45,9 +44,5 @@
     <view class="btn-primary" bindtap="newPuzzle">换一局</view>
   </view>
 
-  <view wx:if="{{showRules}}" class="rule-box">
-    <view class="rule-title">能学到什么 · 奇偶性与模 2 线性代数</view>
-    <view class="rule-text">每盏灯只有亮/灭两种状态，点两次等于没点。把每个格子看成 0/1 变量，整盘就是一个模 2 的线性方程组；先点后点不重要，重要的是每个格子点奇数次还是偶数次。</view>
-    <view class="rule-example">例：同一格点两次等于没点；先点哪个后点哪个不影响最终亮灭，只影响中间状态。</view>
-  </view>
+  <game-rules title="能学到什么 · 奇偶性与模 2 线性代数" text="每盏灯只有亮/灭两种状态，点两次等于没点。把每个格子看成 0/1 变量，整盘就是一个模 2 的线性方程组；先点后点不重要，重要的是每个格子点奇数次还是偶数次。" example="同一格**点两次**等于没点；先点哪个后点哪个不影响最终亮灭，只影响中间状态。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 </view>

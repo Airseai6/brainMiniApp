@@ -10,7 +10,6 @@ Page({
     hintCell: -1,
     hint: '',
     status: '点灯翻面，把灯全灭',
-    showRules: true
   },
 
   onLoad() { this.newRound('daily', 5); },
@@ -29,7 +28,6 @@ Page({
   startDaily() { this.newRound('daily', this.data.size); },
   startPractice() { this.newRound('practice', this.data.size); },
   setSize(e) { this.newRound(this.data.mode, Number(e.currentTarget.dataset.size)); },
-  toggleRules() { this.setData({ showRules: !this.data.showRules }); },
 
   render() {
     const n = this.data.size;

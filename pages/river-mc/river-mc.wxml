@@ -59,9 +59,5 @@
     <view class="win-copy"><text class="win-title">🎉 全部安全到达</text><text class="win-sub">传教士与野人 11 步经典解完成</text></view>
   </view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 状态图与约束</view>
-    <view class="rule-text">每一步都要同时满足两岸的安全约束；把“左岸人数 + 船位”看成状态，过河就是状态图上的最短路。经典最短解是 11 步。</view>
-    <view class="rule-example">例：先 1 名传教士 + 1 名野人过去，再让 1 人回来；每一步都要保证两岸安全。</view>
-  </view>
+  <game-rules title="能学到什么 · 状态图与约束" text="每一步都要同时满足两岸的安全约束；把“左岸人数 + 船位”看成状态，过河就是状态图上的最短路。经典最短解是 11 步。" example="先 **1 名传教士 + 1 名野人**过去，再让 1 人回来；每一步都要保证两岸安全。"></game-rules>
 </view>

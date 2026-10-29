@@ -45,9 +45,5 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <view class="rule-box">
-    <view class="rule-title">能学到什么 · 有理数与穷举搜索</view>
-    <view class="rule-text">例如 3、3、8、8：8 ÷ (3 − 8 ÷ 3) = 24。只允许整数四则运算，就永远凑不出来。</view>
-    <view class="rule-example">例：3、3、8、8 只试整数会卡住；用 8÷(3−8÷3) 经过分数，才能得到 24。</view>
-  </view>
+  <game-rules title="能学到什么 · 有理数与穷举搜索" text="例如 3、3、8、8：8 ÷ (3 − 8 ÷ 3) = 24。只允许整数四则运算，就永远凑不出来。" example="3、3、8、8 只试整数会卡住；用 **8÷(3−8÷3)** 经过分数，才能得到 24。"></game-rules>
 </view>

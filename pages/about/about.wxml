@@ -15,7 +15,7 @@
 
   <view class="card">
     <view class="h">小程序里能玩什么</view>
-    <view class="p">当前原生可玩：每日一题、最后一颗（Nim）、汉诺塔。其余 6 个关卡的原生版还在移植中。</view>
+    <view class="p">现在有 17 个原生关卡：反复挑战 8 个，经典解谜 9 个；每日一题、每日一练、随机体验都在本地运行，不用注册。</view>
   </view>
 
   <view class="muted">Fusion Data Academy · 2026</view>

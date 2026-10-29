@@ -1,0 +1,16 @@
+<view class="rules">
+  <view class="rules-head">
+    <text class="rules-title">{{title}}</text>
+    <view class="rules-toggle" bindtap="toggle">{{expanded ? '收起规则' : '展开规则'}}</view>
+  </view>
+
+  <view wx:if="{{expanded}}" class="rules-body">
+    <view class="rules-label">规则</view>
+    <view class="rules-text">{{text}}</view>
+    <view class="rules-label">示例</view>
+    <view class="rules-example">
+      <text wx:for="{{segments}}" wx:key="index" class="{{item.cls}}">{{item.text}}</text>
+    </view>
+    <view wx:if="{{tip}}" class="rules-tip">{{tip}}</view>
+  </view>
+</view>
