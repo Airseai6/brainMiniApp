@@ -2,6 +2,50 @@
 
 .digits-page { padding-top: 16rpx; }
 
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  flex-wrap: wrap;
+  margin-top: 12rpx;
+}
+
+.mini-tab {
+  min-height: 52rpx;
+  padding: 0 14rpx;
+  border-radius: 999rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+  color: #93a4bd;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.mini-tab.active {
+  background: #1f2a1f;
+  border-color: #5bd9be;
+  color: #5bd9be;
+  font-weight: 700;
+}
+
+.mini-tab.warm.active {
+  background: #2a1f12;
+  border-color: #f0a33a;
+  color: #f0a33a;
+}
+
+.mini-split { width: 1rpx; height: 30rpx; background: #2a3a56; margin: 0 2rpx; }
+
+.rules-toggle {
+  margin-left: auto;
+  color: #7e8aa3;
+  font-size: 20rpx;
+  padding: 8rpx 4rpx;
+}
+
+.rules-lead { margin-top: 10rpx; }
+
 .slot-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

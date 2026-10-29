@@ -9,14 +9,15 @@
   </view>
   <view class="game-lead">A = 数字和位置都对，B = 数字对但位置不对。用排除法，不信运气。</view>
 
-  <view class="seg-row">
-    <view class="seg {{mode === 'daily' ? 'active' : ''}}" data-mode="daily" bindtap="startDaily">每日挑战</view>
-    <view class="seg {{mode === 'practice' ? 'active' : ''}}" data-mode="practice" bindtap="startPractice">随机练习</view>
+  <view class="top-controls">
+    <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" data-mode="daily" bindtap="startDaily">每日</view>
+    <view class="mini-tab {{mode === 'practice' ? 'active' : ''}}" data-mode="practice" bindtap="startPractice">练习</view>
+    <view class="mini-split"></view>
+    <view class="mini-tab warm {{difficulty === 'normal' ? 'active' : ''}}" data-level="normal" bindtap="setDifficulty">普通</view>
+    <view class="mini-tab warm {{difficulty === 'hard' ? 'active' : ''}}" data-level="hard" bindtap="setDifficulty">困难</view>
+    <view class="rules-toggle" bindtap="toggleRules">{{showRules ? '收起规则' : '规则'}}</view>
   </view>
-  <view class="seg-row">
-    <view class="seg warm {{difficulty === 'normal' ? 'active' : ''}}" data-level="normal" bindtap="setDifficulty">普通 · 不重复</view>
-    <view class="seg warm {{difficulty === 'hard' ? 'active' : ''}}" data-level="hard" bindtap="setDifficulty">困难 · 可重复</view>
-  </view>
+  <view wx:if="{{showRules}}" class="game-lead rules-lead">A = 数字和位置都对，B = 数字对但位置不对。点任意格可修改，填完自动跳下一格。</view>
 
   <view class="status-line">
     <text class="status-strong">{{status}}</text>
@@ -65,8 +66,8 @@
     <text class="answer-num">{{answer}}</text>
   </view>
 
-  <view class="rule-box">
-    <view class="rule-title">为什么是信息论</view>
+  <view wx:if="{{showRules}}" class="rule-box">
+    <view class="rule-title">能学到什么 · 信息论与排除法</view>
     <view class="rule-text">普通模式有 5040 个候选。每次反馈都在切掉不可能的分支；6 次足够从 5040 缩到 1。不是猜得准，是排除得对。</view>
   </view>
 </view>

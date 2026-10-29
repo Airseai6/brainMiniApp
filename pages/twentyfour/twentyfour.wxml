@@ -38,7 +38,7 @@
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
   <view class="rule-box">
-    <view class="rule-title">为什么有些牌必须用分数</view>
+    <view class="rule-title">能学到什么 · 有理数与穷举搜索</view>
     <view class="rule-text">例如 3、3、8、8：8 ÷ (3 − 8 ÷ 3) = 24。只允许整数四则运算，就永远凑不出来。</view>
   </view>
 </view>

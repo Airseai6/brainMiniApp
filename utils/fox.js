@@ -33,7 +33,8 @@ function newGame(level = 1, forceStart) {
     maxDay: level === 1 ? 8 : 12,
     caught: false,
     lost: false,
-    checked: []
+    checked: [],
+    possible: Array.from({ length: n }, (_, i) => i)
   };
 }
 
@@ -42,16 +43,23 @@ function probe(state, check) {
   const next = { ...state, checked: state.checked.concat([check]) };
   if (check === state.fox) {
     next.caught = true;
+    next.possible = [check];
     return next;
   }
   next.fox = escape(state.fox, check, state.n, state.cyclic);
+  // 可能性集合：删掉被查的洞，再按邻接关系演化
+  const after = (state.possible || []).filter((p) => p !== check);
+  const nxt = new Set();
+  for (const p of after) for (const q of neighbors(p, state.n, state.cyclic)) nxt.add(q);
+  next.possible = [...nxt].sort((a, b) => a - b);
   next.day = state.day + 1;
   if (next.day > state.maxDay) next.lost = true;
   return next;
 }
 
 function possiblePositions(state) {
-  // 仅用于提示：从所有位置出发，按同样策略模拟，得到仍可能的位置
+  if (state.possible) return state.possible.slice();
+  // 兼容旧状态：从所有位置出发，按同样策略模拟
   const poss = new Set();
   const startChecked = state.checked || [];
   for (let start = 0; start < state.n; start++) {

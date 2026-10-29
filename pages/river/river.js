@@ -94,6 +94,10 @@ Page({
 
   showHint() { this.setData({ hint: river.hint() }); },
 
+  openMC() {
+    wx.redirectTo({ url: '/pages/river-mc/river-mc' });
+  },
+
   onShareAppMessage() {
     return { title: '过河：狼、羊、菜，船每次只能带一样', path: '/pages/river/river' };
   }

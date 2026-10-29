@@ -7,6 +7,8 @@ const sudoku = require('../utils/sudoku.js');
 const nono = require('../utils/nonogram.js');
 const euler = require('../utils/euler.js');
 const monty = require('../utils/monty.js');
+const fox = require('../utils/fox.js');
+const mc = require('../utils/river-mc.js');
 
 test('balance: candidate filtering and guess', () => {
   assert.equal(balance.initialCandidates().length, 24);
@@ -48,4 +50,26 @@ test('monty: switch rate near two thirds', () => {
   const s = monty.choose(monty.newRound(), 0);
   assert.equal(s.phase, 'decide');
   assert.ok(s.opened !== s.car && s.opened !== s.picked);
+});
+
+test('fox: possible set updates and is exposed for ghost fox', () => {
+  let s = fox.newGame(1, 0);
+  assert.deepEqual(s.possible, [0, 1, 2, 3, 4]);
+  s = fox.probe(s, 4);
+  assert.equal(s.checked.length, 1);
+  assert.ok(s.possible.length > 0);
+});
+
+test('river mc: rejects empty/overloaded boat and unsafe move', () => {
+  const g = mc.newGame();
+  assert.equal(mc.cross(g, 0, 0).ok, false);
+  assert.equal(mc.cross(g, 2, 1).ok, false);
+  const safe = mc.cross(g, 1, 1);
+  assert.equal(safe.ok, true);
+  assert.deepEqual(safe.state.left, { m: 2, c: 2 });
+  const back = mc.newGame();
+  back.boat = 'right';
+  back.left = { m: 2, c: 2 };
+  const unsafe = mc.cross(back, 0, 1);
+  assert.equal(unsafe.ok, false);
 });

@@ -13,8 +13,9 @@
     <text class="status-strong">{{status}}</text>
     <text class="mono">分数 {{score}} · 步数 {{moves}}</text>
   </view>
+  <view class="swipe-tip">滑动棋盘，或点下方方向键</view>
 
-  <view class="board">
+  <view class="board" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd" catchtouchmove="catchMove">
     <view class="cell cell-{{item.v}}" wx:for="{{cells}}" wx:key="index">
       <text wx:if="{{item.v}}" class="cell-label">{{item.label}}</text>
       <text wx:if="{{item.v}}" class="cell-name">{{item.name}}</text>
@@ -35,7 +36,7 @@
   </view>
 
   <view class="rule-box">
-    <view class="rule-title">聚变能从哪里来</view>
+    <view class="rule-title">能学到什么 · 聚变与结合能</view>
     <view class="rule-text">每一档对应一次真实聚变反应；越往上，结合能越高。关卡里合并的是核素，现实里放出的才是 Q 值。</view>
   </view>
 </view>

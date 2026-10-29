@@ -23,7 +23,7 @@
 - 抓狐狸
 - 汉诺塔
 - 十五数码
-- 过河
+- 过河：狼·羊·菜 + 传教士·野人两关
 - 围堵狐狸
 - 天平称币
 - 数织
@@ -61,7 +61,7 @@ tests/                     Node 测试
 node --test tests/logic.test.mjs tests/games.test.mjs tests/new-games.test.mjs tests/practice.test.mjs tests/wording.test.mjs
 ```
 
-当前 28 项测试：逻辑、结构、练习与审核词汇。
+当前 30 项测试：逻辑、结构、练习与审核词汇。
 
 ## 设计约束
 
@@ -73,4 +73,5 @@ node --test tests/logic.test.mjs tests/games.test.mjs tests/new-games.test.mjs t
 ## License
 
 未指定。代码仅用于本项目，未经许可请勿商用或再分发。
+
 

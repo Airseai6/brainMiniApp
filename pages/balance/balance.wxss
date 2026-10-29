@@ -1,8 +1,27 @@
 @import "../../styles/game.wxss";
 
-.coins { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8rpx; margin-top: 12rpx; }
+.balance-page { min-height: calc(100vh - 20rpx); display: flex; flex-direction: column; }
+.balance-page .rule-box { margin-top: auto; }
+
+.balance-hero {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 14rpx;
+  padding: 18rpx 20rpx;
+  border-radius: 18rpx;
+  background: linear-gradient(135deg, rgba(255, 179, 71, .12), rgba(17, 24, 39, .55));
+  border: 1rpx solid rgba(255, 179, 71, .28);
+}
+.hero-icon { font-size: 54rpx; line-height: 1; }
+.hero-copy { flex: 1; }
+.hero-title { display: block; color: #fff; font-size: 26rpx; font-weight: 700; }
+.hero-sub { display: block; color: #93a4bd; font-size: 20rpx; margin-top: 4rpx; }
+.hero-count { color: #f0a33a; font-size: 40rpx; font-weight: 800; font-family: Consolas, monospace; }
+
+.coins { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10rpx; margin-top: 16rpx; }
 .coin {
-  min-height: 78rpx;
+  min-height: 104rpx;
   border-radius: 12rpx;
   background: #111827;
   border: 1rpx solid #2a3a56;
@@ -13,17 +32,17 @@
   justify-content: center;
   gap: 2rpx;
   font-family: Consolas, monospace;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .coin.left { border-color: #f0a33a; background: #2a1f12; color: #f0a33a; }
 .coin.right { border-color: #b79cff; background: #1d1830; color: #c4b5fd; }
 .coin-tag { font-size: 16rpx; font-family: inherit; color: #7e8aa3; }
 .coin.left .coin-tag, .coin.right .coin-tag { color: inherit; }
 
-.pans { display: grid; grid-template-columns: 1fr 1fr; gap: 10rpx; margin-top: 12rpx; }
-.pan { background: #0d1420; border: 1rpx solid #1f2d42; border-radius: 12rpx; padding: 10rpx 12rpx; min-height: 80rpx; }
-.pan-title { color: #7e8aa3; font-size: 18rpx; margin-bottom: 4rpx; }
-.pan-list { color: #c7d2e5; font-size: 21rpx; line-height: 1.5; word-break: break-all; }
+.pans { display: grid; grid-template-columns: 1fr 1fr; gap: 12rpx; margin-top: 14rpx; }
+.pan { background: #0d1420; border: 1rpx solid #1f2d42; border-radius: 12rpx; padding: 14rpx 16rpx; min-height: 124rpx; }
+.pan-title { color: #7e8aa3; font-size: 18rpx; margin-bottom: 6rpx; }
+.pan-list { color: #c7d2e5; font-size: 23rpx; line-height: 1.6; word-break: break-all; }
 
 .history { margin-top: 12rpx; color: #93a4bd; font-size: 21rpx; line-height: 1.8; }
 .history-line { display: flex; justify-content: space-between; gap: 12rpx; }

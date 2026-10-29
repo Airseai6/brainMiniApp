@@ -14,7 +14,15 @@
     <text class="mono">{{puzzleName}}</text>
   </view>
 
-  <view class="nono">
+  <view wx:if="{{win}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">完成！你解出了「{{puzzleName}}」</text>
+      <text class="win-sub">图案已锁定，点击“换一幅”继续。</text>
+    </view>
+  </view>
+
+  <view class="nono {{win ? 'done' : ''}}">
     <view class="top-clues">
       <view class="corner"></view>
       <view class="col-clue" wx:for="{{colClues}}" wx:key="index">{{item}}</view>
@@ -33,7 +41,7 @@
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
   <view class="rule-box">
-    <view class="rule-title">数织怎么推</view>
+    <view class="rule-title">能学到什么 · 约束推理与图像</view>
     <view class="rule-text">一行 5 格，线索「3」表示三个连续涂色；「1 2」表示先一个、空至少一格、再两个。先找最长段。</view>
   </view>
 </view>

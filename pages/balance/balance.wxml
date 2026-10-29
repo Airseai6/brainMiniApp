@@ -1,4 +1,4 @@
-<view class="container game-page">
+<view class="container game-page balance-page">
   <view class="topline">
     <text class="game-kicker">思维闯关 · 10</text>
     <text class="title-badge">信息论</text>
@@ -8,6 +8,15 @@
     <text class="title-badge">3 次</text>
   </view>
   <view class="game-lead">12 枚金币里 1 枚假币，可能偏重也可能偏轻。只称 3 次，把 24 种可能压到 1 种。</view>
+
+  <view class="balance-hero">
+    <text class="hero-icon">⚖️</text>
+    <view class="hero-copy">
+      <text class="hero-title">24 种可能，3 次称重</text>
+      <text class="hero-sub">每次把候选分成三份，最后一次锁定。</text>
+    </view>
+    <text class="hero-count">{{candidateCount}}</text>
+  </view>
 
   <view class="status-line">
     <text class="status-strong">第 {{weighCount + 1}} / 3 次称重</text>
@@ -53,7 +62,7 @@
   </view>
 
   <view class="rule-box">
-    <view class="rule-title">为什么 3 次能锁定</view>
+    <view class="rule-title">能学到什么 · 信息论与三分</view>
     <view class="rule-text">每次天平有左重/右重/平衡 3 种结果，3 次最多区分 3³ = 27 种，而 12 枚 × 重/轻 = 24 种，刚好装得下。</view>
   </view>
 </view>

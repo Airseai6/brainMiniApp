@@ -14,7 +14,8 @@ Page({
     lost: false,
     hint: '',
     keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '←', '0', '提交'],
-    dateStr: ''
+    dateStr: '',
+    showRules: true
   },
 
   onLoad() {
@@ -78,6 +79,10 @@ Page({
     if (this.data.won || this.data.lost) return;
     const idx = Number(e.currentTarget.dataset.index);
     if (idx >= 0 && idx < 4) this.setData({ activeSlot: idx });
+  },
+
+  toggleRules() {
+    this.setData({ showRules: !this.data.showRules });
   },
 
   nextNextSlot(input, from) {

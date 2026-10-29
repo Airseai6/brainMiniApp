@@ -29,7 +29,7 @@
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
   <view class="rule-box">
-    <view class="rule-title">为什么这是图论</view>
+    <view class="rule-title">能学到什么 · 顶点割与追逃</view>
     <view class="rule-text">狐狸在最短路树上选对你最不利的方向。封路口就是在删边；你要做的是把它的所有出边都删掉。</view>
   </view>
 </view>

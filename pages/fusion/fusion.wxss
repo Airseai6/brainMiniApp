@@ -6,7 +6,15 @@
   gap: 8rpx;
   width: 100%;
   max-width: 620rpx;
-  margin: 14rpx auto 0;
+  margin: 10rpx auto 0;
+  touch-action: none;
+}
+
+.swipe-tip {
+  color: #7e8aa3;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 8rpx;
 }
 
 .cell {

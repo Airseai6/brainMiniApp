@@ -23,8 +23,32 @@ Page({
     this.setData({ cells: fusion.boardView(g.board), score: g.score, moves: g.moves, won: g.won, lost: g.lost });
   },
 
+  onTouchStart(e) {
+    const t = e.touches && e.touches[0];
+    if (t) this.touchStart = { x: t.clientX, y: t.clientY };
+  },
+
+  onTouchEnd(e) {
+    const start = this.touchStart;
+    const t = e.changedTouches && e.changedTouches[0];
+    if (!start || !t) return;
+    this.touchStart = null;
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 24) return;
+    const dir = Math.abs(dx) > Math.abs(dy)
+      ? (dx > 0 ? 'right' : 'left')
+      : (dy > 0 ? 'down' : 'up');
+    this.slideDir(dir);
+  },
+
+  catchMove() {},
+
   slide(e) {
-    const dir = e.currentTarget.dataset.dir;
+    this.slideDir(e.currentTarget.dataset.dir);
+  },
+
+  slideDir(dir) {
     const r = fusion.move(this.data.game, dir);
     if (!r.ok) return;
     const g = r.state;

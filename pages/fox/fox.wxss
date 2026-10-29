@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: 18rpx;
-  margin-top: 16rpx;
+  margin-top: 14rpx;
   padding: 18rpx 20rpx;
   border-radius: 20rpx;
   background: linear-gradient(135deg, rgba(240, 163, 58, .13), rgba(17, 24, 39, .6));
@@ -19,15 +19,53 @@
 .fox-state { display: block; color: #ffffff; font-size: 30rpx; font-weight: 700; }
 .fox-sub { display: block; color: #93a4bd; font-size: 21rpx; margin-top: 5rpx; line-height: 1.5; }
 
-.holes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10rpx;
+.fox-stage {
+  position: relative;
   margin-top: 16rpx;
+  background: #0d1420;
+  border: 1rpx solid #22304a;
+  border-radius: 20rpx;
+  padding: 18rpx;
 }
 
+.fox-stage.path {
+  display: flex;
+  gap: 10rpx;
+  align-items: center;
+  min-height: 190rpx;
+}
+
+.fox-stage.path::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 4rpx;
+  background: #2a3a56;
+  z-index: 0;
+}
+
+.fox-stage.ring {
+  height: 440rpx;
+}
+
+.fox-stage.ring::before,
+.fox-stage.ring::after {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  border: 3rpx dashed #24344e;
+  border-radius: 50%;
+}
+
+.fox-stage.ring::after { inset: 37%; border-style: solid; border-color: #1f2d42; }
+
 .hole {
-  min-height: 148rpx;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 150rpx;
   border-radius: 18rpx;
   background: #111827;
   border: 2rpx solid #2a3a56;
@@ -35,36 +73,43 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6rpx;
+  gap: 4rpx;
+}
+
+.fox-stage.ring .hole {
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  min-height: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
 }
 
 .hole.checked { border-color: #2f7d5b; background: #10231f; }
 .hole.last { border-color: #f0a33a; box-shadow: 0 0 0 2rpx rgba(240, 163, 58, .16) inset; }
 .hole.fox { border-color: #f0a33a; background: #2a1f12; }
-.hole-num { color: #e8edf7; font-size: 28rpx; font-weight: 700; font-family: Consolas, monospace; }
-.hole-icon { color: #f0a33a; font-size: 30rpx; line-height: 1; }
+.hole.ghost { border-color: rgba(255, 138, 76, .55); background: rgba(255, 138, 76, .07); }
+.hole-num { color: #e8edf7; font-size: 26rpx; font-weight: 700; font-family: Consolas, monospace; }
+.hole-icon { color: #f0a33a; font-size: 28rpx; line-height: 1; }
 .hole.checked .hole-icon { color: #5bd9be; }
 .hole.fox .hole-icon { font-size: 42rpx; }
+.hole-ghost { font-size: 34rpx; line-height: 1; opacity: .32; }
+
+.ring-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #7e8aa3;
+  font-size: 19rpx;
+  text-align: center;
+  line-height: 1.4;
+  z-index: 2;
+  background: #0d1420;
+  padding: 6rpx 10rpx;
+  border-radius: 8rpx;
+}
 
 .day-meta { display: flex; align-items: center; gap: 12rpx; }
-
-.progress-track {
-  flex: 1;
-  height: 8rpx;
-  border-radius: 99rpx;
-  background: #1b2638;
-  overflow: hidden;
-}
-
+.progress-track { flex: 1; height: 8rpx; border-radius: 99rpx; background: #1b2638; overflow: hidden; }
 .progress-fill { height: 100%; background: #f0a33a; border-radius: 99rpx; }
-
-.result-note {
-  margin-top: 14rpx;
-  padding: 16rpx 18rpx;
-  border-radius: 14rpx;
-  font-size: 23rpx;
-  line-height: 1.6;
-  color: #d7e0f0;
-  background: #111827;
-  border: 1rpx solid #22304a;
-}

@@ -1,7 +1,7 @@
 <view class="container game-page">
   <view class="topline">
     <text class="game-kicker">思维闯关 · 01</text>
-    <text class="title-badge">路径 / 环</text>
+    <text class="title-badge">{{level === 1 ? '路径 P5' : '环 C5'}}</text>
   </view>
   <view class="title-row">
     <text class="game-title">抓狐狸</text>
@@ -18,7 +18,7 @@
     <text class="fox-emoji">{{caught ? '🎯' : (lost ? '💨' : '🦊')}}</text>
     <view class="fox-copy">
       <text class="fox-state">{{caught ? '抓到了！' : (lost ? '狐狸跑了' : '狐狸藏在某个洞里')}}</text>
-      <text class="fox-sub">{{caught ? '路径/环上的策略成功了。' : (lost ? '天数用完，再试一次。' : '点一个洞开始排查；她每天晚上会挪一次。')}}</text>
+      <text class="fox-sub">{{caught ? '这一关的策略走通了。' : (lost ? '天数用完，再试一次。' : (level === 2 ? '环上首尾相连，仔细看位置。' : '浅色狐狸 = 她可能的位置。'))}}</text>
     </view>
   </view>
 
@@ -30,11 +30,15 @@
     <view class="progress-fill" style="width: {{state.day * 100 / state.maxDay}}%;"></view>
   </view>
 
-  <view class="holes">
-    <view class="hole {{item.checked ? 'checked' : ''}} {{item.last ? 'last' : ''}} {{item.fox ? 'fox' : ''}}" wx:for="{{holes}}" wx:key="label" data-index="{{index}}" bindtap="check" hover-class="press">
+  <view class="fox-stage {{level === 2 ? 'ring' : 'path'}}">
+    <view class="hole {{item.checked ? 'checked' : ''}} {{item.last ? 'last' : ''}} {{item.fox ? 'fox' : ''}} {{item.ghost ? 'ghost' : ''}}" wx:for="{{holes}}" wx:key="label" data-index="{{index}}" bindtap="check" hover-class="press" style="{{item.style}}">
+      <text wx:if="{{item.fox}}" class="hole-icon">🦊</text>
+      <text wx:elif="{{item.ghost}}" class="hole-ghost">🦊</text>
+      <text wx:elif="{{item.checked}}" class="hole-icon">✓</text>
+      <text wx:else class="hole-icon">·</text>
       <text class="hole-num">{{item.label}}</text>
-      <text class="hole-icon">{{item.fox ? '🦊' : (item.checked ? '✓' : '·')}}</text>
     </view>
+    <view wx:if="{{level === 2}}" class="ring-center">1 ↔ 5 相连</view>
   </view>
 
   <view class="actions-row">
@@ -45,7 +49,7 @@
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
   <view class="rule-box">
-    <view class="rule-title">为什么路径和环不同</view>
-    <view class="rule-text">路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。</view>
+    <view class="rule-title">能学到什么 · 图论与奇偶性</view>
+    <view class="rule-text">路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。半透明狐狸是信息论里的“可能位置集合”。</view>
   </view>
 </view>

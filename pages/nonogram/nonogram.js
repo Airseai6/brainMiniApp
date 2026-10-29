@@ -6,7 +6,8 @@ Page({
     rows: [],
     colClues: [],
     status: '涂出隐藏图案',
-    hint: ''
+    hint: '',
+    win: false
   },
 
   onLoad() { this.newGame(); },
@@ -20,7 +21,8 @@ Page({
       puzzleName: this.puzzle.name,
       colClues: clues.cols.map((c) => c.join(' ')),
       status: '涂出隐藏图案',
-      hint: ''
+      hint: '',
+      win: false
     });
     this.render();
   },
@@ -49,12 +51,13 @@ Page({
     this.hintCell = null;
     this.render();
     if (nono.isSolved(this.player, this.puzzle.grid)) {
-      this.setData({ status: `完成！你解出了「${this.puzzle.name}」` });
+      this.setData({ win: true, status: `完成！你解出了「${this.puzzle.name}」` });
       getApp().markPlayed('nonogram');
     }
   },
 
   showHint() {
+    if (this.data.win) return;
     const diffs = [];
     for (let r = 0; r < nono.N; r++) for (let c = 0; c < nono.N; c++) {
       if (!!this.player[r][c] !== !!this.puzzle.grid[r][c]) diffs.push([r, c]);
@@ -65,13 +68,17 @@ Page({
     this.hintCell = [r, c];
     this.render();
     this.setData({ hint: `提示：第 ${r + 1} 行第 ${c + 1} 列${this.puzzle.grid[r][c] ? '要涂' : '不涂'}。` });
+    if (nono.isSolved(this.player, this.puzzle.grid)) {
+      this.setData({ win: true, status: `完成！你解出了「${this.puzzle.name}」` });
+      getApp().markPlayed('nonogram');
+    }
   },
 
   reset() {
     this.player = nono.emptyGrid();
     this.hintCell = null;
     this.render();
-    this.setData({ status: '已清空，重新推。', hint: '' });
+    this.setData({ status: '已清空，重新推。', hint: '', win: false });
   },
 
   onShareAppMessage() {

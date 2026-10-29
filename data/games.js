@@ -1,4 +1,4 @@
-// 14 个关卡，全部为小程序原生页面。
+﻿// 14 个关卡，全部为小程序原生页面。
 // replayable=true 的进入每日一练/随机体验；false 的一次性解谜单独展示。
 module.exports = [
   {
@@ -87,7 +87,7 @@ module.exports = [
     name: '过河',
     tag: '状态图',
     emoji: '🚣',
-    desc: '狼羊菜经典解谜，走过一次就懂',
+    desc: '狼羊菜 + 传教士野人两关，走过一次就懂',
     native: true,
     replayable: false
   },
@@ -142,3 +142,4 @@ module.exports = [
     replayable: false
   }
 ];
+

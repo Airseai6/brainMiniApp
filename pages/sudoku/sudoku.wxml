@@ -31,7 +31,7 @@
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
   <view class="rule-box">
-    <view class="rule-title">为什么 4×4 也能练逻辑</view>
+    <view class="rule-title">能学到什么 · 约束满足与排除</view>
     <view class="rule-text">数独不是猜，是排除：一行有了 1，其他格就不能是 1；一列、一个 2×2 宫同理。</view>
   </view>
 </view>

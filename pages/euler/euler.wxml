@@ -32,7 +32,7 @@
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
   <view class="rule-box">
-    <view class="rule-title">欧拉路径判定</view>
+    <view class="rule-title">能学到什么 · 欧拉路径与奇偶度</view>
     <view class="rule-text">奇度点有 0 个或 2 个，才可能一笔画走完；超过 2 个，无论怎么试都走不通。柯尼斯堡七桥有四个奇度点。</view>
   </view>
 </view>
