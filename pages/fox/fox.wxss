@@ -1,0 +1,19 @@
+.mode-row { display: flex; gap: 14rpx; margin-top: 24rpx; }
+.mode { flex: 1; text-align: center; padding: 18rpx; border-radius: 16rpx; background: #111827; border: 1rpx solid #22304a; color: #93a4bd; font-size: 24rpx; }
+.mode.active { background: #2a1f12; border-color: #f0a33a; color: #f0a33a; font-weight: 700; }
+.status { display: flex; justify-content: space-between; align-items: baseline; margin-top: 24rpx; color: #d7e0f0; font-size: 25rpx; }
+.day { color: #f0a33a; font-family: Consolas, monospace; }
+.holes { display: flex; gap: 12rpx; margin-top: 24rpx; }
+.hole {
+  flex: 1; height: 150rpx; border-radius: 20rpx; background: #111827; border: 2rpx solid #2a3a56;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.hole.checked { border-color: #5bd9be; background: #10231f; opacity: .65; }
+.hole-num { color: #fff; font-size: 34rpx; font-weight: 700; }
+.hole-icon { color: #f0a33a; font-size: 30rpx; margin-top: 8rpx; }
+.actions { display: flex; gap: 16rpx; margin-top: 24rpx; }
+.actions .btn-primary, .actions .btn-ghost { flex: 1; }
+.hint { margin-top: 20rpx; padding: 18rpx; border-radius: 14rpx; background: rgba(96,165,250,.08); border-left: 4rpx solid #60a5fa; color: #c7d2e5; font-size: 24rpx; line-height: 1.7; }
+.rule { margin-top: 26rpx; padding: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; }
+.rule-title { color: #f0a33a; font-size: 26rpx; font-weight: 700; }
+.rule-text { color: #8d9ab3; font-size: 24rpx; line-height: 1.8; margin-top: 10rpx; }

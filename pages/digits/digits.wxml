@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="kicker">反直觉系列 · 02</view>
+  <view class="title">数字侦探</view>
+  <view class="subtitle">4 位数字，6 次机会。A = 数字和位置都对；B = 数字对但位置不对。用排除法，不信运气。</view>
+
+  <view class="mode-row">
+    <view class="mode {{mode === 'daily' ? 'active' : ''}}" data-mode="daily" bindtap="startDaily">每日挑战</view>
+    <view class="mode {{mode === 'practice' ? 'active' : ''}}" data-mode="practice" bindtap="startPractice">随机练习</view>
+  </view>
+  <view class="diff-row">
+    <view class="diff {{difficulty === 'normal' ? 'active' : ''}}" data-level="normal" bindtap="setDifficulty">普通 · 不重复</view>
+    <view class="diff {{difficulty === 'hard' ? 'active' : ''}}" data-level="hard" bindtap="setDifficulty">困难 · 可重复</view>
+  </view>
+
+  <view class="status">
+    <text>{{status}}</text>
+    <text class="tries">{{tries}}/{{6}} 次</text>
+  </view>
+
+  <view class="slots">
+    <view class="slot {{item !== '' ? 'filled' : ''}}" wx:for="{{input}}" wx:key="index">{{item}}</view>
+  </view>
+
+  <view class="keypad">
+    <view class="key {{item === '提交' ? 'go' : ''}}" wx:for="{{keys}}" wx:key="index" data-key="{{item}}" bindtap="press">{{item}}</view>
+  </view>
+
+  <view class="actions">
+    <view class="btn-ghost" bindtap="showHint">看候选数</view>
+    <view class="btn-primary" bindtap="newRound">换一题</view>
+  </view>
+
+  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
+  <view wx:if="{{won || lost}}" class="answer">
+    <text class="answer-label">{{won ? '你找到了' : '答案是'}}</text>
+    <text class="answer-num">{{answer}}</text>
+  </view>
+
+  <view class="history" wx:if="{{history.length}}">
+    <view class="history-title">猜测记录</view>
+    <view class="history-row" wx:for="{{history}}" wx:key="index">
+      <text class="guess">{{item.digits[0]}}{{item.digits[1]}}{{item.digits[2]}}{{item.digits[3]}}</text>
+      <text class="fb">{{item.a}}A {{item.b}}B</text>
+    </view>
+  </view>
+
+  <view class="rule">
+    <view class="rule-title">为什么是信息论</view>
+    <view class="rule-text">普通模式有 5040 个候选。每次反馈都在切掉不可能的分支；6 次足够从 5040 缩到 1。不是猜得准，是排除得对。</view>
+  </view>
+</view>

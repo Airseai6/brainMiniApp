@@ -1,0 +1,12 @@
+# 忽略文件
+project.private.config.json
+project.config.json.bak*
+node_modules/
+miniapp-automator/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.env
+.env.*
+!.env.example

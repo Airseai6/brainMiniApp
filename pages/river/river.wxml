@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="kicker">反直觉系列 · 06</view>
+  <view class="title">过河</view>
+  <view class="subtitle">狼、羊、菜都要到右岸。船每次只能带一样，农夫可以独自划空船回来。你不在的一岸，狼会吃羊，羊会吃菜。</view>
+
+  <view class="status">
+    <text>{{status}}</text>
+    <text class="moves">第 {{state.moves}} 步</text>
+  </view>
+
+  <view class="banks">
+    <view class="bank">
+      <view class="bank-title">出发岸</view>
+      <view class="items">
+        <view class="item" wx:for="{{left}}" wx:key="id">{{item.icon}} {{item.label}}</view>
+        <view wx:if="{{left.length === 0}}" class="empty">空</view>
+      </view>
+    </view>
+    <view class="boat {{boatSide === 'left' ? 'left' : 'right'}}">⛵ {{boatSide === 'left' ? '在左岸' : '在右岸'}}</view>
+    <view class="bank">
+      <view class="bank-title">目标岸</view>
+      <view class="items">
+        <view class="item" wx:for="{{right}}" wx:key="id">{{item.icon}} {{item.label}}</view>
+        <view wx:if="{{right.length === 0}}" class="empty">空</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pick-title">船上带谁？</view>
+  <view class="pick-row">
+    <view class="pick" wx:for="{{left}}" wx:key="id" data-id="{{item.id}}" bindtap="crossItem" wx:if="{{boatSide === 'left'}}">{{item.icon}} {{item.label}}</view>
+    <view class="pick" wx:for="{{right}}" wx:key="id" data-id="{{item.id}}" bindtap="crossItem" wx:if="{{boatSide === 'right'}}">{{item.icon}} {{item.label}}</view>
+    <view class="pick empty-pick" bindtap="crossEmpty">空船</view>
+  </view>
+
+  <view class="actions">
+    <view class="btn-ghost" bindtap="showHint">提示</view>
+    <view class="btn-primary" bindtap="reset">重来</view>
+  </view>
+  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
+
+  <view class="rule">
+    <view class="rule-title">为什么是图论</view>
+    <view class="rule-text">把“左岸还剩什么 + 船在哪岸”看成一个状态，每次过河是一条边。最短路就是最少步数。</view>
+  </view>
+</view>

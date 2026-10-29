@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="kicker">反直觉系列 · 03</view>
+  <view class="title">最后一颗</view>
+  <view class="subtitle">三堆石子，轮流从任意一堆拿走至少一颗。普通模式拿最后一颗者赢；「取最后者输」模式反过来。AI 用二进制异或，每一手都把你留在必败态。</view>
+
+  <view class="mode-row">
+    <view class="mode {{mode === 'normal' ? 'active' : ''}}" data-mode="normal" bindtap="setMode">普通模式</view>
+    <view class="mode {{mode === 'misere' ? 'active' : ''}}" data-mode="misere" bindtap="setMode">取最后者输</view>
+  </view>
+
+  <view class="status-row">
+    <text class="turn">{{winner ? winner : (thinking ? 'AI 思考中…' : '轮到你')}}</text>
+    <text class="last">{{lastMove}}</text>
+  </view>
+
+  <view class="pile" wx:for="{{piles}}" wx:key="label" wx:for-item="p" wx:for-index="pi">
+    <view class="pile-head">
+      <text class="pile-label">堆 {{p.label}}</text>
+      <text class="pile-count">{{p.count}}</text>
+    </view>
+    <view class="stones">
+      <view class="stone" wx:for="{{p.stones}}" wx:key="index"></view>
+      <text wx:if="{{p.count === 0}}" class="empty">空</text>
+    </view>
+    <view class="take-row">
+      <view class="take" wx:for="{{p.options}}" wx:key="index" wx:for-item="n" data-pile="{{pi}}" data-count="{{n}}" bindtap="take" wx:if="{{!thinking && !winner}}">拿 {{n}}</view>
+    </view>
+  </view>
+
+  <view class="actions">
+    <view class="btn-primary" bindtap="newGame">新的 AI 对局</view>
+    <view class="btn-ghost" bindtap="showHint">看提示</view>
+  </view>
+
+  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
+
+  <view class="rule">
+    <view class="rule-title">数学解释</view>
+    <view class="rule-text">把每堆数量写成二进制，做异或。异或和为 0 的局面是留给对手的必败态；不为 0 时，总能把某一堆取到让异或和变成 0。</view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+.status { display: flex; justify-content: space-between; margin-top: 24rpx; color: #d7e0f0; font-size: 25rpx; }
+.moves { color: #f0a33a; font-family: Consolas, monospace; }
+.banks { display: flex; justify-content: space-between; margin-top: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; padding: 20rpx; }
+.bank { width: 42%; }
+.bank-title { color: #7e8aa3; font-size: 22rpx; margin-bottom: 12rpx; }
+.items { min-height: 120rpx; }
+.item { color: #e8edf7; font-size: 30rpx; margin-bottom: 10rpx; }
+.empty { color: #4b5a70; font-size: 24rpx; }
+.boat { align-self: center; color: #f0a33a; font-size: 22rpx; text-align: center; }
+.pick-title { color: #8d9ab3; font-size: 24rpx; margin-top: 24rpx; }
+.pick-row { display: flex; flex-wrap: wrap; gap: 12rpx; margin-top: 12rpx; }
+.pick { background: #111827; border: 1rpx solid #2a3a56; border-radius: 14rpx; padding: 18rpx 22rpx; color: #e8edf7; font-size: 26rpx; }
+.empty-pick { color: #7e8aa3; }
+.actions { display: flex; gap: 16rpx; margin-top: 24rpx; }
+.actions .btn-primary, .actions .btn-ghost { flex: 1; }
+.hint { margin-top: 20rpx; padding: 18rpx; border-radius: 14rpx; background: rgba(96,165,250,.08); border-left: 4rpx solid #60a5fa; color: #c7d2e5; font-size: 24rpx; line-height: 1.7; }
+.rule { margin-top: 26rpx; padding: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; }
+.rule-title { color: #f0a33a; font-size: 26rpx; font-weight: 700; }
+.rule-text { color: #8d9ab3; font-size: 24rpx; line-height: 1.8; margin-top: 10rpx; }

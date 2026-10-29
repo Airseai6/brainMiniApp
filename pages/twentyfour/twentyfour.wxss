@@ -1,0 +1,18 @@
+.status { margin-top: 24rpx; color: #d7e0f0; font-size: 25rpx; }
+.cards { display: flex; flex-wrap: wrap; gap: 14rpx; margin-top: 24rpx; }
+.card {
+  width: calc(50% - 7rpx); min-height: 170rpx; border-radius: 18rpx;
+  background: #111827; border: 2rpx solid #2a3a56; padding: 18rpx; position: relative;
+}
+.card.selected { border-color: #f0a33a; background: #2a1f12; }
+.num { color: #fff; font-size: 56rpx; font-weight: 800; }
+.den { color: #f0a33a; font-size: 34rpx; }
+.expr { display: block; color: #7e8aa3; font-size: 20rpx; margin-top: 8rpx; word-break: break-all; }
+.ops { display: flex; gap: 14rpx; margin-top: 22rpx; }
+.op { flex: 1; text-align: center; padding: 20rpx 0; border-radius: 14rpx; background: #182235; border: 1rpx solid #2a3a56; color: #e8edf7; font-size: 34rpx; }
+.actions { display: flex; gap: 16rpx; margin-top: 24rpx; }
+.actions .btn-primary, .actions .btn-ghost { flex: 1; }
+.hint { margin-top: 20rpx; padding: 18rpx; border-radius: 14rpx; background: rgba(96,165,250,.08); border-left: 4rpx solid #60a5fa; color: #c7d2e5; font-size: 24rpx; line-height: 1.7; }
+.rule { margin-top: 26rpx; padding: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; }
+.rule-title { color: #f0a33a; font-size: 26rpx; font-weight: 700; }
+.rule-text { color: #8d9ab3; font-size: 24rpx; line-height: 1.8; margin-top: 10rpx; }

@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="kicker">ABOUT · v{{version}}</view>
+  <view class="title">大脑保健操</view>
+  <view class="subtitle">每天 3 分钟，做一个反直觉的小数学题。不刷题，不排名，不用注册。</view>
+
+  <view class="card">
+    <view class="h">为什么叫保健操</view>
+    <view class="p">因为它和保健操一样：不指望你练成运动员，只指望你别僵住。每天 3 分钟，拆掉一个错直觉，比刷 30 分钟短视频有用。</view>
+  </view>
+
+  <view class="card">
+    <view class="h">隐私</view>
+    <view class="p">不采集姓名、手机号、位置或儿童个人信息。连续天数只存在你自己的手机本地。</view>
+  </view>
+
+  <view class="card">
+    <view class="h">小程序里能玩什么</view>
+    <view class="p">当前原生可玩：每日一题、最后一颗（Nim）、汉诺塔。其余 6 个关卡的原生版还在移植中。</view>
+  </view>
+
+  <view class="muted">Fusion Data Academy · 2026</view>
+</view>

@@ -1,0 +1,13 @@
+.container {
+  min-height: 100vh;
+  padding: 32rpx;
+  background: radial-gradient(circle at 20% 0%, #16233a 0%, #0b0f19 46%, #0b0f19 100%);
+}
+.kicker { color: #f0a33a; font-size: 22rpx; letter-spacing: 4rpx; }
+.title { color: #fff; font-size: 52rpx; font-weight: 800; margin-top: 12rpx; }
+.subtitle { color: #8d9ab3; font-size: 25rpx; line-height: 1.7; margin-top: 14rpx; }
+.card { margin-top: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 22rpx; padding: 26rpx; }
+.h { color: #fff; font-size: 30rpx; font-weight: 700; }
+.p { color: #8d9ab3; font-size: 25rpx; line-height: 1.8; margin-top: 10rpx; }
+.actions { margin-top: 28rpx; }
+.muted { margin-top: 30rpx; color: #66748b; font-size: 22rpx; text-align: center; }

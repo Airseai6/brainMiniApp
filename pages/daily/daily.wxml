@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="kicker">DAILY · {{q.dateStr}}</view>
+  <view class="title">每日一题</view>
+  <view class="subtitle">同一天打开，所有人看到的是同一道题。答错也没关系，看完解释就赚到。</view>
+
+  <view class="q-card">
+    <view class="q-label">问题</view>
+    <view class="q-text">{{q.q}}</view>
+
+    <view class="options">
+      <view wx:for="{{q.options}}" wx:key="index" class="option {{answered && index === q.answer ? 'right' : ''}} {{answered && index === selected && index !== q.answer ? 'wrong' : ''}}" data-index="{{index}}" bindtap="choose">
+        <text class="letter">{{letters[index]}}</text>
+        <text class="option-text">{{item}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{answered}}" class="result {{correct ? 'ok' : 'no'}}">
+      <view class="result-title">{{correct ? '答对了' : '再看一眼'}}</view>
+      <view class="result-why">{{q.why}}</view>
+    </view>
+
+    <view wx:if="{{answered}}" class="actions">
+      <view class="btn-primary" bindtap="again">再想一遍</view>
+      <view class="btn-ghost" bindtap="back">回首页</view>
+    </view>
+  </view>
+
+  <view class="streak">连续答对：{{streak}} 天</view>
+</view>

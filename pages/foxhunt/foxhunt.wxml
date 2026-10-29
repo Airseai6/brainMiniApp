@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="kicker">反直觉系列 · 08</view>
+  <view class="title">围堵狐狸</view>
+  <view class="subtitle">六个路口的环路。你每回合封一个路口，狐狸沿未封的路移动一步；狐狸无路可走你就赢，它踏进洞口就你输。</view>
+
+  <view class="status">{{status}}</view>
+
+  <view class="nodes">
+    <view class="node {{item.blocked ? 'blocked' : ''}} {{item.fox ? 'fox' : ''}} {{item.den ? 'den' : ''}}" wx:for="{{nodes}}" wx:key="id" data-index="{{index}}" bindtap="tapNode">
+      <text class="node-icon">{{item.den ? '🕳️' : (item.fox ? '🦊' : (item.blocked ? '🚧' : '·'))}}</text>
+      <text class="node-num">{{item.id}}</text>
+    </view>
+  </view>
+
+  <view class="actions">
+    <view class="btn-ghost" bindtap="showHint">提示</view>
+    <view class="btn-primary" bindtap="reset">重开</view>
+  </view>
+  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
+
+  <view class="rule">
+    <view class="rule-title">为什么这是图论</view>
+    <view class="rule-text">狐狸在最短路树上选对你最不利的方向。封路口就是在删边；你要做的是把它的所有出边都删掉。</view>
+  </view>
+</view>

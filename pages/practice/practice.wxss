@@ -1,0 +1,18 @@
+.progress { display: flex; align-items: baseline; gap: 12rpx; margin-top: 24rpx; }
+.progress-num { color: #f0a33a; font-size: 46rpx; font-weight: 800; font-family: Consolas, monospace; }
+.progress-label { color: #7e8aa3; font-size: 23rpx; }
+.tasks { margin-top: 22rpx; }
+.task { display: flex; align-items: center; gap: 16rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; padding: 24rpx; margin-top: 14rpx; }
+.task.done { opacity: .6; border-color: #2f7d5b; }
+.task-emoji { font-size: 40rpx; }
+.task-main { flex: 1; }
+.task-name { display: block; color: #fff; font-size: 30rpx; font-weight: 700; }
+.task-tag { display: block; color: #7e8aa3; font-size: 22rpx; margin-top: 4rpx; }
+.task-arrow { color: #f0a33a; font-size: 38rpx; }
+.random-card { margin-top: 24rpx; padding: 28rpx; border-radius: 22rpx; background: linear-gradient(135deg, #1c2b45 0%, #101827 100%); border: 1rpx solid #2c4162; }
+.random-title { color: #fff; font-size: 32rpx; font-weight: 700; }
+.random-desc { color: #8d9ab3; font-size: 23rpx; line-height: 1.7; margin-top: 8rpx; }
+.random-btn { display: inline-block; margin-top: 18rpx; background: #f0a33a; color: #111827; font-size: 25rpx; font-weight: 700; padding: 14rpx 24rpx; border-radius: 14rpx; }
+.rule { margin-top: 26rpx; padding: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; }
+.rule-title { color: #f0a33a; font-size: 26rpx; font-weight: 700; }
+.rule-text { color: #8d9ab3; font-size: 24rpx; line-height: 1.8; margin-top: 10rpx; }

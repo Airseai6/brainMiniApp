@@ -1,0 +1,36 @@
+﻿<view class="container">
+  <view class="kicker">反直觉系列 · 09</view>
+  <view class="title">聚变堆叠</view>
+  <view class="subtitle">同种核素滑到一起，就合并成下一档：氘 → 氦-4 → 铍-8 → 氧-16 → 硫-32 → 镍-64。</view>
+
+  <view class="status">
+    <text>{{status}}</text>
+    <text class="score">分数 {{score}} · 步数 {{moves}}</text>
+  </view>
+
+  <view class="board">
+    <view class="cell cell-{{item.v}}" wx:for="{{cells}}" wx:key="index">
+      <text wx:if="{{item.v}}" class="cell-label">{{item.label}}</text>
+      <text wx:if="{{item.v}}" class="cell-name">{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="pad">
+    <view class="pad-btn up" data-dir="up" bindtap="slide">↑</view>
+    <view class="pad-row">
+      <view class="pad-btn" data-dir="left" bindtap="slide">←</view>
+      <view class="pad-btn" data-dir="down" bindtap="slide">↓</view>
+      <view class="pad-btn" data-dir="right" bindtap="slide">→</view>
+    </view>
+  </view>
+
+  <view class="actions">
+    <view class="btn-primary" bindtap="reset">新的一局</view>
+  </view>
+
+  <view class="rule">
+    <view class="rule-title">聚变能从哪里来</view>
+    <view class="rule-text">每一档对应一次真实聚变反应；越往上，结合能越高。关卡里合并的是核素，现实里放出的才是 Q 值。</view>
+  </view>
+</view>
+

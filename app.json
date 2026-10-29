@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/daily/daily",
+    "pages/practice/practice",
+    "pages/fox/fox",
+    "pages/digits/digits",
+    "pages/nim/nim",
+    "pages/hanoi/hanoi",
+    "pages/fifteen/fifteen",
+    "pages/twentyfour/twentyfour",
+    "pages/river/river",
+    "pages/foxhunt/foxhunt",
+    "pages/fusion/fusion",
+    "pages/webview/webview",
+    "pages/about/about"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0b0f19",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "大脑保健操",
+    "backgroundColor": "#0b0f19",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
