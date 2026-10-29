@@ -84,9 +84,17 @@ function hintText(state) {
   return lines.join('\n');
 }
 
+function randomPiles() {
+  const piles = [];
+  for (let i = 0; i < 3; i++) piles.push(2 + Math.floor(Math.random() * 6));
+  if (piles.every((x) => x === 2) && Math.random() < 0.6) piles[0] = 5;
+  return piles;
+}
+
 module.exports = {
   newState(piles = [3, 4, 5], misere = false) { return { piles: piles.slice(), misere: !!misere }; },
   clone,
+  randomPiles,
   total,
   take,
   solve,

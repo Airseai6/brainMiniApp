@@ -1,6 +1,6 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 15</text>
+    <text class="game-kicker">思维闯关 · 14</text>
     <text class="title-badge">5×5</text>
   </view>
   <view class="title-row">
@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">行和列旁边的数字，表示这一行/列连续涂色的段长。把隐藏图案推出来。</view>
 
-  <game-rules text="一行 5 格，线索「3」表示三个连续涂色；「1 2」表示先一个、空至少一格、再两个。先找最长段。" example="行线索「**1 2**」表示先连续涂 1 格，至少空 1 格，再连续涂 2 格。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  <game-rules text="根据行和列的数字线索涂格；数字表示连续涂色的段长，段与段之间至少空一格。涂出隐藏图案即完成。" example="点格子切换涂/空；不确定时点“提示一格”。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 
   <view class="status-line">
     <text class="status-strong">{{status}}</text>
@@ -45,5 +45,5 @@
   
 
 
-  <game-learn concept="约束推理与图像" summary="线索是连续段；行列交叉排除，图案会自己浮现。"></game-learn>
+  <game-learn concept="约束推理与图像" summary="线索是连续段；行列交叉排除，图案会自己浮现。先找最长段，再用行列约束缩小候选。"></game-learn>
 </view>

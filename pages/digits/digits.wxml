@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">A = 数字和位置都对，B = 数字对但位置不对。用排除法，不信运气。</view>
 
-  <game-rules text="普通模式有 5040 个候选。每次反馈都在切掉不可能的分支；6 次足够从 5040 缩到 1。不是猜得准，是排除得对。" example="猜 1234 得到 **1A2B**，说明 1 个数字位置对、2 个数字对但位置错；下一猜就优先保留这 3 个数字。"></game-rules>
+  <game-rules text="猜一个 4 位不重复数字；提交后给出 A/B：A = 数字和位置都对，B = 数字对但位置不对。6 次内猜中。" example="点格子输入数字，填满后提交；每次结果都会写进猜测记录。"></game-rules>
 
   <view class="top-controls">
     <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" data-mode="daily" bindtap="startDaily">每日</view>
@@ -77,5 +77,5 @@
   
 
 
-  <game-learn concept="信息论与排除法" summary="信息不够时，先找能一次切开最多候选的反馈；排除法比猜得快。"></game-learn>
+  <game-learn concept="信息论与排除法" summary="A/B 是信息反馈；普通模式有 5040 个候选，每次排除不可能的分支，6 次足够从 5040 缩到 1。不是猜得准，是排除得对。"></game-learn>
 </view>

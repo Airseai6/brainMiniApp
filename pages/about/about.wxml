@@ -15,7 +15,7 @@
 
   <view class="card">
     <view class="h">小程序里能玩什么</view>
-    <view class="p">现在有 16 个原生关卡：反复挑战 9 个，经典解谜 7 个；每日一题、每日一练、随机体验都在本地运行，不用注册。</view>
+    <view class="p">现在有 15 个原生关卡：反复挑战 9 个，经典解谜 6 个；每日一题、每日一练、随机体验都在本地运行，不用注册。</view>
   </view>
 
   <view class="muted">Fusion Data Academy · 2026</view>

@@ -8,13 +8,15 @@
     <text class="title-badge">逻辑突围</text>
   </view>
 
-  <game-rules text="数独不是猜，是排除：一行有了 1，其他格就不能是 1；一列、一个宫同理。6×6 的候选更少，但交叉约束更多。" example="一行已有 1、3、5，这一格就只能从 **2、4、6** 里排除；再看列和宫继续缩小。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
-  <view class="game-lead" wx:if="{{size === 4}}">每行、每列、每个 2×2 宫都填 1–4，不能重复。点空格，再点数字。</view>
-  <view class="game-lead" wx:else>每行、每列、每个 2×3 宫都填 1–6，不能重复。6×6 更考候选排除。</view>
+  <game-rules text="每行、每列、每个宫填 1–n 且不重复；4×4 引导、6×6 入门、9×9 进阶。点空格再点数字。" example="选中一个空格，点数字填入；填错会用红色提示。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  <view class="game-lead" wx:if="{{size === 4}}">引导关：每行、每列、每个 2×2 宫填 1–4，不重复。先熟悉排除法。</view>
+  <view class="game-lead" wx:elif="{{size === 6}}">入门关：每行、每列、每个 2×3 宫填 1–6，不重复。6×6 开始考验候选排除。</view>
+  <view class="game-lead" wx:else>进阶关：每行、每列、每个 3×3 宫填 1–9，不重复。每局随机唯一解，慢慢排除。</view>
 
   <view class="seg-row">
-    <view class="seg {{size === 4 ? 'active' : ''}}" data-size="4" bindtap="setSize">4×4 入门</view>
-    <view class="seg warm {{size === 6 ? 'active' : ''}}" data-size="6" bindtap="setSize">6×6 进阶</view>
+    <view class="seg {{size === 4 ? 'active' : ''}}" data-size="4" bindtap="setSize">4×4 引导</view>
+    <view class="seg warm {{size === 6 ? 'active' : ''}}" data-size="6" bindtap="setSize">6×6 入门</view>
+    <view class="seg warm {{size === 9 ? 'active' : ''}}" data-size="9" bindtap="setSize">9×9 进阶</view>
   </view>
 
   <view class="status-line">
@@ -49,5 +51,5 @@
   
 
 
-  <game-learn concept="约束满足与排除" summary="行、列、宫三重约束交叉，才能排除出唯一答案。"></game-learn>
+  <game-learn concept="约束满足与排除" summary="数独不是猜，是排除：一行有了 1，其他格就不能是 1；一列、一个宫同理。尺寸越大，候选交叉越多。"></game-learn>
 </view>

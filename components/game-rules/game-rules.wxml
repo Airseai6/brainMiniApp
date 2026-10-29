@@ -7,9 +7,11 @@
   <view wx:if="{{expanded}}" class="rules-body">
     <view class="rules-label">规则</view>
     <view class="rules-text">{{text}}</view>
-    <view class="rules-label">示例</view>
-    <view class="rules-example">
-      <text wx:for="{{segments}}" wx:key="index" class="{{item.cls}}">{{item.text}}</text>
+    <view wx:if="{{example}}">
+      <view class="rules-label">示例</view>
+      <view class="rules-example">
+        <text wx:for="{{segments}}" wx:key="index" class="{{item.cls}}">{{item.text}}</text>
+      </view>
     </view>
     <view wx:if="{{tip}}" class="rules-tip">{{tip}}</view>
   </view>

@@ -10,10 +10,10 @@ const fox = require('../utils/fox.js');
 const mc = require('../utils/river-mc.js');
 const mathler = require('../utils/mathler.js');
 const sudoku6 = require('../utils/sudoku6.js');
+const sudoku9 = require('../utils/sudoku9.js');
 const lightsout = require('../utils/lightsout.js');
 const water = require('../utils/water.js');
 const random = require('../utils/random.js');
-const dice = require('../utils/diceduel.js');
 
 test('balance: candidate filtering and guess', () => {
   assert.equal(balance.initialCandidates().length, 24);
@@ -92,6 +92,14 @@ test('sudoku6: generated puzzle is unique and solved', () => {
   assert.ok(p.puzzle.flat().filter((x) => !x).length >= 15);
 });
 
+test('sudoku9: generated 9x9 is unique, solvable and has enough blanks', () => {
+  const p = sudoku9.makePuzzle();
+  assert.equal(sudoku9.solveCount(p.puzzle, 2), 1);
+  assert.equal(sudoku9.isSolved(p.solution), true);
+  assert.equal(sudoku9.isSolved(p.puzzle), false);
+  assert.ok(p.puzzle.flat().filter((x) => !x).length >= 40);
+});
+
 test('lightsout: press parity, solvable boards and solver', () => {
   const g = lightsout.emptyGrid(5);
   const twice = lightsout.applyPress(lightsout.applyPress(g, 2, 2), 2, 2);
@@ -126,18 +134,4 @@ test('water: fill/pour/empty and BFS solution', () => {
     assert.ok(water.isReachable(q.caps, q.target), 'bank puzzle solvable');
     assert.ok(water.solve(q.caps, q.target).length >= 5, 'bank puzzle not trivial');
   }
-});
-
-test('dice duel: non-transitive cycle and round flow', () => {
-  const A = dice.DICE.find((d) => d.id === 'A');
-  const B = dice.DICE.find((d) => d.id === 'B');
-  const C = dice.DICE.find((d) => d.id === 'C');
-  assert.ok(dice.winProbability(A, B) > 0.5);
-  assert.ok(dice.winProbability(B, C) > 0.5);
-  assert.ok(dice.winProbability(C, A) > 0.5);
-  let m = dice.newMatch();
-  const r = dice.chooseDie(m, 'A');
-  assert.equal(r.ok, true);
-  assert.ok(r.state.playerRoll >= 1 && r.state.aiRoll >= 1);
-  assert.equal(r.state.history.length, 1);
 });

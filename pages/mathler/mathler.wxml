@@ -5,11 +5,11 @@
   </view>
   <view class="title-row">
     <text class="game-title">算式侦探</text>
-    <text class="title-badge">6 次</text>
+    <text class="title-badge">{{maxTries}} 次</text>
   </view>
-  <view class="game-lead">隐藏一个两位数的 + / − 等式，每次猜完颜色会告诉你：绿=位置对，黄=符号对但位置不对，灰=没有。</view>
+  <view class="game-lead">隐藏一个两位数的 + / − 等式；每日 4 次、练习 6 次。每次猜完颜色会告诉你：绿=位置对，黄=符号对但位置不对，灰=没有。</view>
 
-  <game-rules text="一次猜测会同时排除很多可能：绿色锁定位置，黄色缩小符号范围。6 次不是靠运气，是把“哪些等式还成立”一步步缩小。" example="隐藏式是 23+45=68；猜 20+40=60，逐位会得到**绿/黄/灰**反馈，帮你缩小每一位。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  <game-rules text="隐藏一个两位数的 + / − 等式；每日 4 次、练习 6 次。输入一个成立的等式，颜色会给出位置和符号反馈。" example="先填 6 个数字和运算符，再提交；反馈会出现在下方历史里。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 
   <view class="mode-row">
     <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" bindtap="startDaily">每日</view>
@@ -19,7 +19,7 @@
 
   <view class="status-line">
     <text class="status-strong">{{status}}</text>
-    <text class="mono">{{mode === 'daily' ? dateStr : '练习'}} · 已猜 {{tries}}/6</text>
+    <text class="mono">{{mode === 'daily' ? dateStr : '练习'}} · 已猜 {{tries}}/{{maxTries}}</text>
   </view>
 
   <view class="input-board">
@@ -53,5 +53,5 @@
   
 
 
-  <game-learn concept="等式结构与反馈搜索" summary="反馈把可能等式一层层切开；6 次靠结构，不是运气。"></game-learn>
+  <game-learn concept="等式结构与反馈搜索" summary="一次猜测会同时排除很多可能：绿色锁定位置，黄色缩小符号范围。每日 4 次、练习 6 次，不是靠运气，是把“哪些等式还成立”一步步缩小。"></game-learn>
 </view>

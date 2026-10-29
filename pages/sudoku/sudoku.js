@@ -1,27 +1,31 @@
 const sudoku4 = require('../../utils/sudoku');
 const sudoku6 = require('../../utils/sudoku6');
+const sudoku9 = require('../../utils/sudoku9');
 
 Page({
   data: {
-    size: 4,
+    size: 6,
     cells: [],
-    numbers: [1, 2, 3, 4],
+    numbers: [1, 2, 3, 4, 5, 6],
     selected: -1,
     filled: 0,
     wrong: false,
     hint: '',
     win: false,
-    boxText: '2×2 宫'
+    boxText: '2×3 宫'
   },
 
-  onLoad() { this.newGame(4); },
+  onLoad() { this.newGame(6); },
 
-  lib() { return this.data.size === 6 ? sudoku6 : sudoku4; },
+  lib() {
+    if (this.data.size === 9) return sudoku9;
+    return this.data.size === 6 ? sudoku6 : sudoku4;
+  },
 
   newGame(size) {
     if (size && typeof size === 'object') size = this.data.size;
     const n = Number(size || this.data.size || 4);
-    const lib = n === 6 ? sudoku6 : sudoku4;
+    const lib = n === 9 ? sudoku9 : (n === 6 ? sudoku6 : sudoku4);
     this.game = lib.makePuzzle();
     this.grid = lib.clone(this.game.puzzle);
     this.setData({
@@ -31,7 +35,7 @@ Page({
       wrong: false,
       hint: '',
       win: false,
-      boxText: n === 6 ? '2×3 宫' : '2×2 宫'
+      boxText: n === 9 ? '3×3 宫' : (n === 6 ? '2×3 宫' : '2×2 宫')
     });
     this.render();
   },
@@ -53,8 +57,8 @@ Page({
         given: this.game.puzzle[r][c] !== 0,
         selected: this.data.selected === r * n + c,
         wrong: wrongSet.has(r * n + c),
-        edgeRight: n === 6 ? (c === 2 || c === 5) : (c === 1 || c === 3),
-        edgeBottom: n === 6 ? (r === 1 || r === 3 || r === 5) : (r === 1 || r === 3)
+        edgeRight: n === 9 ? (c === 2 || c === 5 || c === 8) : (n === 6 ? (c === 2 || c === 5) : (c === 1 || c === 3)),
+        edgeBottom: n === 9 ? (r === 2 || r === 5 || r === 8) : (n === 6 ? (r === 1 || r === 3 || r === 5) : (r === 1 || r === 3))
       });
     }
     this.setData({ cells, filled: this.grid.flat().filter(Boolean).length, wrong: wrongSet.size > 0 });

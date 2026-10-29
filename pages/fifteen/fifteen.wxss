@@ -9,6 +9,9 @@
   margin: 16rpx auto 0;
 }
 
+.board.s4 { grid-template-columns: repeat(4, 1fr); max-width: 620rpx; }
+.board.s4 .tile { font-size: 40rpx; border-radius: 10rpx; }
+
 .tile {
   aspect-ratio: 1 / 1;
   border-radius: 16rpx;

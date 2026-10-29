@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">三根柱子，大盘不能压小盘。把整座塔从 A 搬到 C，最少要 2ⁿ−1 步。</view>
 
-  <game-rules text="T(n) = 2 × T(n−1) + 1，T(1) = 1，解得 T(n) = 2ⁿ − 1。每多一层，步数几乎翻倍；这不是手速问题，是指数增长。" example="3 层最少 **7 步**：先把上面 2 层搬到 B，再搬最大盘到 C，最后把 2 层搬回来。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  <game-rules text="把整摞圆盘从起始柱移到目标柱；一次只能移一个圆盘，大盘不能压在小盘上。" example="点一根柱子拿起顶部圆盘，再点目标柱放下。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 
   <view class="levels">
     <view class="level {{n === 3 ? 'active' : ''}}" data-n="3" bindtap="level">3 层</view>
@@ -51,5 +51,5 @@
   
 
 
-  <game-learn concept="递归与指数增长" summary="大问题拆成同样的子问题，每加一层步数几乎翻倍。"></game-learn>
+  <game-learn concept="递归与指数增长" summary="T(n)=2T(n−1)+1，T(1)=1，所以 T(n)=2ⁿ−1。每加一层，步数几乎翻倍；这是递归与指数增长。"></game-learn>
 </view>

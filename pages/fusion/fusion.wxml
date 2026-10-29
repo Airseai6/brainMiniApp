@@ -1,20 +1,25 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 09</text>
+    <text class="game-kicker">思维闯关 · 08</text>
     <text class="title-badge">2048 式</text>
   </view>
   <view class="title-row">
     <text class="game-title">聚变堆叠</text>
     <text class="title-badge">核素</text>
   </view>
-  <view class="game-lead">同种核素滑到一起，就合并成下一档：氘 → 氦-4 → 铍-8 → 氧-16 → 硫-32 → 镍-64。</view>
+  <view class="game-lead">同种核素滑到一起就合并，累加真实 Q 值。目标不是合出镍，而是累计 1 GeV 聚变能量。</view>
 
-  <game-rules text="每一档对应一次真实聚变反应；越往上，结合能越高。关卡里合并的是核素，现实里放出的才是 Q 值。" example="**D+D→He-4** 会放能；但到铁峰之后，继续聚变反而要吸能。"></game-rules>
+  <game-rules text="滑动 4×4 棋盘，同种核素相撞合并成下一档；不同核素不能合并。累计能量达到 1 GeV 完成，棋盘满且无合并时失败。" example="向一个方向滑动，两个氘会合成氦-4；看上方能量条，而不是只看最高核素。"></game-rules>
 
-  <view class="status-line">
-    <text class="status-strong">{{status}}</text>
-    <text class="mono">分数 {{score}} · 步数 {{moves}}</text>
+  <view class="energy-panel">
+    <view class="energy-row">
+      <text>累计能量 <text class="energy-value">{{energyText}}</text></text>
+      <text>目标 {{goalText}}</text>
+    </view>
+    <view class="energy-track"><view class="energy-fill" style="width: {{progress}}%;"></view></view>
+    <view class="energy-meta">顶牌：{{topName}} · 第 {{moves}} 步</view>
   </view>
+
   <view class="swipe-tip">滑动棋盘，或点下方方向键</view>
 
   <view class="board" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd" catchtouchmove="catchMove">
@@ -36,17 +41,15 @@
   <view wx:if="{{won}}" class="win-banner">
     <text class="win-icon">🎉</text>
     <view class="win-copy">
-      <text class="win-title">🎉 聚变到镍-64</text>
-      <text class="win-sub">这一局堆叠完成</text>
+      <text class="win-title">🎉 累计 1 GeV</text>
+      <text class="win-sub">这一局的聚变能量达到目标</text>
     </view>
   </view>
+  <view wx:if="{{lost}}" class="hint-box">棋盘满且没有可合并的核素，差一点到目标。</view>
 
   <view class="actions-row">
     <view class="btn-primary" bindtap="reset">新的一局</view>
   </view>
 
-  
-
-
-  <game-learn concept="聚变与结合能" summary="轻核聚变放能，铁峰之后吸能；能量来自结合能差。"></game-learn>
+  <game-learn concept="聚变 Q 值与结合能" summary="轻核聚变放能：D+D→He-4 约 +23.85 MeV，⁸Be 有质量数 8 缺口、Q≈−0.09 MeV；氧、硫继续聚变仍放能。MeV 是百万电子伏，GeV 是十亿电子伏；能量条就是这些 Q 值的累加。"></game-learn>
 </view>

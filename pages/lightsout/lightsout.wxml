@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">点一格，它和上下左右都会翻面。目标：把所有灯都熄灭。每局棋盘可解，但顺序有讲究。</view>
 
-  <game-rules text="每盏灯只有亮/灭两种状态，点两次等于没点。把每个格子看成 0/1 变量，整盘就是一个模 2 的线性方程组；先点后点不重要，重要的是每个格子点奇数次还是偶数次。" example="同一格**点两次**等于没点；先点哪个后点哪个不影响最终亮灭，只影响中间状态。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  <game-rules text="点一格会翻转它自己和上下左右；目标是把所有灯都熄灭。4×4 和 5×5 都是可解棋盘。" example="点灯翻面；不确定时先看“提示一步”高亮的格子。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 
   <view class="mode-row">
     <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" bindtap="startDaily">每日</view>
@@ -49,5 +49,5 @@
   
 
 
-  <game-learn concept="奇偶性与模 2 线性代数" summary="点两次等于没点；整盘可以写成模 2 线性方程组。"></game-learn>
+  <game-learn concept="奇偶性与模 2 线性代数" summary="每盏灯只有亮/灭两种状态，点两次等于没点。把格子看成 0/1 变量，整盘就是模 2 的线性方程组；先点后点不重要，重要的是每格点奇数次还是偶数次。"></game-learn>
 </view>

@@ -1,22 +1,29 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 12</text>
+    <text class="game-kicker">思维闯关 · 09</text>
     <text class="title-badge">不变量</text>
   </view>
   <view class="title-row">
     <text class="game-title">十五数码</text>
-    <text class="title-badge">3×3</text>
+    <text class="title-badge">{{size}}×{{size}}</text>
   </view>
-  <view class="game-lead">1–8 和一个空格，只能把空格旁边的数字滑进来。把 1–8 按顺序排好。</view>
+  <view class="game-lead" wx:if="{{size === 3}}">1–8 和一个空格，只能把空格旁边的数字滑进来。把 1–8 按顺序排好。</view>
+  <view class="game-lead" wx:else>1–15 和一个空格，4×4 更难；每局随机可解，慢慢把数字推回顺序。</view>
 
-  <game-rules text="看逆序数的奇偶：每次左右滑不改变逆序数，上下滑会改变 3 或 5 对——奇偶和空格行一起变。开局三秒就能判断。" example="**逆序数**和空格行号对不上时，怎么滑都拼不回；先算奇偶，再决定要不要重开。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  <game-rules text="滑动空格旁边的数字，把 1 到 n²−1 按顺序排好。3×3 是 8 个数，4×4 是 15 个数。" example="点空格上下左右的数字就能滑动；右下角留空。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+
+  <view class="mode-row">
+    <view class="mini-tab {{size === 3 ? 'active' : ''}}" data-size="3" bindtap="setSize">3×3 · 8 个数</view>
+    <view class="mini-tab warm {{size === 4 ? 'active' : ''}}" data-size="4" bindtap="setSize">4×4 · 15 个数</view>
+  </view>
+
 
   <view class="status-line">
     <text class="status-strong">步数 {{moves}}</text>
     <text>{{win ? '拼回去了' : '空格旁边的数字才能滑'}}</text>
   </view>
 
-  <view class="board">
+  <view class="board s{{size}}">
     <view class="tile {{item === 0 ? 'blank' : ''}} {{index === lastMoved ? 'last' : ''}}" wx:for="{{tiles}}" wx:key="index" data-index="{{index}}" bindtap="tap" hover-class="press">{{item === 0 ? '' : item}}</view>
   </view>
 
@@ -37,5 +44,5 @@
   
 
 
-  <game-learn concept="不变量与可解性" summary="先找不变量；逆序数的奇偶决定这局能不能还原。"></game-learn>
+  <game-learn concept="不变量与可解性" summary="3×3 与 4×4 都靠逆序数（一个数前面比它大的数的个数）判断可解性；每局随机但一定可解，先看局面再决定怎么推。"></game-learn>
 </view>

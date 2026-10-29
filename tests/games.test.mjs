@@ -73,11 +73,17 @@ test('fusion: merge and move', () => {
   assert.deepEqual(fusion.mergeLine([1, 1, 0, 0]), [2, 0, 0, 0]);
   assert.deepEqual(fusion.mergeLine([1, 1, 1, 1]), [2, 2, 0, 0]);
   const g = fusion.newGame();
+  assert.equal(g.goalEv, fusion.GOAL_EV);
   const dirs = ['left', 'right', 'up', 'down'];
   let moved = false;
   for (const d of dirs) {
     const r = fusion.move(g, d);
-    if (r.ok) { moved = true; break; }
+    if (r.ok) {
+      moved = true;
+      assert.ok(r.state.energyEv >= 0);
+      assert.match(fusion.formatEnergy(r.state.energyEv), /MeV|GeV/);
+      break;
+    }
   }
   assert.equal(moved, true);
 });

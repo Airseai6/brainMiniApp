@@ -1,6 +1,6 @@
 <view class="container">
   <view class="kicker">BRAIN GYM · 每天 3 分钟 · v{{version}}</view>
-  <view class="title">每天 3 分钟，<text style="color:#f0a33a;">来一局高能思维</text></view>
+  <view class="title">每天 3 分钟，<text style="color:#f0a33a;">活动活动你的大脑</text></view>
   <view class="subtitle">有的关卡每局新题，适合反复挑战；有的关卡想通一次，适合慢慢品味。</view>
 
   <view class="stats">

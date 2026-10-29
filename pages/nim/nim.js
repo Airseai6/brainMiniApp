@@ -17,7 +17,7 @@ Page({
   },
 
   newGame() {
-    const state = nim.newState([3, 4, 5], this.data.mode === 'misere');
+    const state = nim.newState(nim.randomPiles(), this.data.mode === 'misere');
     this.setData({ state, winner: '', hint: '', thinking: false, lastMove: '', turn: '你' });
     this.render();
   },

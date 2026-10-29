@@ -1,6 +1,6 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 13</text>
+    <text class="game-kicker">思维闯关 · 12</text>
     <text class="title-badge">状态图</text>
   </view>
   <view class="title-row">
@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">狼、羊、菜都要到右岸。船每次只能带一样，农夫可以空船回来；你不在的一岸会出事。</view>
 
-  <game-rules text="把“左岸还剩什么 + 船在哪岸”看成一个状态，每次过河是一条边。最短路就是最少步数。" example="狼**羊**菜第一步带羊；空船回来，再带狼过去，把羊带回来，再带菜……"></game-rules>
+  <game-rules text="船每次只能带一样东西，农夫负责划船；可以空船回来。你不在的一岸如果出现危险组合就失败。" example="先选乘客，再点“开船”；到对岸后继续选回程。"></game-rules>
 
   <view class="seg-row">
     <view class="seg warm active">狼 · 羊 · 菜（入门）</view>
@@ -77,5 +77,5 @@
   
 
 
-  <game-learn concept="状态图与最短路" summary="每一步都是状态转移；最少步数就是状态图上的最短路。"></game-learn>
+  <game-learn concept="状态图与最短路" summary="把“左岸还剩什么 + 船在哪岸”看成一个状态，每次过河是一条边。最少步数就是状态图上的最短路。"></game-learn>
 </view>

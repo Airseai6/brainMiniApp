@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">四个数各用一次，只允许 + − × ÷ 和括号，结果必须正好是 24。有些牌必须经过分数。</view>
 
-  <game-rules text="例如 3、3、8、8：8 ÷ (3 − 8 ÷ 3) = 24。只允许整数四则运算，就永远凑不出来。" example="3、3、8、8 只试整数会卡住；用 **8÷(3−8÷3)** 经过分数，才能得到 24。"></game-rules>
+  <game-rules text="四张牌每张各用一次，用 + − × ÷ 和括号凑出 24；每步合并两张牌。" example="点一张牌，再点另一张牌和运算符，两张牌会合并成新数字。"></game-rules>
 
   <view class="status-line">
     <text class="status-strong">{{status}}</text>
@@ -50,5 +50,5 @@
   
 
 
-  <game-learn concept="有理数与穷举搜索" summary="数字不够用，是搜索空间没打开；分数也是合法的中间状态。"></game-learn>
+  <game-learn concept="有理数与穷举搜索" summary="数字不够用，是搜索空间没打开；分数也是合法的中间状态。3、3、8、8 用 8÷(3−8÷3) 才能到 24。"></game-learn>
 </view>

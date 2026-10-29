@@ -1,6 +1,6 @@
 <view class="container game-page balance-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 14</text>
+    <text class="game-kicker">思维闯关 · 13</text>
     <text class="title-badge">信息论</text>
   </view>
   <view class="title-row">
@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">12 枚金币里 1 枚假币，可能偏重也可能偏轻。只称 3 次，把 24 种可能压到 1 种。</view>
 
-  <game-rules text="每次天平有左重/右重/平衡 3 种结果，3 次最多区分 3³ = 27 种，而 12 枚 × 重/轻 = 24 种，刚好装得下。" example="先 **4 对 4**：如果平衡，假币就在剩下 4 枚里；如果不平衡，候选缩到 8 种重/轻情况。"></game-rules>
+  <game-rules text="12 枚金币里混进 1 枚假币，它可能偏重也可能偏轻。把金币放到左右盘，点“称一次”；3 次内找出假币，并判断它偏重还是偏轻。"></game-rules>
 
   <view class="balance-hero">
     <text class="hero-icon">⚖️</text>
@@ -42,7 +42,7 @@
     <view class="history" wx:if="{{history.length}}">
       <view class="history-line" wx:for="{{history}}" wx:key="index">
         <text>左 {{item.leftText}} / 右 {{item.rightText}}</text>
-        <b>{{item.outcomeText}}</b>
+        <text class="outcome-strong">{{item.outcomeText}}</text>
       </view>
     </view>
   </view>
@@ -74,5 +74,5 @@
   
 
 
-  <game-learn concept="信息论与三分" summary="每次把候选分成三份；信息量决定称几次才够。"></game-learn>
+  <game-learn concept="信息论与三分法" summary="每次称重有左重、右重、平衡 3 种结果，3 次最多区分 3³=27 种情况，而 12 枚金币 × 重/轻 = 24 种，刚好够用。做法是第一次称 4 对 4：平衡就把假币锁定在剩下 4 枚，不平衡就在 8 种重/轻情况里继续三分。"></game-learn>
 </view>

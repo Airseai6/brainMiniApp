@@ -12,7 +12,7 @@ Page({
     keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '−', '⌫', '提交'],
     history: [],
     tries: 0,
-    maxTries: 6,
+    maxTries: 4,
     won: false,
     lost: false,
     answer: '',
@@ -25,6 +25,7 @@ Page({
   newRound(mode) {
     if (mode && typeof mode === 'object') mode = this.data.mode;
     const m = mode || this.data.mode || 'daily';
+    const maxTries = m === 'daily' ? 4 : 6;
     this.hidden = m === 'daily' ? mathler.dailyHidden(new Date()) : mathler.randomHidden();
     this.setData({
       mode: m,
@@ -32,10 +33,11 @@ Page({
       input: EMPTY_INPUT.slice(),
       history: [],
       tries: 0,
+      maxTries,
       won: false,
       lost: false,
       answer: '',
-      status: m === 'daily' ? '每日一题 · 6 次猜出算式' : '练习模式 · 6 次猜出算式',
+      status: m === 'daily' ? '每日挑战 · 4 次猜出算式' : '练习模式 · 6 次猜出算式',
       showAnswer: false
     });
     this.render();

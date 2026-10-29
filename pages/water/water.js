@@ -29,7 +29,7 @@ Page({
       caps: this.puzzle.caps,
       target: this.puzzle.target,
       levelLabel: this.puzzle.label || '',
-      solvableText: `容量 ${this.puzzle.caps.join('、')}，目标 ${this.puzzle.target}；gcd=${g}，${this.puzzle.target} ${reachable ? '能被' : '不能被'} ${g} 整除 → ${reachable ? '有解' : '无解'}。`,
+      solvableText: `容量 ${this.puzzle.caps.join('、')}，目标 ${this.puzzle.target}；三壶容量的最大公约数是 ${g}，${this.puzzle.target} ${reachable ? '能被' : '不能被'}它整除 → ${reachable ? '有解' : '无解'}。`,
       selected: -1,
       moves: 0,
       won: false,

@@ -50,3 +50,5 @@
 
 .guess-grid { display: flex; flex-wrap: wrap; gap: 8rpx; margin-top: 10rpx; }
 .guess-btn { min-height: 62rpx; padding: 0 12rpx; border-radius: 10rpx; background: #182235; border: 1rpx solid #2a3a56; color: #e8edf7; font-size: 21rpx; display: flex; align-items: center; }
+
+.outcome-strong { color: #c7d2e5; font-weight: 700; }

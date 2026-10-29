@@ -1,6 +1,6 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 16</text>
+    <text class="game-kicker">思维闯关 · 15</text>
     <text class="title-badge">图论</text>
   </view>
   <view class="title-row">
@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">每条边只走一次，能不能把所有边一次走完？先数每个点连了几条边。</view>
 
-  <game-rules text="奇度点有 0 个或 2 个，才可能一笔画走完；超过 2 个，无论怎么试都走不通。柯尼斯堡七桥有四个奇度点。" example="七桥图有 **4 个奇度点**，超过 2 个，所以怎么走都会剩边。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  <game-rules text="从起点出发，每条边只走一次，把所有边走完；可以撤销和重来。" example="点一条与当前点相连的边，就会沿着它走到下一个点。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
 
   <view class="seg-row">
     <view class="seg warm {{level.id === 'ring' ? 'active' : ''}}" data-id="ring" bindtap="setLevel">折线环</view>
@@ -44,5 +44,5 @@
   
 
 
-  <game-learn concept="欧拉路径与奇偶度" summary="数奇度点；0 个或 2 个奇度点才可能一笔画。"></game-learn>
+  <game-learn concept="欧拉路径与奇偶度" summary="数奇度点：0 个或 2 个奇度点才可能一笔画。柯尼斯堡七桥有 4 个奇度点，所以怎么走都会剩边。"></game-learn>
 </view>

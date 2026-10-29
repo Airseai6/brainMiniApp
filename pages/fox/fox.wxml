@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">每天查一个洞；你查完，狐狸会沿相邻的洞跑掉。路径上有必胜策略，环上却不一定。</view>
 
-  <game-rules text="路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。浅色狐狸是“可能位置集合”。" example="路径 P5 先查 **3 号洞**，狐狸只能往两边跑；再查相邻洞，一步步把它逼到**端点**。"></game-rules>
+  <game-rules text="每天查一个洞；你查完，狐狸会沿相邻的洞移动。在限定天数内查到它就赢，天数用完则失败。" example="点一个洞查看结果；是空是抓到，都会写进下方排查记录。"></game-rules>
 
   <view class="seg-row">
     <view class="seg warm {{level === 1 ? 'active' : ''}}" data-level="1" bindtap="setLevel">路径 · P5</view>
@@ -68,5 +68,5 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <game-learn concept="图论与奇偶性" summary="路径有端点，环没有；追逃问题先看图的奇偶结构。"></game-learn>
+  <game-learn concept="图论与奇偶性" summary="路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。浅色狐狸是“可能位置集合”。"></game-learn>
 </view>

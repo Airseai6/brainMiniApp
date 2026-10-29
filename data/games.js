@@ -1,4 +1,4 @@
-// 16 个关卡，全部为小程序原生页面。
+// 15 个关卡，全部为小程序原生页面。
 // replayable=true 的进入每日一练/随机体验；false 的单列经典解谜。
 module.exports = [
   {
@@ -72,22 +72,12 @@ module.exports = [
     replayable: true
   },
   {
-    key: 'dice-duel',
-    page: 'diceduel',
-    name: '骰子对决',
-    tag: '概率',
-    emoji: '🎲',
-    desc: '三颗非传递骰子，5 局比大小；每颗都能克制另一颗',
-    native: true,
-    replayable: true
-  },
-  {
     key: 'fusion-stack',
     page: 'fusion',
     name: '聚变堆叠',
     tag: '核素',
     emoji: '⚛️',
-    desc: '2048 式随机棋盘，合并核素到镍-64',
+    desc: '2048 式随机棋盘，累计聚变能量到 1 GeV',
     native: true,
     replayable: true
   },
@@ -117,9 +107,9 @@ module.exports = [
     name: '十五数码',
     tag: '不变量',
     emoji: '🔀',
-    desc: '奇偶不变量决定局面有没有解',
+    desc: '3×3 八数码 / 4×4 十五数码，每局随机可解',
     native: true,
-    replayable: false
+    replayable: true
   },
   {
     key: 'river',
@@ -162,5 +152,6 @@ module.exports = [
     replayable: false
   },
 ];
+
 
 

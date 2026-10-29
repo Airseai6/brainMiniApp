@@ -1,6 +1,6 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 13B</text>
+    <text class="game-kicker">思维闯关 · 12B</text>
     <text class="title-badge">挑战关</text>
   </view>
   <view class="title-row">
@@ -9,7 +9,7 @@
   </view>
   <view class="game-lead">船每次最多坐 2 人，必须有人划船。任意一岸野人多于传教士，传教士就会被吃。</view>
 
-  <game-rules text="每一步都要同时满足两岸的安全约束；把“左岸人数 + 船位”看成状态，过河就是状态图上的最短路。经典最短解是 11 步。" example="先 **1 名传教士 + 1 名野人**过去，再让 1 人回来；每一步都要保证两岸安全。"></game-rules>
+  <game-rules text="船每次最多坐 2 人，必须有人划船。任意一岸野人多于传教士，传教士就会被吃。" example="点选船上的人，再点“开船”；最多选 2 人。"></game-rules>
 
   <view class="seg-row">
     <view class="seg" bindtap="gotoWGC">狼 · 羊 · 菜（入门）</view>
@@ -23,7 +23,7 @@
 
   <view class="banks">
     <view class="bank">
-      <view class="bank-title"><text>出发岸</text><b>{{left.m}}M / {{left.c}}C</b></view>
+      <view class="bank-title"><text>出发岸</text><text class="bank-count">{{left.m}}M / {{left.c}}C</text></view>
       <view class="people">
         <text class="person" wx:for="{{leftPeople}}" wx:key="index">{{item}}</text>
       </view>
@@ -33,7 +33,7 @@
       <text>{{boatSide === 'left' ? '左岸' : '右岸'}}</text>
     </view>
     <view class="bank">
-      <view class="bank-title"><text>目标岸</text><b>{{right.m}}M / {{right.c}}C</b></view>
+      <view class="bank-title"><text>目标岸</text><text class="bank-count">{{right.m}}M / {{right.c}}C</text></view>
       <view class="people">
         <text class="person" wx:for="{{rightPeople}}" wx:key="index">{{item}}</text>
       </view>
@@ -41,7 +41,7 @@
   </view>
 
   <view class="pick-panel">
-    <view class="pick-head"><text>选择船上的人（最多 2 人）</text><b>已选 {{selectedCount}}/2</b></view>
+    <view class="pick-head"><text>选择船上的人（最多 2 人）</text><text class="pick-count">已选 {{selectedCount}}/2</text></view>
     <view class="people-pick">
       <view class="person-btn {{item.selected ? 'selected' : ''}}" wx:for="{{boatPeople}}" wx:key="key" data-index="{{index}}" bindtap="togglePerson" hover-class="press">
         <text>{{item.icon}}</text><text>{{item.label}}</text>
@@ -64,5 +64,5 @@
   
 
 
-  <game-learn concept="状态图与约束" summary="多个约束同时存在时，先把状态定义清楚，再找合法转移。"></game-learn>
+  <game-learn concept="状态图与约束" summary="每一步都要同时满足两岸的安全约束；把“左岸人数 + 船位”看成状态，过河就是状态图上的最短路。经典最短解是 11 步。"></game-learn>
 </view>
