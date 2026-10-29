@@ -13,5 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Check no full WeChat AppID is committed
+        run: node scripts/check-no-full-appid.mjs
       - name: Run logic and wording tests
         run: node --test tests/logic.test.mjs tests/games.test.mjs tests/practice.test.mjs tests/wording.test.mjs
