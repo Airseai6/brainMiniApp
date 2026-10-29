@@ -1,6 +1,6 @@
 <view class="container game-page duel-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 3 分钟</text>
+    <text class="game-kicker">思维闯关 · 08</text>
     <text class="title-badge">概率</text>
   </view>
   <view class="title-row">

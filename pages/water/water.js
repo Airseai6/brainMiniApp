@@ -11,6 +11,8 @@ Page({
     won: false,
     hint: '',
     status: '选一个壶，再点另一个壶倒水',
+    levelLabel: '',
+    solvableText: ''
   },
 
   onLoad() { this.newRound('daily'); },
@@ -20,10 +22,14 @@ Page({
     const m = mode || this.data.mode || 'daily';
     this.puzzle = m === 'daily' ? water.dailyPuzzle(new Date()) : water.randomPuzzle();
     this.jugs = this.puzzle.caps.map(() => 0);
+    const g = water.gcdAll(this.puzzle.caps);
+    const reachable = water.isReachable(this.puzzle.caps, this.puzzle.target);
     this.setData({
       mode: m,
       caps: this.puzzle.caps,
       target: this.puzzle.target,
+      levelLabel: this.puzzle.label || '',
+      solvableText: `容量 ${this.puzzle.caps.join('、')}，目标 ${this.puzzle.target}；gcd=${g}，${this.puzzle.target} ${reachable ? '能被' : '不能被'} ${g} 整除 → ${reachable ? '有解' : '无解'}。`,
       selected: -1,
       moves: 0,
       won: false,

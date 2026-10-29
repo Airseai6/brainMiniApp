@@ -118,7 +118,14 @@ test('water: fill/pour/empty and BFS solution', () => {
   assert.ok(path && path.length > 0);
   const p = water.dailyPuzzle(new Date(2026, 9, 29));
   assert.ok(p.caps.length === 3 && p.target > 0);
-  assert.ok(water.solve(p.caps, p.target).length > 0);
+  assert.ok(water.solve(p.caps, p.target).length >= 5);
+  assert.equal(water.isReachable([5, 7, 11], 8), true);
+  assert.equal(water.isReachable([2, 4, 6], 3), false);
+  assert.equal(water.gcdAll([2, 4, 6]), 2);
+  for (const q of water.PUZZLES) {
+    assert.ok(water.isReachable(q.caps, q.target), 'bank puzzle solvable');
+    assert.ok(water.solve(q.caps, q.target).length >= 5, 'bank puzzle not trivial');
+  }
 });
 
 test('dice duel: non-transitive cycle and round flow', () => {

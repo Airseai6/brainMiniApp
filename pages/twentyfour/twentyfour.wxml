@@ -1,6 +1,6 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 3 分钟</text>
+    <text class="game-kicker">思维闯关 · 03</text>
     <text class="title-badge">4 个数 · 24</text>
   </view>
   <view class="title-row">

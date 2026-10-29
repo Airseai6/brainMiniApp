@@ -1,6 +1,6 @@
 <view class="container game-page digits-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 3 分钟</text>
+    <text class="game-kicker">思维闯关 · 01</text>
     <text class="title-badge">每日一题</text>
   </view>
   <view class="title-row">

@@ -1,9 +1,30 @@
 // 倒水问题：三个水壶，装满/倒空/互倒，量出目标水量。BFS 求最短步骤。
-const { mulberry32, seedFromDate, randomSeed, randInt, shuffle } = require('./random');
+const { mulberry32, seedFromDate, randomSeed } = require('./random');
+
+// 精选题库：入门组合 [3,5,8]→6 只作为规则示例，正式题库从进阶开始。
+const PUZZLES = [
+  { label: '进阶', caps: [5, 7, 11], target: 8 },
+  { label: '进阶', caps: [6, 9, 14], target: 7 },
+  { label: '挑战', caps: [3, 7, 10], target: 5 },
+  { label: '挑战', caps: [5, 9, 14], target: 6 },
+  { label: '挑战', caps: [5, 8, 13], target: 4 },
+  { label: '大师', caps: [4, 9, 13], target: 3 },
+  { label: '大师', caps: [8, 13, 17], target: 2 }
+];
 
 function key(jugs) { return jugs.join(','); }
-
 function isSolved(jugs, target) { return jugs.includes(target); }
+
+function gcd(a, b) {
+  while (b) { const t = a % b; a = b; b = t; }
+  return a;
+}
+function gcdAll(caps) { return caps.reduce((a, b) => gcd(a, b)); }
+
+function isReachable(caps, target) {
+  if (target <= 0 || target > Math.max(...caps)) return false;
+  return target % gcdAll(caps) === 0;
+}
 
 function fill(jugs, caps, i) {
   const next = jugs.slice();
@@ -69,23 +90,19 @@ function solve(caps, target) {
   return solveFrom(caps.map(() => 0), caps, target);
 }
 
-function makePuzzle(rng) {
-  for (let attempt = 0; attempt < 40; attempt++) {
-    const caps = shuffle([3, 4, 5, 6, 7, 8, 9], rng).slice(0, 3).sort((a, b) => a - b);
-    const max = caps[caps.length - 1];
-    const target = randInt(rng, 2, max - 1);
-    const path = solve(caps, target);
-    if (path && path.length >= 3) return { caps, target, solution: path };
-  }
-  return { caps: [3, 5, 8], target: 4, solution: solve([3, 5, 8], 4) };
+function withSolution(p) {
+  const path = solve(p.caps, p.target);
+  return { ...p, solution: path || [] };
 }
 
 function dailyPuzzle(date = new Date()) {
-  return makePuzzle(mulberry32(seedFromDate(date, 8317)));
+  const day = Math.floor((Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(2026, 0, 1)) / 86400000);
+  return withSolution(PUZZLES[((day % PUZZLES.length) + PUZZLES.length) % PUZZLES.length]);
 }
 
 function randomPuzzle() {
-  return makePuzzle(mulberry32(randomSeed()));
+  const rng = mulberry32(randomSeed());
+  return withSolution(PUZZLES[Math.floor(rng() * PUZZLES.length)]);
 }
 
 function nextHint(jugs, caps, target) {
@@ -93,4 +110,8 @@ function nextHint(jugs, caps, target) {
   return path && path.length ? path[0] : null;
 }
 
-module.exports = { key, isSolved, fill, empty, pour, solve, solveFrom, makePuzzle, dailyPuzzle, randomPuzzle, nextHint };
+module.exports = {
+  PUZZLES, key, isSolved, gcdAll, isReachable,
+  fill, empty, pour, solve, solveFrom,
+  dailyPuzzle, randomPuzzle, nextHint
+};
