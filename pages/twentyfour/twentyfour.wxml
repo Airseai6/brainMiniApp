@@ -1,29 +1,43 @@
-<view class="container">
-  <view class="kicker">思维闯关 · 07</view>
-  <view class="title">24点</view>
-  <view class="subtitle">四个数各用一次，只允许 + − × ÷ 和括号，结果必须正好是 24。有些牌必须经过分数——只肯用整数就走不通。</view>
+<view class="container game-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 07</text>
+    <text class="title-badge">4 个数 · 24</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">24点</text>
+    <text class="title-badge">60 秒思维</text>
+  </view>
+  <view class="game-lead">四个数各用一次，只允许 + − × ÷ 和括号，结果必须正好是 24。有些牌必须经过分数。</view>
 
-  <view class="status">{{status}}</view>
+  <view class="status-line">
+    <text class="status-strong">{{status}}</text>
+    <text class="mono">{{cards.length}} 个数</text>
+  </view>
 
   <view class="cards">
-    <view class="card {{selected.indexOf(item.id) >= 0 ? 'selected' : ''}}" wx:for="{{cards}}" wx:key="id" data-id="{{item.id}}" bindtap="tapCard">
+    <view class="card {{selectedMap[item.id] ? 'selected' : ''}}" wx:for="{{cards}}" wx:key="id" data-id="{{item.id}}" bindtap="tapCard" hover-class="press">
       <text class="num">{{item.value.n}}</text>
       <text wx:if="{{item.value.d !== 1}}" class="den">/{{item.value.d}}</text>
       <text class="expr">{{item.expr}}</text>
     </view>
   </view>
 
-  <view class="ops">
-    <view class="op" wx:for="{{ops}}" wx:key="index" data-op="{{item}}" bindtap="applyOp">{{item}}</view>
-  </view>
+  <view class="expression-bar" wx:if="{{expression}}">上一步：{{expression}}</view>
 
-  <view class="actions">
+  <view class="ops">
+    <view class="op {{lastOp === item ? 'active' : ''}}" wx:for="{{ops}}" wx:key="index" data-op="{{item}}" bindtap="applyOp" hover-class="press">{{item}}</view>
+  </view>
+  <view class="ops-note">{{selected.length === 2 ? '已选 2 张，点一个运算符' : '先选两张牌，再点运算符'}}</view>
+
+  <view class="actions-row">
+    <view class="btn-ghost" bindtap="undo" wx:if="{{canUndo}}">撤销</view>
     <view class="btn-ghost" bindtap="showHint">提示</view>
     <view class="btn-primary" bindtap="newPuzzle">换一题</view>
   </view>
-  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
 
-  <view class="rule">
+  <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
+
+  <view class="rule-box">
     <view class="rule-title">为什么有些牌必须用分数</view>
     <view class="rule-text">例如 3、3、8、8：8 ÷ (3 − 8 ÷ 3) = 24。只允许整数四则运算，就永远凑不出来。</view>
   </view>

@@ -1,12 +1,12 @@
 const fifteen = require('../../utils/fifteen');
 
 Page({
-  data: { tiles: [], moves: 0, win: false, hint: '' },
+  data: { tiles: [], moves: 0, win: false, hint: '', lastMoved: -1 },
 
   onLoad() { this.reset(); },
 
   reset() {
-    this.setData({ tiles: fifteen.shuffle(3, 120), moves: 0, win: false, hint: '' });
+    this.setData({ tiles: fifteen.shuffle(3, 120), moves: 0, win: false, hint: '', lastMoved: -1 });
   },
 
   tap(e) {
@@ -15,7 +15,7 @@ Page({
     const next = fifteen.slide(this.data.tiles, 3, idx);
     if (!next) return;
     const win = fifteen.isSolved(next);
-    this.setData({ tiles: next, moves: this.data.moves + 1, win });
+    this.setData({ tiles: next, moves: this.data.moves + 1, win, lastMoved: idx });
     if (win) getApp().markPlayed('fifteen');
   },
 

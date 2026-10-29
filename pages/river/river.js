@@ -9,29 +9,66 @@ Page({
     status: '把狼、羊、菜都运到右岸',
     hint: '',
     won: false,
-    lost: false
+    lost: false,
+    selectedItem: null,
+    selectedLabel: '',
+    selectedEmpty: false
   },
 
   onLoad() { this.reset(); },
 
   reset() {
     const state = river.newGame();
-    this.setData({ state, boatSide: state.boat, status: '把狼、羊、菜都运到右岸', hint: '', won: false, lost: false });
+    this.setData({
+      state,
+      boatSide: state.boat,
+      status: '选乘客，再开船',
+      hint: '',
+      won: false,
+      lost: false,
+      selectedItem: null,
+      selectedLabel: '',
+      selectedEmpty: false
+    });
     this.render();
   },
 
   render() {
     const left = river.ITEMS.filter((it) => this.data.state.left[it.id] === 1);
     const right = river.ITEMS.filter((it) => this.data.state.left[it.id] === 0);
-    this.setData({ left, right, boatSide: this.data.state.boat });
+    const selectedItem = this.data.selectedItem;
+    const selectedGone = selectedItem && !(this.data.boatSide === 'left' ? left : right).some((it) => it.id === selectedItem);
+    this.setData({
+      left,
+      right,
+      boatSide: this.data.state.boat,
+      selectedItem: selectedGone ? null : selectedItem,
+      selectedLabel: selectedGone ? '' : this.data.selectedLabel,
+      selectedEmpty: selectedGone ? false : this.data.selectedEmpty
+    });
   },
 
-  crossItem(e) {
+  selectItem(e) {
+    if (this.data.won || this.data.lost) return;
     const id = e.currentTarget.dataset.id;
-    this.doCross(id);
+    const item = river.ITEMS.find((it) => it.id === id);
+    if (!item) return;
+    this.setData({ selectedItem: id, selectedLabel: `${item.icon} ${item.label}`, selectedEmpty: false });
   },
 
-  crossEmpty() { this.doCross(null); },
+  selectEmpty() {
+    if (this.data.won || this.data.lost) return;
+    this.setData({ selectedItem: null, selectedLabel: '空船', selectedEmpty: true });
+  },
+
+  crossSelected() {
+    if (this.data.won || this.data.lost) return;
+    if (!this.data.selectedItem && !this.data.selectedEmpty) {
+      wx.showToast({ title: '先点选船上带谁', icon: 'none' });
+      return;
+    }
+    this.doCross(this.data.selectedEmpty ? null : this.data.selectedItem);
+  },
 
   doCross(id) {
     if (this.data.won || this.data.lost) return;
@@ -42,7 +79,15 @@ Page({
     }
     const state = r.state;
     let status = state.won ? '全部运过去了！' : (state.lost ? state.reason : `第 ${state.moves} 步，继续`);
-    this.setData({ state, status, won: state.won, lost: state.lost });
+    this.setData({
+      state,
+      status,
+      won: state.won,
+      lost: state.lost,
+      selectedItem: null,
+      selectedLabel: '',
+      selectedEmpty: false
+    });
     this.render();
     if (state.won || state.lost) getApp().markPlayed('river');
   },

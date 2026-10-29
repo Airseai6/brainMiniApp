@@ -1,23 +1,44 @@
-.status { display: flex; justify-content: space-between; margin-top: 24rpx; color: #d7e0f0; font-size: 24rpx; }
-.score { color: #f0a33a; }
-.board { display: flex; flex-wrap: wrap; gap: 10rpx; margin: 24rpx auto 0; width: 660rpx; }
-.cell {
-  width: calc(25% - 8rpx); height: 158rpx; border-radius: 14rpx; background: #111827; border: 1rpx solid #22304a;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+@import "../../styles/game.wxss";
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8rpx;
+  width: 100%;
+  max-width: 620rpx;
+  margin: 14rpx auto 0;
 }
-.cell-label { color: #fff; font-size: 34rpx; font-weight: 800; }
-.cell-name { color: #7e8aa3; font-size: 18rpx; margin-top: 4rpx; }
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 12rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cell-label { color: #ffffff; font-size: 30rpx; font-weight: 800; }
+.cell-name { color: #7e8aa3; font-size: 16rpx; margin-top: 2rpx; }
 .cell-1 { background: #132b3a; border-color: #28516b; }
 .cell-2 { background: #16392f; border-color: #2f7d5b; }
 .cell-3 { background: #3a2d16; border-color: #8a6a28; }
 .cell-4 { background: #3a1e16; border-color: #9b4a2f; }
 .cell-5 { background: #2a1c3a; border-color: #6f4aa8; }
 .cell-6 { background: #3a1627; border-color: #a83f6b; }
-.pad { margin-top: 24rpx; display: flex; flex-direction: column; align-items: center; gap: 10rpx; }
-.pad-row { display: flex; gap: 10rpx; }
-.pad-btn { width: 120rpx; height: 84rpx; line-height: 84rpx; text-align: center; border-radius: 14rpx; background: #182235; border: 1rpx solid #2a3a56; color: #e8edf7; font-size: 34rpx; }
-.pad-btn.up { width: 120rpx; }
-.actions { margin-top: 24rpx; }
-.rule { margin-top: 26rpx; padding: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; }
-.rule-title { color: #f0a33a; font-size: 26rpx; font-weight: 700; }
-.rule-text { color: #8d9ab3; font-size: 24rpx; line-height: 1.8; margin-top: 10rpx; }
+
+.pad { margin-top: 16rpx; display: flex; flex-direction: column; align-items: center; gap: 8rpx; }
+.pad-row { display: flex; gap: 8rpx; }
+.pad-btn {
+  width: 112rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  background: #182235;
+  border: 1rpx solid #2a3a56;
+  color: #e8edf7;
+  font-size: 32rpx;
+}
+.pad-btn.up { width: 112rpx; }

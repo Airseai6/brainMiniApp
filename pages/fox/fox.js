@@ -17,14 +17,19 @@ Page({
 
   start(level) {
     const state = fox.newGame(level);
-    this.setData({ state, level, status: '选择要检查的洞', hint: '', caught: false, lost: false });
+    this.setData({ state, level, status: '点一个洞开始排查', hint: '', caught: false, lost: false });
     this.render();
   },
 
   render() {
-    const holes = Array.from({ length: this.data.state.n }, (_, i) => ({
+    const state = this.data.state;
+    const checked = state.checked || [];
+    const last = checked.length ? checked[checked.length - 1] : -1;
+    const holes = Array.from({ length: state.n }, (_, i) => ({
       label: i + 1,
-      checked: this.data.state.checked.includes(i)
+      checked: checked.includes(i),
+      last: i === last,
+      fox: state.caught && i === last
     }));
     this.setData({ holes });
   },

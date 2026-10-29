@@ -1,24 +1,34 @@
-<view class="container">
-  <view class="kicker">思维闯关 · 08</view>
-  <view class="title">围堵狐狸</view>
-  <view class="subtitle">六个路口的环路。你每回合封一个路口，狐狸沿未封的路移动一步；狐狸无路可走你就赢，它踏进洞口就你输。</view>
+<view class="container game-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 08</text>
+    <text class="title-badge">图论</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">围堵狐狸</text>
+    <text class="title-badge">6 路口</text>
+  </view>
+  <view class="game-lead">你每回合封一个路口，狐狸沿未封的路移动一步；它无路可走你就赢，它踏进洞口就你输。</view>
 
-  <view class="status">{{status}}</view>
+  <view class="status-line">
+    <text class="status-strong">{{status}}</text>
+    <text class="mono">封路 {{state.moves}}</text>
+  </view>
 
   <view class="nodes">
-    <view class="node {{item.blocked ? 'blocked' : ''}} {{item.fox ? 'fox' : ''}} {{item.den ? 'den' : ''}}" wx:for="{{nodes}}" wx:key="id" data-index="{{index}}" bindtap="tapNode">
+    <view class="node {{item.blocked ? 'blocked' : ''}} {{item.fox ? 'fox' : ''}} {{item.den ? 'den' : ''}}" wx:for="{{nodes}}" wx:key="id" data-index="{{index}}" bindtap="tapNode" hover-class="press">
       <text class="node-icon">{{item.den ? '🕳️' : (item.fox ? '🦊' : (item.blocked ? '🚧' : '·'))}}</text>
       <text class="node-num">{{item.id}}</text>
     </view>
   </view>
 
-  <view class="actions">
+  <view class="actions-row">
     <view class="btn-ghost" bindtap="showHint">提示</view>
     <view class="btn-primary" bindtap="reset">重开</view>
   </view>
-  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
 
-  <view class="rule">
+  <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
+
+  <view class="rule-box">
     <view class="rule-title">为什么这是图论</view>
     <view class="rule-text">狐狸在最短路树上选对你最不利的方向。封路口就是在删边；你要做的是把它的所有出边都删掉。</view>
   </view>

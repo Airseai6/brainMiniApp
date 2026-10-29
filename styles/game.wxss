@@ -1,0 +1,167 @@
+/* 通用游戏页：紧凑、先操作、适配刘海屏 */
+.game-page {
+  min-height: 100vh;
+  padding: 20rpx 24rpx calc(32rpx + env(safe-area-inset-bottom));
+  background: radial-gradient(circle at 15% 0%, #16233a 0%, #0b0f19 48%, #0b0f19 100%);
+}
+
+.topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 8rpx;
+}
+
+.game-kicker {
+  color: #f0a33a;
+  font-size: 20rpx;
+  letter-spacing: 3rpx;
+  font-family: Consolas, monospace;
+}
+
+.title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14rpx;
+  flex-wrap: wrap;
+}
+
+.game-title {
+  color: #ffffff;
+  font-size: 50rpx;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.title-badge {
+  color: #5bd9be;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border: 1rpx solid rgba(91, 217, 190, .4);
+  border-radius: 999rpx;
+  background: rgba(91, 217, 190, .08);
+  font-family: Consolas, monospace;
+}
+
+.game-lead {
+  margin-top: 10rpx;
+  color: #8d9ab3;
+  font-size: 23rpx;
+  line-height: 1.6;
+}
+
+.seg-row {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 18rpx;
+}
+
+.seg {
+  flex: 1;
+  min-height: 72rpx;
+  padding: 0 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 14rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+  color: #93a4bd;
+  font-size: 23rpx;
+  line-height: 1.25;
+}
+
+.seg.active {
+  background: #1f2a1f;
+  border-color: #5bd9be;
+  color: #5bd9be;
+  font-weight: 700;
+}
+
+.seg.warm.active {
+  background: #2a1f12;
+  border-color: #f0a33a;
+  color: #f0a33a;
+}
+
+.status-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-top: 16rpx;
+  color: #c7d2e5;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.status-strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.mono {
+  font-family: Consolas, "SFMono-Regular", monospace;
+}
+
+.game-panel {
+  background: #111827;
+  border: 1rpx solid #22304a;
+  border-radius: 20rpx;
+  padding: 18rpx;
+  margin-top: 16rpx;
+}
+
+.actions-row {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.actions-row .btn-primary,
+.actions-row .btn-ghost {
+  flex: 1;
+  min-height: 84rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hint-box {
+  margin-top: 14rpx;
+  padding: 16rpx 18rpx;
+  border-radius: 14rpx;
+  background: rgba(96, 165, 250, .08);
+  border-left: 4rpx solid #60a5fa;
+  color: #c7d2e5;
+  font-size: 23rpx;
+  line-height: 1.7;
+}
+
+.rule-box {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+  border-radius: 18rpx;
+}
+
+.rule-title {
+  color: #f0a33a;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+
+.rule-text {
+  color: #8d9ab3;
+  font-size: 22rpx;
+  line-height: 1.75;
+  margin-top: 8rpx;
+}
+
+.press {
+  opacity: .72;
+  transform: scale(.98);
+}

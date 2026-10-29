@@ -1,45 +1,65 @@
-<view class="container">
-  <view class="kicker">思维闯关 · 06</view>
-  <view class="title">过河</view>
-  <view class="subtitle">狼、羊、菜都要到右岸。船每次只能带一样，农夫可以独自划空船回来。你不在的一岸，狼会吃羊，羊会吃菜。</view>
+<view class="container game-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 06</text>
+    <text class="title-badge">状态图</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">过河</text>
+    <text class="title-badge">7 步</text>
+  </view>
+  <view class="game-lead">狼、羊、菜都要到右岸。船每次只能带一样，农夫可以空船回来；你不在的一岸会出事。</view>
 
-  <view class="status">
-    <text>{{status}}</text>
-    <text class="moves">第 {{state.moves}} 步</text>
+  <view class="status-line">
+    <text class="status-strong">{{status}}</text>
+    <text class="mono">第 {{state.moves}} 步</text>
   </view>
 
-  <view class="banks">
-    <view class="bank">
-      <view class="bank-title">出发岸</view>
-      <view class="items">
-        <view class="item" wx:for="{{left}}" wx:key="id">{{item.icon}} {{item.label}}</view>
-        <view wx:if="{{left.length === 0}}" class="empty">空</view>
+  <view class="river-board">
+    <view class="bank-card">
+      <view class="bank-head"><text>出发岸</text><text class="bank-count">{{left.length}}/3</text></view>
+      <view class="bank-items">
+        <view class="item-card" wx:for="{{left}}" wx:key="id"><text class="emoji">{{item.icon}}</text><text>{{item.label}}</text></view>
+        <view wx:if="{{left.length === 0}}" class="bank-empty">空</view>
       </view>
     </view>
-    <view class="boat {{boatSide === 'left' ? 'left' : 'right'}}">⛵ {{boatSide === 'left' ? '在左岸' : '在右岸'}}</view>
-    <view class="bank">
-      <view class="bank-title">目标岸</view>
-      <view class="items">
-        <view class="item" wx:for="{{right}}" wx:key="id">{{item.icon}} {{item.label}}</view>
-        <view wx:if="{{right.length === 0}}" class="empty">空</view>
+
+    <view class="boat-center">
+      <text class="boat-icon">⛵</text>
+      <text class="boat-side">{{boatSide === 'left' ? '左岸' : '右岸'}}</text>
+      <text class="boat-passenger">{{selectedLabel || '未选乘客'}}</text>
+    </view>
+
+    <view class="bank-card">
+      <view class="bank-head"><text>目标岸</text><text class="bank-count">{{right.length}}/3</text></view>
+      <view class="bank-items">
+        <view class="item-card" wx:for="{{right}}" wx:key="id"><text class="emoji">{{item.icon}}</text><text>{{item.label}}</text></view>
+        <view wx:if="{{right.length === 0}}" class="bank-empty">空</view>
       </view>
     </view>
   </view>
 
-  <view class="pick-title">船上带谁？</view>
-  <view class="pick-row">
-    <view class="pick" wx:for="{{left}}" wx:key="id" data-id="{{item.id}}" bindtap="crossItem" wx:if="{{boatSide === 'left'}}">{{item.icon}} {{item.label}}</view>
-    <view class="pick" wx:for="{{right}}" wx:key="id" data-id="{{item.id}}" bindtap="crossItem" wx:if="{{boatSide === 'right'}}">{{item.icon}} {{item.label}}</view>
-    <view class="pick empty-pick" bindtap="crossEmpty">空船</view>
+  <view class="pick-section">
+    <view class="pick-head">选择船上带谁（先点选，再开船）</view>
+    <view class="pick-row">
+      <view class="pick {{selectedItem === item.id ? 'selected' : ''}}" wx:for="{{left}}" wx:key="id" data-id="{{item.id}}" bindtap="selectItem" wx:if="{{boatSide === 'left'}}" hover-class="press">
+        <text>{{item.icon}}</text><text>{{item.label}}</text>
+      </view>
+      <view class="pick {{selectedItem === item.id ? 'selected' : ''}}" wx:for="{{right}}" wx:key="id" data-id="{{item.id}}" bindtap="selectItem" wx:if="{{boatSide === 'right'}}" hover-class="press">
+        <text>{{item.icon}}</text><text>{{item.label}}</text>
+      </view>
+      <view class="pick empty-pick {{selectedEmpty ? 'selected' : ''}}" bindtap="selectEmpty" hover-class="press">空船</view>
+    </view>
   </view>
 
-  <view class="actions">
+  <view class="actions-row">
+    <view class="btn-primary" bindtap="crossSelected">开船 →</view>
     <view class="btn-ghost" bindtap="showHint">提示</view>
-    <view class="btn-primary" bindtap="reset">重来</view>
+    <view class="btn-ghost" bindtap="reset">重来</view>
   </view>
-  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
 
-  <view class="rule">
+  <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
+
+  <view class="rule-box">
     <view class="rule-title">为什么是图论</view>
     <view class="rule-text">把“左岸还剩什么 + 船在哪岸”看成一个状态，每次过河是一条边。最短路就是最少步数。</view>
   </view>

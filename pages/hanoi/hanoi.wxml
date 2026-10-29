@@ -1,7 +1,13 @@
-<view class="container">
-  <view class="kicker">思维闯关 · 04</view>
-  <view class="title">汉诺塔 · 最少步</view>
-  <view class="subtitle">三根柱子，大盘不能压小盘。把整座塔从 A 搬到 C，最少要 2ⁿ−1 步。提示会直接告诉你下一步。</view>
+<view class="container game-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 04</text>
+    <text class="title-badge">递归</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">汉诺塔</text>
+    <text class="title-badge">最少步</text>
+  </view>
+  <view class="game-lead">三根柱子，大盘不能压小盘。把整座塔从 A 搬到 C，最少要 2ⁿ−1 步。</view>
 
   <view class="levels">
     <view class="level {{n === 3 ? 'active' : ''}}" data-n="3" bindtap="level">3 层</view>
@@ -10,13 +16,13 @@
     <view class="level {{n === 6 ? 'active' : ''}}" data-n="6" bindtap="level">6 层</view>
   </view>
 
-  <view class="status">
-    <text class="status-main">步数 {{moves}} / 最少 {{minMoves}}</text>
-    <text class="status-tip">{{win ? '完成！' : (selected === -1 ? '点一根柱子拿起圆盘' : '再点一根柱子放下')}}</text>
+  <view class="status-line">
+    <text class="status-strong">步数 {{moves}} / 最少 {{minMoves}}</text>
+    <text>{{win ? '完成！' : (selected === -1 ? '点柱子拿起圆盘' : '再点柱子放下')}}</text>
   </view>
 
   <view class="board">
-    <view wx:for="{{pegs}}" wx:key="label" wx:for-item="p" wx:for-index="pi" class="peg {{selected === pi ? 'active' : ''}}" data-index="{{pi}}" bindtap="tapPeg">
+    <view wx:for="{{pegs}}" wx:key="label" wx:for-item="p" wx:for-index="pi" class="peg {{selected === pi ? 'active' : ''}}" data-index="{{pi}}" bindtap="tapPeg" hover-class="press">
       <view class="rod"></view>
       <view class="disks">
         <view wx:for="{{p.disks}}" wx:key="size" wx:for-item="d" class="disk" style="width: {{d.width}}rpx; background: {{d.size % 2 === 0 ? '#7c6cf0' : '#b49cff'}};">{{d.size}}</view>
@@ -25,14 +31,14 @@
     </view>
   </view>
 
-  <view class="actions">
+  <view class="actions-row">
     <view class="btn-primary" bindtap="showHint">提示下一步</view>
     <view class="btn-ghost" bindtap="reset">重来</view>
   </view>
 
-  <view wx:if="{{hint}}" class="hint">{{hint}}</view>
+  <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <view class="rule">
+  <view class="rule-box">
     <view class="rule-title">数学解释</view>
     <view class="rule-text">T(n) = 2 × T(n−1) + 1，T(1) = 1，解得 T(n) = 2ⁿ − 1。每多一层，步数几乎翻倍；这不是手速问题，是指数增长。</view>
   </view>

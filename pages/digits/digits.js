@@ -6,6 +6,7 @@ Page({
     difficulty: 'normal',
     secret: [],
     input: ['', '', '', ''],
+    activeSlot: 0,
     history: [],
     tries: 0,
     status: '输入 4 位数字，看 A/B 反馈',
@@ -29,9 +30,10 @@ Page({
       dateStr,
       secret: digits.dailySecret(dateStr),
       input: ['', '', '', ''],
+      activeSlot: 0,
       history: [],
       tries: 0,
-      status: '每日挑战：同一天所有人同一题',
+      status: '点数字键，输入 4 位数字',
       won: false,
       lost: false,
       hint: ''
@@ -44,6 +46,7 @@ Page({
       difficulty: this.data.difficulty,
       secret: digits.randomSecret(this.data.difficulty),
       input: ['', '', '', ''],
+      activeSlot: 0,
       history: [],
       tries: 0,
       status: '练习模式：随机一题',
@@ -69,7 +72,12 @@ Page({
     if (idx < 0) return;
     const input = this.data.input.slice();
     input[idx] = key;
-    this.setData({ input });
+    this.setInput(input);
+  },
+
+  setInput(input) {
+    const next = input.findIndex((x) => x === '');
+    this.setData({ input, activeSlot: next < 0 ? 3 : next });
   },
 
   backspace() {
@@ -77,7 +85,7 @@ Page({
     for (let i = input.length - 1; i >= 0; i--) {
       if (input[i] !== '') { input[i] = ''; break; }
     }
-    this.setData({ input });
+    this.setInput(input);
   },
 
   submit() {
@@ -93,9 +101,9 @@ Page({
     const tries = history.length;
     let won = score.a === digits.LEN;
     let lost = !won && tries >= digits.MAX_TRIES;
-    let status = won ? '答对了！' : (lost ? '次数用完了' : '继续');
+    let status = won ? '答对了！' : (lost ? '次数用完了' : `第 ${tries} 次：${score.a}A ${score.b}B，继续`);
     const visible = won || lost ? digits.format(this.data.secret) : '';
-    this.setData({ history, tries, won, lost, status, input: ['', '', '', ''], answer: visible, hint: '' });
+    this.setData({ history, tries, won, lost, status, input: ['', '', '', ''], activeSlot: 0, answer: visible, hint: '' });
     getApp().markPlayed('digits');
   },
 

@@ -1,51 +1,31 @@
-.container {
-  min-height: 100vh;
-  padding: 32rpx;
-  background: radial-gradient(circle at 20% 0%, #16233a 0%, #0b0f19 46%, #0b0f19 100%);
-}
-
-.kicker { color: #f0a33a; font-size: 22rpx; letter-spacing: 4rpx; }
-.title { color: #fff; font-size: 52rpx; font-weight: 800; margin-top: 12rpx; }
-.subtitle { color: #8d9ab3; font-size: 25rpx; line-height: 1.7; margin-top: 14rpx; }
-
-.mode-row { display: flex; gap: 14rpx; margin-top: 24rpx; }
-.mode {
-  flex: 1; text-align: center; padding: 18rpx; border-radius: 16rpx;
-  background: #111827; border: 1rpx solid #22304a; color: #93a4bd; font-size: 24rpx;
-}
-.mode.active { background: #2a1f12; border-color: #f0a33a; color: #f0a33a; font-weight: 700; }
-
-.status-row { display: flex; align-items: center; justify-content: space-between; margin-top: 26rpx; }
-.turn { color: #fff; font-size: 30rpx; font-weight: 700; }
-.last { color: #7e8aa3; font-size: 21rpx; }
+@import "../../styles/game.wxss";
 
 .pile {
-  background: #111827; border: 1rpx solid #22304a; border-radius: 22rpx;
-  padding: 22rpx; margin-top: 18rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+  border-radius: 18rpx;
+  padding: 16rpx;
+  margin-top: 12rpx;
 }
+
 .pile-head { display: flex; justify-content: space-between; align-items: center; }
-.pile-label { color: #93a4bd; font-size: 24rpx; }
-.pile-count { color: #f0a33a; font-size: 36rpx; font-weight: 800; }
-.stones { display: flex; flex-wrap: wrap; gap: 8rpx; min-height: 44rpx; margin-top: 16rpx; align-items: center; }
-.stone { width: 30rpx; height: 30rpx; border-radius: 50%; background: #f0a33a; }
-.empty { color: #4b5a70; font-size: 24rpx; }
+.pile-label { color: #93a4bd; font-size: 22rpx; }
+.pile-count { color: #f0a33a; font-size: 34rpx; font-weight: 800; font-family: Consolas, monospace; }
 
-.take-row { display: flex; flex-wrap: wrap; gap: 10rpx; margin-top: 16rpx; }
+.stones { display: flex; flex-wrap: wrap; gap: 8rpx; min-height: 36rpx; margin-top: 12rpx; align-items: center; }
+.stone { width: 28rpx; height: 28rpx; border-radius: 50%; background: #f0a33a; box-shadow: 0 0 8rpx rgba(240, 163, 58, .25); }
+.empty { color: #4b5a70; font-size: 22rpx; }
+
+.take-row { display: flex; flex-wrap: wrap; gap: 8rpx; margin-top: 12rpx; }
 .take {
-  background: #182235; border: 1rpx solid #2a3a56; color: #d7e0f0;
-  border-radius: 12rpx; padding: 12rpx 18rpx; font-size: 23rpx;
+  min-width: 74rpx;
+  min-height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  background: #182235;
+  border: 1rpx solid #2a3a56;
+  color: #d7e0f0;
+  font-size: 22rpx;
 }
-
-.actions { display: flex; gap: 16rpx; margin-top: 26rpx; }
-.actions .btn-primary, .actions .btn-ghost { flex: 1; }
-
-.hint {
-  margin-top: 22rpx; padding: 20rpx; border-radius: 16rpx;
-  background: #0f172a; border: 1rpx solid #24344e;
-  color: #c7d2e5; font-family: Consolas, Menlo, monospace;
-  font-size: 23rpx; line-height: 1.8; white-space: pre-line;
-}
-
-.rule { margin-top: 28rpx; padding: 24rpx; background: #111827; border-radius: 20rpx; border: 1rpx solid #22304a; }
-.rule-title { color: #f0a33a; font-size: 26rpx; font-weight: 700; }
-.rule-text { color: #8d9ab3; font-size: 24rpx; line-height: 1.8; margin-top: 10rpx; }

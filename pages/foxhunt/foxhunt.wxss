@@ -1,17 +1,29 @@
-.status { margin-top: 24rpx; color: #d7e0f0; font-size: 25rpx; }
-.nodes { display: flex; flex-wrap: wrap; gap: 18rpx; justify-content: center; margin-top: 28rpx; }
-.node {
-  width: 190rpx; height: 190rpx; border-radius: 50%; background: #111827; border: 2rpx solid #2a3a56;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+@import "../../styles/game.wxss";
+
+.nodes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14rpx;
+  justify-items: center;
+  margin-top: 16rpx;
 }
-.node.fox { border-color: #f0a33a; background: #2a1f12; }
+
+.node {
+  width: 100%;
+  max-width: 190rpx;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #111827;
+  border: 2rpx solid #2a3a56;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rpx;
+}
+
+.node.fox { border-color: #f0a33a; background: #2a1f12; box-shadow: 0 0 0 2rpx rgba(240, 163, 58, .16) inset; }
 .node.den { border-color: #5bd9be; }
-.node.blocked { opacity: .55; border-color: #66748b; }
-.node-icon { font-size: 52rpx; }
-.node-num { color: #7e8aa3; font-size: 22rpx; margin-top: 4rpx; }
-.actions { display: flex; gap: 16rpx; margin-top: 24rpx; }
-.actions .btn-primary, .actions .btn-ghost { flex: 1; }
-.hint { margin-top: 20rpx; padding: 18rpx; border-radius: 14rpx; background: rgba(96,165,250,.08); border-left: 4rpx solid #60a5fa; color: #c7d2e5; font-size: 24rpx; line-height: 1.7; }
-.rule { margin-top: 26rpx; padding: 24rpx; background: #111827; border: 1rpx solid #22304a; border-radius: 20rpx; }
-.rule-title { color: #f0a33a; font-size: 26rpx; font-weight: 700; }
-.rule-text { color: #8d9ab3; font-size: 24rpx; line-height: 1.8; margin-top: 10rpx; }
+.node.blocked { opacity: .62; border-color: #66748b; }
+.node-icon { font-size: 46rpx; line-height: 1; }
+.node-num { color: #7e8aa3; font-size: 20rpx; }
