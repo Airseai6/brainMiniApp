@@ -3,9 +3,18 @@ const games = require('../../data/games');
 Page({
   data: {
     games,
+    replayGames: [],
+    classicGames: [],
     streak: 0,
     playedCount: 0,
     today: ''
+  },
+
+  onLoad() {
+    this.setData({
+      replayGames: games.filter((g) => g.replayable),
+      classicGames: games.filter((g) => !g.replayable)
+    });
   },
 
   onShow() {
@@ -20,16 +29,12 @@ Page({
     });
   },
 
-  openDaily() {
-    wx.navigateTo({ url: '/pages/daily/daily' });
-  },
-
-  openPractice() {
-    wx.navigateTo({ url: '/pages/practice/practice' });
-  },
+  openDaily() { wx.navigateTo({ url: '/pages/daily/daily' }); },
+  openPractice() { wx.navigateTo({ url: '/pages/practice/practice' }); },
 
   openRandom() {
-    const g = games[Math.floor(Math.random() * games.length)];
+    const pool = this.data.replayGames.length ? this.data.replayGames : games;
+    const g = pool[Math.floor(Math.random() * pool.length)];
     wx.navigateTo({ url: `/pages/${g.page}/${g.page}` });
   },
 
@@ -44,13 +49,13 @@ Page({
     }
     wx.showModal({
       title: game.name,
-      content: '这个关卡的原生版还在移植中。先玩「每日一题」「最后一颗」「汉诺塔」吧。',
+      content: '这个关卡还在移植中。',
       showCancel: false,
       confirmText: '知道了'
     });
   },
 
   onShareAppMessage() {
-    return { title: '每天 3 分钟，做一个高能思维小题', path: '/pages/index/index' };
+    return { title: '每天 3 分钟，打一局高能思维关卡', path: '/pages/index/index' };
   }
 });

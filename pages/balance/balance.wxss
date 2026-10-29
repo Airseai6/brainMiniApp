@@ -1,0 +1,33 @@
+@import "../../styles/game.wxss";
+
+.coins { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8rpx; margin-top: 12rpx; }
+.coin {
+  min-height: 78rpx;
+  border-radius: 12rpx;
+  background: #111827;
+  border: 1rpx solid #2a3a56;
+  color: #e8edf7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rpx;
+  font-family: Consolas, monospace;
+  font-size: 24rpx;
+}
+.coin.left { border-color: #f0a33a; background: #2a1f12; color: #f0a33a; }
+.coin.right { border-color: #b79cff; background: #1d1830; color: #c4b5fd; }
+.coin-tag { font-size: 16rpx; font-family: inherit; color: #7e8aa3; }
+.coin.left .coin-tag, .coin.right .coin-tag { color: inherit; }
+
+.pans { display: grid; grid-template-columns: 1fr 1fr; gap: 10rpx; margin-top: 12rpx; }
+.pan { background: #0d1420; border: 1rpx solid #1f2d42; border-radius: 12rpx; padding: 10rpx 12rpx; min-height: 80rpx; }
+.pan-title { color: #7e8aa3; font-size: 18rpx; margin-bottom: 4rpx; }
+.pan-list { color: #c7d2e5; font-size: 21rpx; line-height: 1.5; word-break: break-all; }
+
+.history { margin-top: 12rpx; color: #93a4bd; font-size: 21rpx; line-height: 1.8; }
+.history-line { display: flex; justify-content: space-between; gap: 12rpx; }
+.history-line b { color: #f0a33a; font-weight: 600; }
+
+.guess-grid { display: flex; flex-wrap: wrap; gap: 8rpx; margin-top: 10rpx; }
+.guess-btn { min-height: 62rpx; padding: 0 12rpx; border-radius: 10rpx; background: #182235; border: 1rpx solid #2a3a56; color: #e8edf7; font-size: 21rpx; display: flex; align-items: center; }

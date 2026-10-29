@@ -1,11 +1,11 @@
 <view class="container">
   <view class="kicker">BRAIN GYM · 每天 3 分钟</view>
-  <view class="title">每天 3 分钟，<text style="color:#f0a33a;">练一下直觉</text></view>
-  <view class="subtitle">每一关都是同一个套路：你以为很简单 → 你试了 → 你输了 → 你明白为什么。不是考知识，是拆掉一个你以为对的直觉。</view>
+  <view class="title">每天 3 分钟，<text style="color:#f0a33a;">打一局高能</text></view>
+  <view class="subtitle">有的关卡可以一直玩，有的想明白一次就够。先选能反复玩的，再玩经典解谜。</view>
 
   <view class="stats">
     <view class="stat"><text class="stat-num">{{streak}}</text><text class="stat-label">连续天数</text></view>
-    <view class="stat"><text class="stat-num">{{playedCount}}/9</text><text class="stat-label">玩过关卡</text></view>
+    <view class="stat"><text class="stat-num">{{playedCount}}/{{games.length}}</text><text class="stat-label">玩过关卡</text></view>
     <view class="stat"><text class="stat-num">3</text><text class="stat-label">分钟一局</text></view>
   </view>
 
@@ -21,39 +21,51 @@
       <text class="quick-emoji">📅</text>
       <view class="quick-main">
         <text class="quick-title">每日一练</text>
-        <text class="quick-desc">今天 3 个小关卡</text>
+        <text class="quick-desc">今天 3 个可重复玩的关卡</text>
       </view>
     </view>
     <view class="quick" bindtap="openRandom">
       <text class="quick-emoji">🎲</text>
       <view class="quick-main">
         <text class="quick-title">随机体验</text>
-        <text class="quick-desc">随机抽一个关卡</text>
+        <text class="quick-desc">只从可重复玩的关卡里抽</text>
       </view>
     </view>
   </view>
 
   <view class="section-head">
-    <text class="section-title">9 个思维关卡</text>
-    <text class="section-sub">点进去就能玩</text>
+    <text class="section-title">一直能玩 · {{replayGames.length}}</text>
+    <text class="section-sub">每局答案/牌面都变化</text>
   </view>
-
   <view class="grid">
-    <view wx:for="{{games}}" wx:key="key" class="game-card" data-key="{{item.key}}" bindtap="openGame">
+    <view wx:for="{{replayGames}}" wx:key="key" class="game-card" data-key="{{item.key}}" bindtap="openGame">
       <view class="game-top">
         <text class="game-emoji">{{item.emoji}}</text>
         <text class="game-tag">{{item.tag}}</text>
       </view>
       <view class="game-name">{{item.name}}</view>
       <view class="game-desc">{{item.desc}}</view>
-      <view class="game-foot">
-        <text wx:if="{{item.native}}" class="native">原生可玩</text>
-        <text wx:else class="external">原生版移植中</text>
+      <view class="game-foot"><text class="native">可重复</text></view>
+    </view>
+  </view>
+
+  <view class="section-head classic-head">
+    <text class="section-title">经典解谜 · 玩一次就懂 · {{classicGames.length}}</text>
+    <text class="section-sub">想明白就通关，单独放</text>
+  </view>
+  <view class="grid">
+    <view wx:for="{{classicGames}}" wx:key="key" class="game-card classic" data-key="{{item.key}}" bindtap="openGame">
+      <view class="game-top">
+        <text class="game-emoji">{{item.emoji}}</text>
+        <text class="game-tag">{{item.tag}}</text>
       </view>
+      <view class="game-name">{{item.name}}</view>
+      <view class="game-desc">{{item.desc}}</view>
+      <view class="game-foot"><text class="classic-badge">一次性解谜</text></view>
     </view>
   </view>
 
   <view class="footer">
-    <text>不刷题，不排名，不用注册。\n关卡是入口，想明白才是目的。</text>
+    <text>不刷题，不排名，不用注册。\n日常随机只抽能反复玩的关卡。</text>
   </view>
 </view>

@@ -25,12 +25,12 @@
 
   <view class="game-panel">
     <view class="panel-label">
-      <text wx:if="{{!won && !lost}}">第 {{tries + 1}} 次猜测</text>
+      <text wx:if="{{!won && !lost}}">第 {{tries + 1}} 次猜测 · 点任意格可修改</text>
       <text wx:else>本局结束</text>
       <text>{{input[0]}}{{input[1]}}{{input[2]}}{{input[3]}}</text>
     </view>
     <view class="slot-row">
-      <view class="slot {{item !== '' ? 'filled' : ''}} {{(!won && !lost) && index === activeSlot ? 'active' : ''}}" wx:for="{{input}}" wx:key="index">
+      <view class="slot {{item !== '' ? 'filled' : ''}} {{(!won && !lost) && index === activeSlot ? 'active' : ''}}" wx:for="{{input}}" wx:key="index" data-index="{{index}}" bindtap="selectSlot" hover-class="press">
         <text class="slot-index">{{index + 1}}</text>
         <text>{{item}}</text>
       </view>

@@ -68,24 +68,42 @@ Page({
     const key = e.currentTarget.dataset.key;
     if (key === '提交') { this.submit(); return; }
     if (key === '←') { this.backspace(); return; }
-    const idx = this.data.input.findIndex((x) => x === '');
-    if (idx < 0) return;
+    const idx = this.data.activeSlot;
     const input = this.data.input.slice();
     input[idx] = key;
-    this.setInput(input);
+    this.setInput(input, this.nextNextSlot(input, idx));
   },
 
-  setInput(input) {
-    const next = input.findIndex((x) => x === '');
-    this.setData({ input, activeSlot: next < 0 ? 3 : next });
+  selectSlot(e) {
+    if (this.data.won || this.data.lost) return;
+    const idx = Number(e.currentTarget.dataset.index);
+    if (idx >= 0 && idx < 4) this.setData({ activeSlot: idx });
+  },
+
+  nextNextSlot(input, from) {
+    for (let step = 1; step <= 4; step++) {
+      const i = (from + step) % 4;
+      if (input[i] === '') return i;
+    }
+    return (from + 1) % 4;
+  },
+
+  setInput(input, activeSlot) {
+    this.setData({ input, activeSlot: activeSlot == null ? 0 : activeSlot });
   },
 
   backspace() {
     const input = this.data.input.slice();
-    for (let i = input.length - 1; i >= 0; i--) {
-      if (input[i] !== '') { input[i] = ''; break; }
+    let idx = this.data.activeSlot;
+    if (input[idx] !== '') {
+      input[idx] = '';
+      this.setInput(input, idx);
+      return;
     }
-    this.setInput(input);
+    for (let i = idx - 1; i >= 0; i--) {
+      if (input[i] !== '') { input[i] = ''; this.setInput(input, i); return; }
+    }
+    this.setInput(input, idx);
   },
 
   submit() {

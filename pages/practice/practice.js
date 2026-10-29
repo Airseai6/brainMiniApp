@@ -16,7 +16,8 @@ Page({
 
   build() {
     const dateStr = practice.todayKey(new Date());
-    const keys = practice.dailyKeys(games.map((g) => g.key), dateStr, 3);
+    const replay = games.filter((g) => g.replayable);
+    const keys = practice.dailyKeys(replay.map((g) => g.key), dateStr, 3);
     const items = keys.map((key) => {
       const g = games.find((x) => x.key === key);
       return { key, page: g.page, name: g.name, emoji: g.emoji, tag: g.tag, done: false };
@@ -41,7 +42,8 @@ Page({
   },
 
   openRandom() {
-    const key = practice.randomKey(games.map((g) => g.key));
+    const replay = games.filter((g) => g.replayable);
+    const key = practice.randomKey(replay.map((g) => g.key));
     const g = games.find((x) => x.key === key);
     this.setData({ randomName: g.name });
     wx.navigateTo({ url: `/pages/${g.page}/${g.page}` });

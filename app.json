@@ -12,6 +12,11 @@
     "pages/river/river",
     "pages/foxhunt/foxhunt",
     "pages/fusion/fusion",
+    "pages/balance/balance",
+    "pages/sudoku/sudoku",
+    "pages/nonogram/nonogram",
+    "pages/euler/euler",
+    "pages/monty/monty",
     "pages/about/about"
   ],
   "window": {

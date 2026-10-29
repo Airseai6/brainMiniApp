@@ -1,0 +1,59 @@
+<view class="container game-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 10</text>
+    <text class="title-badge">信息论</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">天平称币</text>
+    <text class="title-badge">3 次</text>
+  </view>
+  <view class="game-lead">12 枚金币里 1 枚假币，可能偏重也可能偏轻。只称 3 次，把 24 种可能压到 1 种。</view>
+
+  <view class="status-line">
+    <text class="status-strong">第 {{weighCount + 1}} / 3 次称重</text>
+    <text class="mono">剩余可能 {{candidateCount}}</text>
+  </view>
+
+  <view class="game-panel">
+    <view class="coins">
+      <view class="coin {{selected[item] || ''}}" wx:for="{{coins}}" wx:key="*this" data-coin="{{item}}" bindtap="tapCoin" hover-class="press">
+        <text>{{item}}</text><text class="coin-tag">{{selected[item] === 'left' ? '左' : selected[item] === 'right' ? '右' : '选'}}</text>
+      </view>
+    </view>
+    <view class="pans">
+      <view class="pan"><view class="pan-title">左盘</view><view class="pan-list">{{leftText || '空'}}</view></view>
+      <view class="pan"><view class="pan-title">右盘</view><view class="pan-list">{{rightText || '空'}}</view></view>
+    </view>
+    <view class="actions-row">
+      <view class="btn-primary" bindtap="weigh">称一次</view>
+      <view class="btn-ghost" bindtap="clearSelection">清空</view>
+    </view>
+    <view class="history" wx:if="{{history.length}}">
+      <view class="history-line" wx:for="{{history}}" wx:key="index">
+        <text>左 {{item.leftText}} / 右 {{item.rightText}}</text>
+        <b>{{item.outcomeText}}</b>
+      </view>
+    </view>
+  </view>
+
+  <view class="hint-box" wx:if="{{hint}}">{{hint}}</view>
+
+  <view class="game-panel" wx:if="{{phase === 'guess'}}">
+    <view class="status-line"><text class="status-strong">做最后判断</text><text class="mono">{{candidateCount}} 种可能</text></view>
+    <view class="guess-grid">
+      <view class="guess-btn" wx:for="{{candidates}}" wx:key="index" data-index="{{index}}" bindtap="guess">{{item.coin}} 号{{item.heavy ? '偏重' : '偏轻'}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{phase === 'done'}}" class="hint-box">{{won ? '锁定成功！' : '判断错了。'}} 假币是 {{secret.coin}} 号，{{secret.heavy ? '偏重' : '偏轻'}}。</view>
+
+  <view class="actions-row">
+    <view class="btn-ghost" bindtap="showHint">提示</view>
+    <view class="btn-ghost" bindtap="reset">重新开始</view>
+  </view>
+
+  <view class="rule-box">
+    <view class="rule-title">为什么 3 次能锁定</view>
+    <view class="rule-text">每次天平有左重/右重/平衡 3 种结果，3 次最多区分 3³ = 27 种，而 12 枚 × 重/轻 = 24 种，刚好装得下。</view>
+  </view>
+</view>

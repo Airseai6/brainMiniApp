@@ -16,4 +16,4 @@ jobs:
       - name: Check no full WeChat AppID is committed
         run: node scripts/check-no-full-appid.mjs
       - name: Run logic and wording tests
-        run: node --test tests/logic.test.mjs tests/games.test.mjs tests/practice.test.mjs tests/wording.test.mjs
+        run: node --test tests/logic.test.mjs tests/games.test.mjs tests/new-games.test.mjs tests/practice.test.mjs tests/wording.test.mjs

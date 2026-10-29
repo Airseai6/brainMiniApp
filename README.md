@@ -1,34 +1,45 @@
 # 大脑保健操 · 微信小程序
 
-一个「每天 3 分钟，玩一个高能数学小关卡」的微信小程序。
+一个「每天 3 分钟，打一局高能思维关卡」的微信小程序。
 
 原生小程序，不套 H5，不依赖服务器，不采集用户个人信息。
 
 ## 关卡
 
-- 抓狐狸：路径图上有必胜策略，环上未必
-- 数字侦探：4 位数字、6 次机会、A/B 反馈
-- 最后一颗：Nim，普通 / 取最后者输
-- 汉诺塔：3–6 层，BFS 提示
-- 十五数码：可解性、滑动、曼哈顿距离
-- 24点：分数四则、两两合并
-- 过河：狼、羊、菜
-- 围堵狐狸：图论围堵
-- 聚变堆叠：2048 式核素合并
+一直能玩（进入每日一练 / 随机体验）：
+
+- 数字侦探：4 位数字、6 次机会、A/B 反馈，每局答案不同
+- 24点：随机手牌，只出有解
+- 最后一颗：Nim 对 AI，可换策略重来
+- 迷你数独：4×4 唯一解新题
+- 聚变堆叠：2048 式随机棋盘
+
+经典解谜（单独展示，想明白一次就够）：
+
+- 抓狐狸
+- 汉诺塔
+- 十五数码
+- 过河
+- 围堵狐狸
+- 天平称币
+- 数织
+- 一笔画
+- 三门问题
 
 另有：
 
 - 每日一题
-- 每日一练：每天 3 个关卡
-- 随机体验
+- 每日一练：每天 3 个可重复玩的关卡
+- 随机体验：只从可重复玩的关卡里抽
 
 ## 目录
 
 ```
 app.js / app.json / app.wxss
-data/games.js              关卡数据
+styles/game.wxss           游戏页共用样式
+data/games.js              关卡数据 + 可重复标记
 utils/                     纯逻辑（页面与测试共用）
-pages/                     首页、每日一题、每日一练、9 个关卡
+pages/                     首页、每日一题、每日一练、14 个关卡
 tests/                     Node 测试
 .github/workflows/         CI / Release
 ```
@@ -43,10 +54,10 @@ tests/                     Node 测试
 ## 测试
 
 ```powershell
-node --test tests/logic.test.mjs tests/games.test.mjs tests/practice.test.mjs tests/wording.test.mjs
+node --test tests/logic.test.mjs tests/games.test.mjs tests/new-games.test.mjs tests/practice.test.mjs tests/wording.test.mjs
 ```
 
-当前 23 项测试：逻辑、结构、练习与审核词汇。
+当前 28 项测试：逻辑、结构、练习与审核词汇。
 
 ## 设计约束
 

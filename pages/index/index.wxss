@@ -180,6 +180,17 @@
   font-size: 20rpx;
 }
 
+.classic-head { margin-top: 44rpx; }
+.game-card.classic { border-color: #2a2a44; background: #101522; }
+.classic-badge {
+  color: #b79cff;
+  font-size: 19rpx;
+  border: 1rpx solid rgba(183, 156, 255, .4);
+  border-radius: 20rpx;
+  padding: 4rpx 10rpx;
+  background: rgba(183, 156, 255, .08);
+}
+
 .external {
   color: #93a4bd;
   font-size: 20rpx;

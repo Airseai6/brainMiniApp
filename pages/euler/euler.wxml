@@ -1,0 +1,38 @@
+<view class="container game-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 13</text>
+    <text class="title-badge">图论</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">一笔画</text>
+    <text class="title-badge">七桥突围</text>
+  </view>
+  <view class="game-lead">每条边只走一次，能不能把所有边一次走完？先数每个点连了几条边。</view>
+
+  <view class="seg-row">
+    <view class="seg warm {{level.id === 'ring' ? 'active' : ''}}" data-id="ring" bindtap="setLevel">折线环</view>
+    <view class="seg warm {{level.id === 'bridges' ? 'active' : ''}}" data-id="bridges" bindtap="setLevel">七桥</view>
+  </view>
+
+  <view class="status-line">
+    <text class="status-strong">{{status}}</text>
+    <text class="mono">已走 {{usedCount}}/{{edgeCount}}</text>
+  </view>
+
+  <view class="graph">
+    <view class="edge {{item.used ? 'used' : ''}}" wx:for="{{edges}}" wx:key="index" style="{{item.style}}" data-index="{{index}}" bindtap="tapEdge" hover-class="press"></view>
+    <view class="node {{item.current ? 'current' : ''}} {{item.start ? 'start' : ''}}" wx:for="{{nodes}}" wx:key="id" style="{{item.style}}" data-index="{{index}}" bindtap="tapNode" hover-class="press">{{item.label}}</view>
+  </view>
+
+  <view class="actions-row">
+    <view class="btn-ghost" bindtap="validate">检查欧拉条件</view>
+    <view class="btn-ghost" bindtap="undo">撤销</view>
+    <view class="btn-ghost" bindtap="reset">重来</view>
+  </view>
+  <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
+
+  <view class="rule-box">
+    <view class="rule-title">欧拉路径判定</view>
+    <view class="rule-text">奇度点有 0 个或 2 个，才可能一笔画走完；超过 2 个，无论怎么试都走不通。柯尼斯堡七桥有四个奇度点。</view>
+  </view>
+</view>

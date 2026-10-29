@@ -1,0 +1,39 @@
+<view class="container game-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 12</text>
+    <text class="title-badge">5×5</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">数织</text>
+    <text class="title-badge">图像推理</text>
+  </view>
+  <view class="game-lead">行和列旁边的数字，表示这一行/列连续涂色的段长。把隐藏图案推出来。</view>
+
+  <view class="status-line">
+    <text class="status-strong">{{status}}</text>
+    <text class="mono">{{puzzleName}}</text>
+  </view>
+
+  <view class="nono">
+    <view class="top-clues">
+      <view class="corner"></view>
+      <view class="col-clue" wx:for="{{colClues}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="row-line" wx:for="{{rows}}" wx:key="index" wx:for-index="ri">
+      <view class="row-clue">{{item.clue}}</view>
+      <view class="cell {{cell.on ? 'on' : ''}} {{cell.hint ? 'hint' : ''}}" wx:for="{{item.cells}}" wx:for-item="cell" wx:for-index="ci" wx:key="ci" data-r="{{ri}}" data-c="{{ci}}" bindtap="tapCell" hover-class="press"></view>
+    </view>
+  </view>
+
+  <view class="actions-row">
+    <view class="btn-ghost" bindtap="showHint">提示一格</view>
+    <view class="btn-ghost" bindtap="reset">重来</view>
+    <view class="btn-primary" bindtap="newGame">换一幅</view>
+  </view>
+  <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
+
+  <view class="rule-box">
+    <view class="rule-title">数织怎么推</view>
+    <view class="rule-text">一行 5 格，线索「3」表示三个连续涂色；「1 2」表示先一个、空至少一格、再两个。先找最长段。</view>
+  </view>
+</view>

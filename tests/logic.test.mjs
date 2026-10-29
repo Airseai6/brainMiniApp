@@ -12,13 +12,15 @@ const games = require('../data/games.js');
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
-test('game list has 9 entries and valid native flags', () => {
-  assert.equal(games.length, 9);
+test('game list has 14 entries and valid native flags', () => {
+  assert.equal(games.length, 14);
   const keys = new Set(games.map(g => g.key));
-  assert.equal(keys.size, 9);
+  assert.equal(keys.size, 14);
   assert.ok(games.some(g => g.key === 'nim' && g.native));
   assert.ok(games.some(g => g.key === 'hanoi' && g.native));
   assert.ok(games.some(g => g.key === 'fusion-stack'));
+  assert.ok(games.some(g => g.key === 'sudoku' && g.replayable));
+  assert.ok(games.some(g => g.key === 'hanoi' && !g.replayable));
 });
 
 test('nim: normal mode 3/4/5 is winning for the first player', () => {

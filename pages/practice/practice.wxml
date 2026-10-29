@@ -1,7 +1,7 @@
 <view class="container">
   <view class="kicker">DAILY · {{dateStr}}</view>
   <view class="title">每日一练</view>
-  <view class="subtitle">每天 3 个小关卡，按当天日期固定；不排名，不刷题。完成一个算一个。</view>
+  <view class="subtitle">每天 3 个可重复玩的关卡，按当天日期固定；不排名，不刷题。完成一个算一个。</view>
 
   <view class="progress">
     <text class="progress-num">{{doneCount}}/{{items.length}}</text>
@@ -21,7 +21,7 @@
 
   <view class="random-card" bindtap="openRandom">
     <view class="random-title">随机体验</view>
-    <view class="random-desc">不想按顺序？随机抽一个关卡，玩完就走。</view>
+    <view class="random-desc">不想按顺序？从可重复玩的关卡里随机抽一个。</view>
     <view class="random-btn">随机一关 →</view>
   </view>
 

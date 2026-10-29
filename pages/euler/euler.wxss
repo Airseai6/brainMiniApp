@@ -1,0 +1,51 @@
+@import "../../styles/game.wxss";
+
+.graph {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 680 / 380;
+  margin-top: 12rpx;
+  background: #0d1420;
+  border: 1rpx solid #22304a;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.edge {
+  position: absolute;
+  height: 30rpx;
+  transform-origin: 0 50%;
+  margin-top: -15rpx;
+}
+.edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 11rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  background: #3a4757;
+}
+.edge.used::after { background: #5bd9be; opacity: .65; }
+.edge.hot::after { background: #f0a33a; }
+
+.node {
+  position: absolute;
+  width: 68rpx;
+  height: 68rpx;
+  margin-left: -34rpx;
+  margin-top: -34rpx;
+  border-radius: 50%;
+  background: #141a22;
+  border: 3rpx solid #5a6b80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e8edf4;
+  font-size: 20rpx;
+  font-weight: 700;
+  font-family: Consolas, monospace;
+}
+.node.current { background: #f0a33a; border-color: #ffd08a; color: #111827; }
+.node.start { border-color: #5bd9be; }
