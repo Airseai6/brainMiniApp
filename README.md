@@ -19,6 +19,7 @@
 - 迷你数独：4×4 / 6×6 唯一解新题
 - 点灯：4×4 / 5×5 可解棋盘，点一格翻转十字
 - 倒水：三个壶量出目标水量，BFS 最短路
+- 骰子对决：三颗非传递骰子，5 局比大小
 - 聚变堆叠：2048 式随机棋盘
 
 经典解谜（单独展示）：
@@ -27,11 +28,9 @@
 - 汉诺塔
 - 十五数码
 - 过河：狼·羊·菜 + 传教士·野人两关
-- 围堵狐狸
 - 天平称币
 - 数织
 - 一笔画
-- 三门问题
 
 另有：
 
@@ -46,7 +45,7 @@ app.js / app.json / app.wxss
 styles/game.wxss           游戏页共用样式
 data/games.js              关卡数据 + 可重复标记
 utils/                     纯逻辑（页面与测试共用）
-pages/                     首页、每日一题、每日一练、17 个关卡
+pages/                     首页、每日一题、每日一练、16 个关卡
 tests/                     Node 测试
 .github/workflows/         CI / Release
 ```
@@ -64,7 +63,7 @@ tests/                     Node 测试
 node --test tests/logic.test.mjs tests/games.test.mjs tests/new-games.test.mjs tests/practice.test.mjs tests/wording.test.mjs
 ```
 
-当前 35 项测试：逻辑、结构、练习、每日题库与审核词汇。
+当前 34 项测试：逻辑、结构、练习、每日题库与审核词汇。
 
 每日一题题库按日期轮换，同一天全站同一题。
 

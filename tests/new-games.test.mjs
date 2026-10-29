@@ -6,7 +6,6 @@ const balance = require('../utils/balance.js');
 const sudoku = require('../utils/sudoku.js');
 const nono = require('../utils/nonogram.js');
 const euler = require('../utils/euler.js');
-const monty = require('../utils/monty.js');
 const fox = require('../utils/fox.js');
 const mc = require('../utils/river-mc.js');
 const mathler = require('../utils/mathler.js');
@@ -14,6 +13,7 @@ const sudoku6 = require('../utils/sudoku6.js');
 const lightsout = require('../utils/lightsout.js');
 const water = require('../utils/water.js');
 const random = require('../utils/random.js');
+const dice = require('../utils/diceduel.js');
 
 test('balance: candidate filtering and guess', () => {
   assert.equal(balance.initialCandidates().length, 24);
@@ -49,13 +49,6 @@ test('euler: ring has path, seven bridges does not', () => {
   assert.equal(euler.oddNodes(bridges).length, 4);
 });
 
-test('monty: switch rate near two thirds', () => {
-  const r = monty.simulate(4000);
-  assert.ok(r.switchRate > 0.62 && r.switchRate < 0.72);
-  const s = monty.choose(monty.newRound(), 0);
-  assert.equal(s.phase, 'decide');
-  assert.ok(s.opened !== s.car && s.opened !== s.picked);
-});
 
 test('fox: possible set updates and is exposed for ghost fox', () => {
   let s = fox.newGame(1, 0);
@@ -126,4 +119,18 @@ test('water: fill/pour/empty and BFS solution', () => {
   const p = water.dailyPuzzle(new Date(2026, 9, 29));
   assert.ok(p.caps.length === 3 && p.target > 0);
   assert.ok(water.solve(p.caps, p.target).length > 0);
+});
+
+test('dice duel: non-transitive cycle and round flow', () => {
+  const A = dice.DICE.find((d) => d.id === 'A');
+  const B = dice.DICE.find((d) => d.id === 'B');
+  const C = dice.DICE.find((d) => d.id === 'C');
+  assert.ok(dice.winProbability(A, B) > 0.5);
+  assert.ok(dice.winProbability(B, C) > 0.5);
+  assert.ok(dice.winProbability(C, A) > 0.5);
+  let m = dice.newMatch();
+  const r = dice.chooseDie(m, 'A');
+  assert.equal(r.ok, true);
+  assert.ok(r.state.playerRoll >= 1 && r.state.aiRoll >= 1);
+  assert.equal(r.state.history.length, 1);
 });

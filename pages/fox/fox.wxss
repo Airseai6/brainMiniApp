@@ -32,7 +32,7 @@
   display: flex;
   gap: 10rpx;
   align-items: center;
-  min-height: 190rpx;
+  min-height: 160rpx;
 }
 
 .fox-stage.path::before {
@@ -47,7 +47,7 @@
 }
 
 .fox-stage.ring {
-  height: 440rpx;
+  height: 360rpx;
 }
 
 .fox-stage.ring::before,
@@ -65,7 +65,7 @@
   position: relative;
   z-index: 1;
   flex: 1;
-  min-height: 150rpx;
+  min-height: 128rpx;
   border-radius: 18rpx;
   background: #111827;
   border: 2rpx solid #2a3a56;
@@ -73,7 +73,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4rpx;
+  gap: 2rpx;
 }
 
 .fox-stage.ring .hole {
@@ -87,11 +87,13 @@
 
 .hole.checked { border-color: #2f7d5b; background: #10231f; }
 .hole.last { border-color: #f0a33a; box-shadow: 0 0 0 2rpx rgba(240, 163, 58, .16) inset; }
+.hole.latest { border-color: #f0a33a; background: #2a1f12; }
 .hole.fox { border-color: #f0a33a; background: #2a1f12; }
 .hole.ghost { border-color: rgba(255, 138, 76, .55); background: rgba(255, 138, 76, .07); }
-.hole-num { color: #e8edf7; font-size: 26rpx; font-weight: 700; font-family: Consolas, monospace; }
+.hole-dot { color: #7e8aa3; font-size: 26rpx; line-height: 1; }
+.hole-num { color: #e8edf7; font-size: 24rpx; font-weight: 700; font-family: Consolas, monospace; }
+.hole-today { color: #f0a33a; font-size: 17rpx; }
 .hole-icon { color: #f0a33a; font-size: 28rpx; line-height: 1; }
-.hole.checked .hole-icon { color: #5bd9be; }
 .hole.fox .hole-icon { font-size: 42rpx; }
 .hole-ghost { font-size: 34rpx; line-height: 1; opacity: .32; }
 
@@ -113,3 +115,64 @@
 .day-meta { display: flex; align-items: center; gap: 12rpx; }
 .progress-track { flex: 1; height: 8rpx; border-radius: 99rpx; background: #1b2638; overflow: hidden; }
 .progress-fill { height: 100%; background: #f0a33a; border-radius: 99rpx; }
+
+.fox-legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 12rpx;
+  margin-top: 8rpx;
+  color: #7e8aa3;
+  font-size: 18rpx;
+}
+
+.fox-legend text { white-space: nowrap; }
+
+.possible-line {
+  margin-top: 8rpx;
+  padding: 10rpx 12rpx;
+  border-radius: 10rpx;
+  background: rgba(91, 217, 190, .07);
+  border: 1rpx solid rgba(91, 217, 190, .18);
+  color: #8fe8d4;
+  font-size: 21rpx;
+  line-height: 1.5;
+}
+
+.fox-log {
+  margin-top: 12rpx;
+  padding: 12rpx;
+  border-radius: 14rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+}
+
+.fox-log-head {
+  display: flex;
+  justify-content: space-between;
+  color: #93a4bd;
+  font-size: 20rpx;
+}
+
+.fox-log-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rpx 10rpx;
+  margin-top: 8rpx;
+}
+
+.fox-log-item {
+  display: flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 6rpx 8rpx;
+  border-radius: 8rpx;
+  background: #0d1420;
+  font-size: 18rpx;
+  color: #c7d2e5;
+}
+
+.log-day { color: #93a4bd; }
+.log-hole { color: #e8edf7; }
+.log-result { margin-left: auto; color: #7e8aa3; }
+.log-result.hit { color: #5bd9be; }
+.fox-log-empty { color: #6b7a91; font-size: 19rpx; margin-top: 8rpx; }

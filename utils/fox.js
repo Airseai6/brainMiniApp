@@ -34,6 +34,7 @@ function newGame(level = 1, forceStart) {
     caught: false,
     lost: false,
     checked: [],
+    history: [],
     possible: Array.from({ length: n }, (_, i) => i)
   };
 }
@@ -41,9 +42,11 @@ function newGame(level = 1, forceStart) {
 function probe(state, check) {
   if (state.caught || state.lost) return state;
   const next = { ...state, checked: state.checked.concat([check]) };
+  const record = { day: state.day, hole: check + 1, result: '空' };
   if (check === state.fox) {
     next.caught = true;
     next.possible = [check];
+    next.history = (state.history || []).concat([{ ...record, result: '抓到' }]);
     return next;
   }
   next.fox = escape(state.fox, check, state.n, state.cyclic);
@@ -52,6 +55,7 @@ function probe(state, check) {
   const nxt = new Set();
   for (const p of after) for (const q of neighbors(p, state.n, state.cyclic)) nxt.add(q);
   next.possible = [...nxt].sort((a, b) => a - b);
+  next.history = (state.history || []).concat([record]);
   next.day = state.day + 1;
   if (next.day > state.maxDay) next.lost = true;
   return next;

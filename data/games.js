@@ -1,4 +1,4 @@
-// 17 个关卡，全部为小程序原生页面。
+// 16 个关卡，全部为小程序原生页面。
 // replayable=true 的进入每日一练/随机体验；false 的单列经典解谜。
 module.exports = [
   {
@@ -72,6 +72,16 @@ module.exports = [
     replayable: true
   },
   {
+    key: 'dice-duel',
+    page: 'diceduel',
+    name: '骰子对决',
+    tag: '概率',
+    emoji: '🎲',
+    desc: '三颗非传递骰子，5 局比大小；每颗都能克制另一颗',
+    native: true,
+    replayable: true
+  },
+  {
     key: 'fusion-stack',
     page: 'fusion',
     name: '聚变堆叠',
@@ -122,16 +132,6 @@ module.exports = [
     replayable: false
   },
   {
-    key: 'fox-hunt',
-    page: 'foxhunt',
-    name: '围堵狐狸',
-    tag: '图论',
-    emoji: '🧭',
-    desc: '封路口找顶点割，逼狐狸无路可走',
-    native: true,
-    replayable: false
-  },
-  {
     key: 'balance',
     page: 'balance',
     name: '天平称币',
@@ -161,16 +161,6 @@ module.exports = [
     native: true,
     replayable: false
   },
-  {
-    key: 'monty',
-    page: 'monty',
-    name: '三门问题',
-    tag: '概率',
-    emoji: '🚪',
-    desc: '换门 67% 的实验，用模拟看概率',
-    native: true,
-    replayable: false
-  }
 ];
 
 

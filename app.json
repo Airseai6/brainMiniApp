@@ -12,15 +12,14 @@
     "pages/twentyfour/twentyfour",
     "pages/river/river",
     "pages/river-mc/river-mc",
-    "pages/foxhunt/foxhunt",
     "pages/fusion/fusion",
     "pages/balance/balance",
     "pages/sudoku/sudoku",
     "pages/lightsout/lightsout",
     "pages/water/water",
+    "pages/diceduel/diceduel",
     "pages/nonogram/nonogram",
     "pages/euler/euler",
-    "pages/monty/monty",
     "pages/about/about"
   ],
   "window": {

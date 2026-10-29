@@ -1,6 +1,6 @@
 <view class="container game-page balance-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 10</text>
+    <text class="game-kicker">思维闯关 · 3 分钟</text>
     <text class="title-badge">信息论</text>
   </view>
   <view class="title-row">

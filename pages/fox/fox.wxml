@@ -1,6 +1,6 @@
 <view class="container game-page">
   <view class="topline">
-    <text class="game-kicker">思维闯关 · 01</text>
+    <text class="game-kicker">思维闯关 · 3 分钟</text>
     <text class="title-badge">{{level === 1 ? '路径 P5' : '环 C5'}}</text>
   </view>
   <view class="title-row">
@@ -9,38 +9,48 @@
   </view>
   <view class="game-lead">每天查一个洞；你查完，狐狸会沿相邻的洞跑掉。路径上有必胜策略，环上却不一定。</view>
 
-  <game-rules text="路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。半透明狐狸是信息论里的“可能位置集合”。" example="路径 P5 先查 **3 号洞**，狐狸只能往两边跑；再查相邻洞，一步步把它逼到**端点**。"></game-rules>
+  <game-rules text="路径是一条链，从一端向另一端扫，总能把狐狸逼到端点；环没有端点，奇偶性不匹配时可能永远差一格。浅色狐狸是“可能位置集合”。" example="路径 P5 先查 **3 号洞**，狐狸只能往两边跑；再查相邻洞，一步步把它逼到**端点**。"></game-rules>
 
   <view class="seg-row">
     <view class="seg warm {{level === 1 ? 'active' : ''}}" data-level="1" bindtap="setLevel">路径 · P5</view>
     <view class="seg warm {{level === 2 ? 'active' : ''}}" data-level="2" bindtap="setLevel">环 · C5</view>
   </view>
 
-  <view class="fox-hero {{caught ? 'caught' : (lost ? 'lost' : '')}}">
-    <text class="fox-emoji">{{caught ? '🎯' : (lost ? '💨' : '🦊')}}</text>
-    <view class="fox-copy">
-      <text class="fox-state">{{caught ? '抓到了！' : (lost ? '狐狸跑了' : '狐狸藏在某个洞里')}}</text>
-      <text class="fox-sub">{{caught ? '这一关的策略走通了。' : (lost ? '天数用完，再试一次。' : (level === 2 ? '环上首尾相连，仔细看位置。' : '浅色狐狸 = 她可能的位置。'))}}</text>
-    </view>
-  </view>
-
   <view class="status-line">
-    <text class="status-strong">第 {{state.day}} / {{state.maxDay}} 天</text>
-    <text class="mono">已查 {{state.checked.length}} 次</text>
-  </view>
-  <view class="progress-track">
-    <view class="progress-fill" style="width: {{state.day * 100 / state.maxDay}}%;"></view>
+    <text class="status-strong">{{caught ? '抓到了' : (lost ? '狐狸跑了' : '第 ' + state.day + ' / ' + state.maxDay + ' 天')}}</text>
+    <text class="mono">已查 {{history.length}} 次</text>
   </view>
 
   <view class="fox-stage {{level === 2 ? 'ring' : 'path'}}">
-    <view class="hole {{item.checked ? 'checked' : ''}} {{item.last ? 'last' : ''}} {{item.fox ? 'fox' : ''}} {{item.ghost ? 'ghost' : ''}}" wx:for="{{holes}}" wx:key="label" data-index="{{index}}" bindtap="check" hover-class="press" style="{{item.style}}">
+    <view class="hole {{item.latest ? 'latest' : ''}} {{item.fox ? 'fox' : ''}} {{item.ghost ? 'ghost' : ''}}" wx:for="{{holes}}" wx:key="label" data-index="{{index}}" bindtap="check" hover-class="press" style="{{item.style}}">
       <text wx:if="{{item.fox}}" class="hole-icon">🦊</text>
       <text wx:elif="{{item.ghost}}" class="hole-ghost">🦊</text>
-      <text wx:elif="{{item.checked}}" class="hole-icon">✓</text>
-      <text wx:else class="hole-icon">·</text>
+      <text wx:else class="hole-dot">{{item.latest ? '●' : '·'}}</text>
       <text class="hole-num">{{item.label}}</text>
+      <text wx:if="{{item.latest}}" class="hole-today">今天</text>
     </view>
     <view wx:if="{{level === 2}}" class="ring-center">1 ↔ 5 相连</view>
+  </view>
+
+  <view class="fox-legend">
+    <text>浅色🦊 = 可能位置</text>
+    <text>琥珀 = 今天查的洞</text>
+  </view>
+  <view class="possible-line">{{possibleText}}</view>
+
+  <view class="fox-log">
+    <view class="fox-log-head">
+      <text>排查记录</text>
+      <text>{{history.length}} / {{state.maxDay}} 天</text>
+    </view>
+    <view class="fox-log-grid" wx:if="{{history.length}}">
+      <view class="fox-log-item" wx:for="{{history}}" wx:key="index">
+        <text class="log-day">第 {{item.day}} 天</text>
+        <text class="log-hole">查 {{item.hole}} 号洞</text>
+        <text class="log-result {{item.result === '抓到' ? 'hit' : ''}}">{{item.result}}</text>
+      </view>
+    </view>
+    <view class="fox-log-empty" wx:else>还没有排查记录，点一个洞开始。</view>
   </view>
 
   <view wx:if="{{caught}}" class="win-banner">
@@ -57,9 +67,6 @@
   </view>
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
-
-  
-
 
   <game-learn concept="图论与奇偶性" summary="路径有端点，环没有；追逃问题先看图的奇偶结构。"></game-learn>
 </view>

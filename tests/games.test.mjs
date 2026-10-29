@@ -8,7 +8,6 @@ const fox = require('../utils/fox.js');
 const fifteen = require('../utils/fifteen.js');
 const tf = require('../utils/twentyfour.js');
 const river = require('../utils/river.js');
-const fh = require('../utils/foxhunt.js');
 const fusion = require('../utils/fusion.js');
 
 test('digits: feedback and validation', () => {
@@ -69,14 +68,6 @@ test('river: known solution wins', () => {
   assert.equal(s.moves, 7);
 });
 
-test('foxhunt: block reduces fox options', () => {
-  let s = fh.newGame();
-  const r = fh.block(s, 4);
-  assert.equal(r.ok, true);
-  s = r.state;
-  assert.equal(s.blocked.length, 1);
-  assert.ok(fh.hint(s).includes('优先封'));
-});
 
 test('fusion: merge and move', () => {
   assert.deepEqual(fusion.mergeLine([1, 1, 0, 0]), [2, 0, 0, 0]);
