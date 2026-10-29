@@ -1,3 +1,5 @@
+@import "../../styles/game.wxss";
+
 .progress { display: flex; align-items: baseline; gap: 12rpx; margin-top: 24rpx; }
 .progress-num { color: #f0a33a; font-size: 46rpx; font-weight: 800; font-family: Consolas, monospace; }
 .progress-label { color: #7e8aa3; font-size: 23rpx; }

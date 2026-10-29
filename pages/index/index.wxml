@@ -1,7 +1,7 @@
 <view class="container">
   <view class="kicker">BRAIN GYM · 每天 3 分钟</view>
   <view class="title">每天 3 分钟，<text style="color:#f0a33a;">打一局高能</text></view>
-  <view class="subtitle">有的关卡可以一直玩，有的想明白一次就够。先选能反复玩的，再玩经典解谜。</view>
+  <view class="subtitle">有的关卡每局新题，有的适合慢慢想。先选能反复玩的，再看经典解谜。</view>
 
   <view class="stats">
     <view class="stat"><text class="stat-num">{{streak}}</text><text class="stat-label">连续天数</text></view>
@@ -50,8 +50,7 @@
   </view>
 
   <view class="section-head classic-head">
-    <text class="section-title">经典解谜 · 玩一次就懂 · {{classicGames.length}}</text>
-    <text class="section-sub">想明白就通关，单独放</text>
+    <text class="section-title">经典解谜 · {{classicGames.length}}</text>
   </view>
   <view class="grid">
     <view wx:for="{{classicGames}}" wx:key="key" class="game-card classic" data-key="{{item.key}}" bindtap="openGame">
@@ -61,7 +60,7 @@
       </view>
       <view class="game-name">{{item.name}}</view>
       <view class="game-desc">{{item.desc}}</view>
-      <view class="game-foot"><text class="classic-badge">一次性解谜</text></view>
+      <view class="game-foot"><text class="classic-badge">经典</text></view>
     </view>
   </view>
 

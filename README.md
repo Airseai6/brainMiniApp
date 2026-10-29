@@ -13,12 +13,15 @@
 一直能玩（进入每日一练 / 随机体验）：
 
 - 数字侦探：4 位数字、6 次机会、A/B 反馈，每局答案不同
+- 每日算式：隐藏两位数 + / − 等式，6 次颜色反馈；每日/练习
 - 24点：随机手牌，只出有解
 - 最后一颗：Nim 对 AI，可换策略重来
-- 迷你数独：4×4 唯一解新题
+- 迷你数独：4×4 / 6×6 唯一解新题
+- 点灯：4×4 / 5×5 可解棋盘，点一格翻转十字
+- 倒水：三个壶量出目标水量，BFS 最短路
 - 聚变堆叠：2048 式随机棋盘
 
-经典解谜（单独展示，想明白一次就够）：
+经典解谜（单独展示）：
 
 - 抓狐狸
 - 汉诺塔
@@ -43,7 +46,7 @@ app.js / app.json / app.wxss
 styles/game.wxss           游戏页共用样式
 data/games.js              关卡数据 + 可重复标记
 utils/                     纯逻辑（页面与测试共用）
-pages/                     首页、每日一题、每日一练、14 个关卡
+pages/                     首页、每日一题、每日一练、17 个关卡
 tests/                     Node 测试
 .github/workflows/         CI / Release
 ```
@@ -61,7 +64,9 @@ tests/                     Node 测试
 node --test tests/logic.test.mjs tests/games.test.mjs tests/new-games.test.mjs tests/practice.test.mjs tests/wording.test.mjs
 ```
 
-当前 30 项测试：逻辑、结构、练习与审核词汇。
+当前 35 项测试：逻辑、结构、练习、每日题库与审核词汇。
+
+每日一题题库 57 题，按日期轮换，30 天内不会重复。
 
 ## 设计约束
 

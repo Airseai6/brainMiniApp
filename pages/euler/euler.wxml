@@ -24,6 +24,14 @@
     <view class="node {{item.current ? 'current' : ''}} {{item.start ? 'start' : ''}}" wx:for="{{nodes}}" wx:key="id" style="{{item.style}}" data-index="{{index}}" bindtap="tapNode" hover-class="press">{{item.label}}</view>
   </view>
 
+  <view wx:if="{{usedCount === edgeCount && edgeCount > 0}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 一笔画完成</text>
+      <text class="win-sub">所有边走了一次</text>
+    </view>
+  </view>
+
   <view class="actions-row">
     <view class="btn-ghost" bindtap="validate">检查欧拉条件</view>
     <view class="btn-ghost" bindtap="undo">撤销</view>

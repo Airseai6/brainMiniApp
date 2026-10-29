@@ -21,6 +21,14 @@
     </view>
   </view>
 
+  <view wx:if="{{won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 围堵成功</text>
+      <text class="win-sub">狐狸无路可走</text>
+    </view>
+  </view>
+
   <view class="actions-row">
     <view class="btn-ghost" bindtap="showHint">提示</view>
     <view class="btn-primary" bindtap="reset">重开</view>

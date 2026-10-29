@@ -12,15 +12,30 @@ const games = require('../data/games.js');
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
-test('game list has 14 entries and valid native flags', () => {
-  assert.equal(games.length, 14);
+test('game list has 17 entries and valid native flags', () => {
+  assert.equal(games.length, 17);
   const keys = new Set(games.map(g => g.key));
-  assert.equal(keys.size, 14);
+  assert.equal(keys.size, 17);
   assert.ok(games.some(g => g.key === 'nim' && g.native));
   assert.ok(games.some(g => g.key === 'hanoi' && g.native));
   assert.ok(games.some(g => g.key === 'fusion-stack'));
   assert.ok(games.some(g => g.key === 'sudoku' && g.replayable));
+  assert.ok(games.some(g => g.key === 'mathler' && g.replayable));
+  assert.ok(games.some(g => g.key === 'lights-out' && g.replayable));
+  assert.ok(games.some(g => g.key === 'water' && g.replayable));
   assert.ok(games.some(g => g.key === 'hanoi' && !g.replayable));
+});
+
+test('daily: bank has no short repeat cycle', () => {
+  assert.ok(daily.BANK.length >= 50);
+  const seen = new Set();
+  for (let i = 0; i < 30; i++) {
+    const d = new Date(2026, 9, 1 + i);
+    const q = daily.getDailyQuestion(d);
+    const key = q.q;
+    assert.ok(!seen.has(key), 'repeated within 30 days: ' + key);
+    seen.add(key);
+  }
 });
 
 test('nim: normal mode 3/4/5 is winning for the first player', () => {

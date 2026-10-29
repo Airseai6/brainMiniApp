@@ -18,6 +18,14 @@
     <view class="tile {{item === 0 ? 'blank' : ''}} {{index === lastMoved ? 'last' : ''}}" wx:for="{{tiles}}" wx:key="index" data-index="{{index}}" bindtap="tap" hover-class="press">{{item === 0 ? '' : item}}</view>
   </view>
 
+  <view wx:if="{{win}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 拼回去了</text>
+      <text class="win-sub">所有数字回到顺序</text>
+    </view>
+  </view>
+
   <view class="actions-row">
     <view class="btn-ghost" bindtap="showHint">提示</view>
     <view class="btn-primary" bindtap="reset">新的一局</view>

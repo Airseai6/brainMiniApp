@@ -165,3 +165,55 @@
   opacity: .72;
   transform: scale(.98);
 }
+
+.win-banner {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  margin-top: 12rpx;
+  padding: 16rpx 18rpx;
+  border-radius: 14rpx;
+  background: rgba(91, 217, 190, .1);
+  border: 1rpx solid rgba(91, 217, 190, .45);
+}
+
+.win-icon { font-size: 42rpx; line-height: 1; }
+.win-copy { flex: 1; min-width: 0; }
+.win-title { display: block; color: #5bd9be; font-size: 25rpx; font-weight: 700; line-height: 1.4; }
+.win-sub { display: block; color: #93a4bd; font-size: 20rpx; margin-top: 3rpx; line-height: 1.5; }
+
+.mode-row {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  flex-wrap: wrap;
+  margin-top: 12rpx;
+}
+
+.mini-tab {
+  min-height: 52rpx;
+  padding: 0 14rpx;
+  border-radius: 999rpx;
+  background: #111827;
+  border: 1rpx solid #22304a;
+  color: #93a4bd;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.mini-tab.active {
+  background: #1f2a1f;
+  border-color: #5bd9be;
+  color: #5bd9be;
+  font-weight: 700;
+}
+
+.mini-tab.warm.active {
+  background: #2a1f12;
+  border-color: #f0a33a;
+  color: #f0a33a;
+}
+
+.mini-split { width: 1rpx; height: 30rpx; background: #2a3a56; margin: 0 2rpx; }
+.rules-toggle { margin-left: auto; color: #7e8aa3; font-size: 20rpx; padding: 8rpx 4rpx; }

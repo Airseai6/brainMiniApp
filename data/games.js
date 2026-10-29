@@ -1,5 +1,5 @@
-﻿// 14 个关卡，全部为小程序原生页面。
-// replayable=true 的进入每日一练/随机体验；false 的一次性解谜单独展示。
+// 17 个关卡，全部为小程序原生页面。
+// replayable=true 的进入每日一练/随机体验；false 的单列经典解谜。
 module.exports = [
   {
     key: 'digits',
@@ -8,6 +8,16 @@ module.exports = [
     tag: '信息论',
     emoji: '🔢',
     desc: '6 次猜出 4 位数，用 A/B 反馈排除；每局答案都不同',
+    native: true,
+    replayable: true
+  },
+  {
+    key: 'mathler',
+    page: 'mathler',
+    name: '每日算式',
+    tag: '等式',
+    emoji: '🧾',
+    desc: '每天一个隐藏等式，6 次颜色反馈猜出来',
     native: true,
     replayable: true
   },
@@ -37,7 +47,27 @@ module.exports = [
     name: '迷你数独',
     tag: '逻辑',
     emoji: '🧮',
-    desc: '4×4 唯一解新题，每局都从零排除',
+    desc: '4×4 / 6×6 唯一解新题，每局都从零排除',
+    native: true,
+    replayable: true
+  },
+  {
+    key: 'lights-out',
+    page: 'lightsout',
+    name: '点灯',
+    tag: '线性代数',
+    emoji: '💡',
+    desc: '点一格翻转十字，每局 4×4 / 5×5 可解棋盘',
+    native: true,
+    replayable: true
+  },
+  {
+    key: 'water',
+    page: 'water',
+    name: '倒水',
+    tag: '状态搜索',
+    emoji: '💧',
+    desc: '三个壶量出目标水量，容量每局不同',
     native: true,
     replayable: true
   },
@@ -57,7 +87,7 @@ module.exports = [
     name: '抓狐狸',
     tag: '图论',
     emoji: '🦊',
-    desc: '路径与环上的追逃，策略一旦看懂就结束',
+    desc: '路径与环上的追逃，找出奇偶性策略',
     native: true,
     replayable: false
   },
@@ -67,7 +97,7 @@ module.exports = [
     name: '汉诺塔',
     tag: '递归',
     emoji: '🗼',
-    desc: '最少 2ⁿ−1 步，懂了递归就通关',
+    desc: '3–6 层递归搬运，最少 2ⁿ−1 步',
     native: true,
     replayable: false
   },
@@ -87,7 +117,7 @@ module.exports = [
     name: '过河',
     tag: '状态图',
     emoji: '🚣',
-    desc: '狼羊菜 + 传教士野人两关，走过一次就懂',
+    desc: '狼羊菜 + 传教士野人两关，找状态图最短路',
     native: true,
     replayable: false
   },
@@ -97,7 +127,7 @@ module.exports = [
     name: '围堵狐狸',
     tag: '图论',
     emoji: '🧭',
-    desc: '封路口找顶点割，最优解会很快被看穿',
+    desc: '封路口找顶点割，逼狐狸无路可走',
     native: true,
     replayable: false
   },
@@ -107,7 +137,7 @@ module.exports = [
     name: '天平称币',
     tag: '信息论',
     emoji: '⚖️',
-    desc: '3 次称重锁定假币，掌握三分法就通关',
+    desc: '3 次称重锁定假币，练信息论三分',
     native: true,
     replayable: false
   },
@@ -117,7 +147,7 @@ module.exports = [
     name: '数织',
     tag: '图像推理',
     emoji: '🖼️',
-    desc: '5×5 三幅固定图案，推完就结束',
+    desc: '5×5 图像推理，用行列线索还原图案',
     native: true,
     replayable: false
   },
@@ -127,7 +157,7 @@ module.exports = [
     name: '一笔画',
     tag: '欧拉',
     emoji: '✏️',
-    desc: '七桥为什么走不通，数奇度点就懂',
+    desc: '每条边走一次，用奇度点判断欧拉路径',
     native: true,
     replayable: false
   },
@@ -137,9 +167,10 @@ module.exports = [
     name: '三门问题',
     tag: '概率',
     emoji: '🚪',
-    desc: '换门 67% 的实验，看过结果就明白',
+    desc: '换门 67% 的实验，用模拟看概率',
     native: true,
     replayable: false
   }
 ];
+
 

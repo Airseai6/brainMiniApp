@@ -1,26 +1,40 @@
 <view class="container game-page">
   <view class="topline">
     <text class="game-kicker">思维闯关 · 11</text>
-    <text class="title-badge">4×4</text>
+    <text class="title-badge">{{size}}×{{size}}</text>
   </view>
   <view class="title-row">
     <text class="game-title">迷你数独</text>
     <text class="title-badge">逻辑突围</text>
   </view>
-  <view class="game-lead">每行、每列、每个 2×2 宫都填 1–4，不能重复。点空格，再点数字。</view>
+  <view class="game-lead" wx:if="{{size === 4}}">每行、每列、每个 2×2 宫都填 1–4，不能重复。点空格，再点数字。</view>
+  <view class="game-lead" wx:else>每行、每列、每个 2×3 宫都填 1–6，不能重复。6×6 更考候选排除。</view>
+
+  <view class="seg-row">
+    <view class="seg {{size === 4 ? 'active' : ''}}" data-size="4" bindtap="setSize">4×4 入门</view>
+    <view class="seg warm {{size === 6 ? 'active' : ''}}" data-size="6" bindtap="setSize">6×6 进阶</view>
+  </view>
 
   <view class="status-line">
-    <text class="status-strong">已填 {{filled}}/16</text>
+    <text class="status-strong">已填 {{filled}}/{{size * size}}</text>
     <text class="mono">{{wrong ? '有一格不对' : '排除法'}}</text>
   </view>
 
-  <view class="board">
-    <view class="cell {{item.given ? 'given' : ''}} {{item.selected ? 'selected' : ''}} {{item.wrong ? 'wrong' : ''}} {{item.hint ? 'hint' : ''}}" wx:for="{{cells}}" wx:key="index" data-index="{{index}}" bindtap="tapCell" hover-class="press">{{item.value || ''}}</view>
+  <view class="board s{{size}}">
+    <view class="cell {{item.given ? 'given' : ''}} {{item.selected ? 'selected' : ''}} {{item.wrong ? 'wrong' : ''}} {{item.edgeRight ? 'edge-r' : ''}} {{item.edgeBottom ? 'edge-b' : ''}}" wx:for="{{cells}}" wx:key="index" data-index="{{index}}" bindtap="tapCell" hover-class="press">{{item.value || ''}}</view>
   </view>
 
-  <view class="numpad">
+  <view class="numpad n{{size}}">
     <view class="num" wx:for="{{numbers}}" wx:key="*this" data-n="{{item}}" bindtap="place" hover-class="press">{{item}}</view>
     <view class="num clear" bindtap="clearCell" hover-class="press">清空当前格</view>
+  </view>
+
+  <view wx:if="{{win}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 数独完成</text>
+      <text class="win-sub">{{size}}×{{size}} 全部合法</text>
+    </view>
   </view>
 
   <view class="actions-row">
@@ -32,6 +46,6 @@
 
   <view class="rule-box">
     <view class="rule-title">能学到什么 · 约束满足与排除</view>
-    <view class="rule-text">数独不是猜，是排除：一行有了 1，其他格就不能是 1；一列、一个 2×2 宫同理。</view>
+    <view class="rule-text">数独不是猜，是排除：一行有了 1，其他格就不能是 1；一列、一个宫同理。6×6 的候选更少，但交叉约束更多。</view>
   </view>
 </view>

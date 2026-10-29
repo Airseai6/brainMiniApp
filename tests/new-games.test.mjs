@@ -9,6 +9,11 @@ const euler = require('../utils/euler.js');
 const monty = require('../utils/monty.js');
 const fox = require('../utils/fox.js');
 const mc = require('../utils/river-mc.js');
+const mathler = require('../utils/mathler.js');
+const sudoku6 = require('../utils/sudoku6.js');
+const lightsout = require('../utils/lightsout.js');
+const water = require('../utils/water.js');
+const random = require('../utils/random.js');
 
 test('balance: candidate filtering and guess', () => {
   assert.equal(balance.initialCandidates().length, 24);
@@ -72,4 +77,53 @@ test('river mc: rejects empty/overloaded boat and unsafe move', () => {
   back.left = { m: 2, c: 2 };
   const unsafe = mc.cross(back, 0, 1);
   assert.equal(unsafe.ok, false);
+});
+
+test('mathler: daily deterministic, valid equations and feedback', () => {
+  assert.ok(mathler.EQUATIONS.length > 1000);
+  const a = mathler.dailyHidden(new Date(2026, 9, 29));
+  const b = mathler.dailyHidden(new Date(2026, 9, 29));
+  assert.equal(a.text, b.text);
+  for (const e of mathler.EQUATIONS.slice(0, 50)) assert.equal(mathler.parse(e.text).valid, true);
+  const marks = mathler.feedback(a.text, a.text);
+  assert.ok(marks.every((m) => m === 'hit'));
+  const wrong = mathler.feedback('10+10=20', '10+10=20');
+  assert.ok(wrong.every((m) => m === 'hit'));
+});
+
+test('sudoku6: generated puzzle is unique and solved', () => {
+  const p = sudoku6.makePuzzle();
+  assert.equal(sudoku6.solveCount(p.puzzle, 2), 1);
+  assert.equal(sudoku6.isSolved(p.solution), true);
+  assert.equal(sudoku6.isSolved(p.puzzle), false);
+  assert.ok(p.puzzle.flat().filter((x) => !x).length >= 15);
+});
+
+test('lightsout: press parity, solvable boards and solver', () => {
+  const g = lightsout.emptyGrid(5);
+  const twice = lightsout.applyPress(lightsout.applyPress(g, 2, 2), 2, 2);
+  assert.equal(lightsout.isSolved(twice), true);
+  const p = lightsout.makePuzzle(5, random.mulberry32(12345), 9);
+  assert.equal(lightsout.isSolved(p.grid), false);
+  const sol = lightsout.solve(p.grid);
+  assert.ok(sol && sol.length > 0);
+  let board = lightsout.clone(p.grid);
+  for (const [r, c] of sol) board = lightsout.applyPress(board, r, c);
+  assert.equal(lightsout.isSolved(board), true);
+});
+
+test('water: fill/pour/empty and BFS solution', () => {
+  const caps = [3, 5, 8];
+  const full = water.fill([0, 0, 0], caps, 1);
+  assert.equal(full.ok, true);
+  assert.deepEqual(full.jugs, [0, 5, 0]);
+  const poured = water.pour(full.jugs, caps, 1, 0);
+  assert.deepEqual(poured.jugs, [3, 2, 0]);
+  const empty = water.empty(poured.jugs, caps, 1);
+  assert.deepEqual(empty.jugs, [3, 0, 0]);
+  const path = water.solve(caps, 4);
+  assert.ok(path && path.length > 0);
+  const p = water.dailyPuzzle(new Date(2026, 9, 29));
+  assert.ok(p.caps.length === 3 && p.target > 0);
+  assert.ok(water.solve(p.caps, p.target).length > 0);
 });

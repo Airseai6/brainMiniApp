@@ -8,7 +8,8 @@ Page({
     total: 0,
     wins: 0,
     rate: '—',
-    resultText: ''
+    resultText: '',
+    won: false
   },
 
   onLoad() { this.game = monty.newRound(); this.render(); },
@@ -34,6 +35,7 @@ Page({
       total: g.total,
       wins: g.wins,
       rate: g.total ? Math.round(g.wins / g.total * 100) + '%' : '—',
+      won: !!g.won,
       status: g.phase === 'pick' ? '先选一扇门' : (g.phase === 'decide' ? '主持人打开了羊门：换，还是不换？' : (g.won ? '你赢了' : '这次是羊'))
     });
   },

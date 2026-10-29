@@ -54,7 +54,10 @@
   </view>
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
-  <view wx:if="{{state.won}}" class="win-note">全部安全到达！传教士与野人 11 步经典解完成。</view>
+  <view wx:if="{{state.won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy"><text class="win-title">🎉 全部安全到达</text><text class="win-sub">传教士与野人 11 步经典解完成</text></view>
+  </view>
 
   <view class="rule-box">
     <view class="rule-title">能学到什么 · 状态图与约束</view>

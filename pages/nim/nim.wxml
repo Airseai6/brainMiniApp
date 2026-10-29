@@ -33,6 +33,14 @@
     </view>
   </view>
 
+  <view wx:if="{{winner === '你赢了'}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 你赢了 AI</text>
+      <text class="win-sub">把对手留在必败态</text>
+    </view>
+  </view>
+
   <view class="actions-row">
     <view class="btn-primary" bindtap="newGame">新的 AI 对局</view>
     <view class="btn-ghost" bindtap="showHint">看提示</view>

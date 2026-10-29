@@ -55,6 +55,14 @@
     <view class="history-empty" wx:else>还没有猜测，输入 4 位数字。</view>
   </view>
 
+  <view wx:if="{{won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 锁定成功</text>
+      <text class="win-sub">6 次内找到答案</text>
+    </view>
+  </view>
+
   <view class="actions-row">
     <view class="btn-ghost" bindtap="showHint">看候选数</view>
     <view class="btn-primary" bindtap="newRound">换一题</view>

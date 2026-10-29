@@ -56,6 +56,14 @@
     </view>
   </view>
 
+  <view wx:if="{{won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 全部过河！</text>
+      <text class="win-sub">狼、羊、菜安全到达</text>
+    </view>
+  </view>
+
   <view class="actions-row">
     <view class="btn-primary" bindtap="crossSelected">开船 →</view>
     <view class="btn-ghost" bindtap="showHint">提示</view>

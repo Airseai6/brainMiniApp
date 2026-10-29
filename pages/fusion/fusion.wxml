@@ -31,6 +31,14 @@
     </view>
   </view>
 
+  <view wx:if="{{won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 聚变到镍-64</text>
+      <text class="win-sub">这一局堆叠完成</text>
+    </view>
+  </view>
+
   <view class="actions-row">
     <view class="btn-primary" bindtap="reset">新的一局</view>
   </view>

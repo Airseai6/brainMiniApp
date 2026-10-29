@@ -2,7 +2,6 @@
 
 .board {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 4rpx;
   width: 100%;
   max-width: 560rpx;
@@ -12,6 +11,8 @@
   border: 2rpx solid #2a3a56;
   border-radius: 14rpx;
 }
+.board.s4 { grid-template-columns: repeat(4, 1fr); }
+.board.s6 { grid-template-columns: repeat(6, 1fr); max-width: 620rpx; }
 
 .cell {
   aspect-ratio: 1 / 1;
@@ -25,13 +26,18 @@
   font-family: Consolas, monospace;
   font-size: 40rpx;
 }
+.board.s6 .cell { font-size: 30rpx; border-radius: 4rpx; }
 
 .cell.given { color: #93a4bd; background: #0f172a; font-weight: 700; }
 .cell.selected { border-color: #f0a33a; background: #2a1f12; box-shadow: 0 0 0 2rpx rgba(240, 163, 58, .22) inset; }
 .cell.hint { color: #5bd9be; border-color: #2f7d5b; }
 .cell.wrong { color: #f87171; border-color: #7f2d2d; background: #2a1212; }
+.cell.edge-r { border-right: 3rpx solid #466085; }
+.cell.edge-b { border-bottom: 3rpx solid #466085; }
 
-.numpad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8rpx; margin-top: 12rpx; }
+.numpad { display: grid; gap: 8rpx; margin-top: 12rpx; }
+.numpad.n4 { grid-template-columns: repeat(4, 1fr); }
+.numpad.n6 { grid-template-columns: repeat(6, 1fr); }
 .num {
   min-height: 72rpx;
   border-radius: 10rpx;
@@ -44,7 +50,8 @@
   font-size: 30rpx;
   font-family: Consolas, monospace;
 }
-.num.clear { grid-column: span 4; font-size: 22rpx; font-family: inherit; color: #93a4bd; }
+.numpad.n6 .num { min-height: 64rpx; font-size: 27rpx; }
+.num.clear { grid-column: 1 / -1; font-size: 22rpx; font-family: inherit; color: #93a4bd; }
 
 .status-pill {
   margin-top: 10rpx;

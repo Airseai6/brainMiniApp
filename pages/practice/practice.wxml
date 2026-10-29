@@ -8,6 +8,14 @@
     <text class="progress-label">{{allDone ? '今天完成了' : '今天已练'}}</text>
   </view>
 
+  <view wx:if="{{allDone}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 今天的三关完成了</text>
+      <text class="win-sub">连续天数只存本地，明天再来。</text>
+    </view>
+  </view>
+
   <view class="tasks">
     <view class="task {{item.done ? 'done' : ''}}" wx:for="{{items}}" wx:key="key" data-key="{{item.key}}" bindtap="openItem">
       <text class="task-emoji">{{item.emoji}}</text>

@@ -1,0 +1,52 @@
+<view class="container game-page lights-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 16</text>
+    <text class="title-badge">模 2 线性代数</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">点灯</text>
+    <text class="title-badge">{{size}}×{{size}}</text>
+  </view>
+  <view class="game-lead">点一格，它和上下左右都会翻面。目标：把所有灯都熄灭。每局棋盘可解，但顺序有讲究。</view>
+
+  <view class="mode-row">
+    <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" bindtap="startDaily">每日</view>
+    <view class="mini-tab {{mode === 'practice' ? 'active' : ''}}" bindtap="startPractice">练习</view>
+    <view class="mini-split"></view>
+    <view class="mini-tab warm {{size === 4 ? 'active' : ''}}" data-size="4" bindtap="setSize">4×4</view>
+    <view class="mini-tab warm {{size === 5 ? 'active' : ''}}" data-size="5" bindtap="setSize">5×5</view>
+    <view class="rules-toggle" bindtap="toggleRules">{{showRules ? '收起规则' : '规则'}}</view>
+  </view>
+
+  <view class="status-line">
+    <text class="status-strong">{{status}}</text>
+    <text class="mono">点击 {{moves}} 次</text>
+  </view>
+
+  <view class="lamp-grid s{{size}}">
+    <view class="lamp {{item.on ? 'on' : ''}} {{item.hint ? 'hint' : ''}}" wx:for="{{cells}}" wx:key="index" data-index="{{item.index}}" bindtap="tapCell" hover-class="press">
+      <text class="lamp-icon">{{item.on ? '💡' : '·'}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{hint}}" class="hint-line">{{hint}}</view>
+
+  <view wx:if="{{won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 全灭了</text>
+      <text class="win-sub">{{moves}} 次翻转完成这一局</text>
+    </view>
+  </view>
+
+  <view class="actions-row">
+    <view class="btn-ghost" bindtap="showHint">提示一步</view>
+    <view class="btn-ghost" bindtap="reset">重来</view>
+    <view class="btn-primary" bindtap="newPuzzle">换一局</view>
+  </view>
+
+  <view wx:if="{{showRules}}" class="rule-box">
+    <view class="rule-title">能学到什么 · 奇偶性与模 2 线性代数</view>
+    <view class="rule-text">每盏灯只有亮/灭两种状态，点两次等于没点。把每个格子看成 0/1 变量，整盘就是一个模 2 的线性方程组；先点后点不重要，重要的是每个格子点奇数次还是偶数次。</view>
+  </view>
+</view>

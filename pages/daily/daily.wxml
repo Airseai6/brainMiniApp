@@ -14,6 +14,11 @@
       </view>
     </view>
 
+    <view wx:if="{{correct}}" class="win-banner">
+      <text class="win-icon">🎉</text>
+      <view class="win-copy"><text class="win-title">🎉 答对了</text><text class="win-sub">今天的题拿下了</text></view>
+    </view>
+
     <view wx:if="{{answered}}" class="result {{correct ? 'ok' : 'no'}}">
       <view class="result-title">{{correct ? '答对了' : '再看一眼'}}</view>
       <view class="result-why">{{q.why}}</view>
@@ -26,4 +31,5 @@
   </view>
 
   <view class="streak">连续答对：{{streak}} 天</view>
+  <view class="bank-note">题库 {{bankSize}} 题 · 同一天全站同一题</view>
 </view>

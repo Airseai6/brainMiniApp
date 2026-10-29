@@ -1,0 +1,64 @@
+<view class="container game-page water-page">
+  <view class="topline">
+    <text class="game-kicker">思维闯关 · 17</text>
+    <text class="title-badge">状态搜索</text>
+  </view>
+  <view class="title-row">
+    <text class="game-title">倒水</text>
+    <text class="title-badge">量出目标</text>
+  </view>
+  <view class="game-lead">三个壶容量不同，每次只能装满、倒空或互倒。没有刻度，靠状态变化量出目标。</view>
+
+  <view class="mode-row">
+    <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" bindtap="startDaily">每日</view>
+    <view class="mini-tab {{mode === 'practice' ? 'active' : ''}}" bindtap="startPractice">练习</view>
+    <view class="rules-toggle" bindtap="toggleRules">{{showRules ? '收起规则' : '规则'}}</view>
+  </view>
+
+  <view class="target-card">
+    <text class="target-label">目标水量</text>
+    <view><text class="target-num">{{target}}</text><text class="target-unit"> 升</text></view>
+  </view>
+
+  <view class="status-line">
+    <text class="status-strong">{{status}}</text>
+    <text class="mono">已走 {{moves}} 步</text>
+  </view>
+
+  <view class="jugs">
+    <view class="jug {{item.selected ? 'selected' : ''}}" wx:for="{{jugs}}" wx:key="index" data-index="{{item.index}}" bindtap="selectJug" hover-class="press">
+      <view class="jug-body">
+        <view class="water-fill" style="height: {{item.percent}}%;"></view>
+        <text class="jug-amount">{{item.amount}} / {{item.cap}}</text>
+      </view>
+      <text class="jug-label">{{item.index + 1}} 号壶</text>
+    </view>
+  </view>
+
+  <view class="water-tip">先点一个壶选中，再点另一个壶把水倒过去；选中后可装满或倒空。</view>
+
+  <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
+
+  <view wx:if="{{won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 量到了 {{target}} 升</text>
+      <text class="win-sub">用 {{moves}} 步完成</text>
+    </view>
+  </view>
+
+  <view class="actions-row">
+    <view class="btn-ghost" bindtap="fillSelected">装满</view>
+    <view class="btn-ghost" bindtap="emptySelected">倒空</view>
+    <view class="btn-ghost" bindtap="showHint">提示</view>
+    <view class="btn-ghost" bindtap="reset">重来</view>
+  </view>
+  <view class="actions-row">
+    <view class="btn-primary" bindtap="newPuzzle">换一题</view>
+  </view>
+
+  <view wx:if="{{showRules}}" class="rule-box">
+    <view class="rule-title">能学到什么 · 状态图与 BFS</view>
+    <view class="rule-text">每个壶里的水量是一个状态，倒水就是状态之间的边。量出目标 = 在状态图上找一条最短路；BFS 会一层层扩展，找到步数最少的走法。</view>
+  </view>
+</view>

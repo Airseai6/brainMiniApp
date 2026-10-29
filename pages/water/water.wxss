@@ -1,0 +1,53 @@
+@import "../../styles/game.wxss";
+
+.water-page { padding-top: 16rpx; }
+
+.target-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14rpx;
+  padding: 14rpx 18rpx;
+  border-radius: 14rpx;
+  background: rgba(91, 217, 190, .08);
+  border: 1rpx solid rgba(91, 217, 190, .3);
+}
+.target-label { color: #93a4bd; font-size: 21rpx; }
+.target-num { color: #5bd9be; font-size: 42rpx; font-weight: 800; font-family: Consolas, monospace; }
+.target-unit { color: #93a4bd; font-size: 20rpx; }
+
+.jugs { display: flex; gap: 16rpx; justify-content: center; margin-top: 18rpx; }
+.jug { flex: 1; max-width: 200rpx; text-align: center; }
+.jug-body {
+  height: 300rpx;
+  border: 3rpx solid #2a3a56;
+  border-top: none;
+  border-radius: 0 0 22rpx 22rpx;
+  background: #0d1420;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+.jug.selected .jug-body { border-color: #f0a33a; box-shadow: 0 0 18rpx rgba(240, 163, 58, .35); }
+.water-fill {
+  width: 100%;
+  background: linear-gradient(180deg, #5bd9be, #2c8c9d);
+  min-height: 0;
+  transition: height .2s ease;
+}
+.jug-amount {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12rpx;
+  color: #eafffb;
+  font-family: Consolas, monospace;
+  font-size: 28rpx;
+  font-weight: 700;
+  text-shadow: 0 1rpx 4rpx rgba(0, 0, 0, .6);
+}
+.jug-label { margin-top: 8rpx; color: #93a4bd; font-size: 21rpx; }
+.jug.selected .jug-label { color: #f0a33a; }
+
+.water-tip { margin-top: 12rpx; color: #7e8aa3; font-size: 21rpx; text-align: center; }

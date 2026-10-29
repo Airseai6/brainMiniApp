@@ -54,6 +54,14 @@
     </view>
   </view>
 
+  <view wx:if="{{phase === 'done' && won}}" class="win-banner">
+    <text class="win-icon">🎉</text>
+    <view class="win-copy">
+      <text class="win-title">🎉 锁定假币</text>
+      <text class="win-sub">3 次称重完成</text>
+    </view>
+  </view>
+
   <view wx:if="{{phase === 'done'}}" class="hint-box">{{won ? '锁定成功！' : '判断错了。'}} 假币是 {{secret.coin}} 号，{{secret.heavy ? '偏重' : '偏轻'}}。</view>
 
   <view class="actions-row">
