@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">三根柱子，大盘不能压小盘。把整座塔从 A 搬到 C，最少要 2ⁿ−1 步。</view>
 
+  <game-rules text="T(n) = 2 × T(n−1) + 1，T(1) = 1，解得 T(n) = 2ⁿ − 1。每多一层，步数几乎翻倍；这不是手速问题，是指数增长。" example="3 层最少 **7 步**：先把上面 2 层搬到 B，再搬最大盘到 C，最后把 2 层搬回来。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+
   <view class="levels">
     <view class="level {{n === 3 ? 'active' : ''}}" data-n="3" bindtap="level">3 层</view>
     <view class="level {{n === 4 ? 'active' : ''}}" data-n="4" bindtap="level">4 层</view>
@@ -46,5 +48,8 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <game-rules title="能学到什么 · 递归与指数增长" text="T(n) = 2 × T(n−1) + 1，T(1) = 1，解得 T(n) = 2ⁿ − 1。每多一层，步数几乎翻倍；这不是手速问题，是指数增长。" example="3 层最少 **7 步**：先把上面 2 层搬到 B，再搬最大盘到 C，最后把 2 层搬回来。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  
+
+
+  <game-learn concept="递归与指数增长" summary="大问题拆成同样的子问题，每加一层步数几乎翻倍。"></game-learn>
 </view>

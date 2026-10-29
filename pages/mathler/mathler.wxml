@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">隐藏一个两位数的 + / − 等式，每次猜完颜色会告诉你：绿=位置对，黄=符号对但位置不对，灰=没有。</view>
 
+  <game-rules text="一次猜测会同时排除很多可能：绿色锁定位置，黄色缩小符号范围。6 次不是靠运气，是把“哪些等式还成立”一步步缩小。" example="隐藏式是 23+45=68；猜 20+40=60，逐位会得到**绿/黄/灰**反馈，帮你缩小每一位。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+
   <view class="mode-row">
     <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" bindtap="startDaily">每日</view>
     <view class="mini-tab {{mode === 'practice' ? 'active' : ''}}" bindtap="startPractice">练习</view>
@@ -48,5 +50,8 @@
     <view class="btn-ghost" bindtap="startPractice">练习模式</view>
   </view>
 
-  <game-rules title="能学到什么 · 等式结构与反馈搜索" text="一次猜测会同时排除很多可能：绿色锁定位置，黄色缩小符号范围。6 次不是靠运气，是把“哪些等式还成立”一步步缩小。" example="隐藏式是 23+45=68；猜 20+40=60，逐位会得到**绿/黄/灰**反馈，帮你缩小每一位。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  
+
+
+  <game-learn concept="等式结构与反馈搜索" summary="反馈把可能等式一层层切开；6 次靠结构，不是运气。"></game-learn>
 </view>

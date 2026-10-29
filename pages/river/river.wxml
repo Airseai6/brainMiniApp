@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">狼、羊、菜都要到右岸。船每次只能带一样，农夫可以空船回来；你不在的一岸会出事。</view>
 
+  <game-rules text="把“左岸还剩什么 + 船在哪岸”看成一个状态，每次过河是一条边。最短路就是最少步数。" example="狼**羊**菜第一步带羊；空船回来，再带狼过去，把羊带回来，再带菜……"></game-rules>
+
   <view class="seg-row">
     <view class="seg warm active">狼 · 羊 · 菜（入门）</view>
     <view class="seg" bindtap="openMC">传教士 · 野人（挑战）</view>
@@ -72,5 +74,8 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <game-rules title="能学到什么 · 状态图与最短路" text="把“左岸还剩什么 + 船在哪岸”看成一个状态，每次过河是一条边。最短路就是最少步数。" example="狼**羊**菜第一步带羊；空船回来，再带狼过去，把羊带回来，再带菜……"></game-rules>
+  
+
+
+  <game-learn concept="状态图与最短路" summary="每一步都是状态转移；最少步数就是状态图上的最短路。"></game-learn>
 </view>

@@ -1,6 +1,6 @@
 <view class="rules">
   <view class="rules-head">
-    <text class="rules-title">{{title}}</text>
+    <text class="rules-title">规则</text>
     <view class="rules-toggle" bindtap="toggle">{{expanded ? '收起规则' : '展开规则'}}</view>
   </view>
 

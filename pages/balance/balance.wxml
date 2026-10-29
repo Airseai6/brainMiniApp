@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">12 枚金币里 1 枚假币，可能偏重也可能偏轻。只称 3 次，把 24 种可能压到 1 种。</view>
 
+  <game-rules text="每次天平有左重/右重/平衡 3 种结果，3 次最多区分 3³ = 27 种，而 12 枚 × 重/轻 = 24 种，刚好装得下。" example="先 **4 对 4**：如果平衡，假币就在剩下 4 枚里；如果不平衡，候选缩到 8 种重/轻情况。"></game-rules>
+
   <view class="balance-hero">
     <text class="hero-icon">⚖️</text>
     <view class="hero-copy">
@@ -69,5 +71,8 @@
     <view class="btn-ghost" bindtap="reset">重新开始</view>
   </view>
 
-  <game-rules title="能学到什么 · 信息论与三分" text="每次天平有左重/右重/平衡 3 种结果，3 次最多区分 3³ = 27 种，而 12 枚 × 重/轻 = 24 种，刚好装得下。" example="先 **4 对 4**：如果平衡，假币就在剩下 4 枚里；如果不平衡，候选缩到 8 种重/轻情况。"></game-rules>
+  
+
+
+  <game-learn concept="信息论与三分" summary="每次把候选分成三份；信息量决定称几次才够。"></game-learn>
 </view>

@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">你每回合封一个路口，狐狸沿未封的路移动一步；它无路可走你就赢，它踏进洞口就你输。</view>
 
+  <game-rules text="狐狸在最短路树上选对你最不利的方向。封路口就是在删边；你要做的是把它的所有出边都删掉。" example="狐狸在 3 号点、洞口在 6 号点，封住它们之间的**必经点**，就能把路径切断。"></game-rules>
+
   <view class="status-line">
     <text class="status-strong">{{status}}</text>
     <text class="mono">封路 {{state.moves}}</text>
@@ -36,5 +38,8 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <game-rules title="能学到什么 · 顶点割与追逃" text="狐狸在最短路树上选对你最不利的方向。封路口就是在删边；你要做的是把它的所有出边都删掉。" example="狐狸在 3 号点、洞口在 6 号点，封住它们之间的**必经点**，就能把路径切断。"></game-rules>
+  
+
+
+  <game-learn concept="顶点割与追逃" summary="封住必经点，比到处追更有效；最小割对应最大流。"></game-learn>
 </view>

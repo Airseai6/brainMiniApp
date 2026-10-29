@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">同种核素滑到一起，就合并成下一档：氘 → 氦-4 → 铍-8 → 氧-16 → 硫-32 → 镍-64。</view>
 
+  <game-rules text="每一档对应一次真实聚变反应；越往上，结合能越高。关卡里合并的是核素，现实里放出的才是 Q 值。" example="**D+D→He-4** 会放能；但到铁峰之后，继续聚变反而要吸能。"></game-rules>
+
   <view class="status-line">
     <text class="status-strong">{{status}}</text>
     <text class="mono">分数 {{score}} · 步数 {{moves}}</text>
@@ -43,5 +45,8 @@
     <view class="btn-primary" bindtap="reset">新的一局</view>
   </view>
 
-  <game-rules title="能学到什么 · 聚变与结合能" text="每一档对应一次真实聚变反应；越往上，结合能越高。关卡里合并的是核素，现实里放出的才是 Q 值。" example="**D+D→He-4** 会放能；但到铁峰之后，继续聚变反而要吸能。"></game-rules>
+  
+
+
+  <game-learn concept="聚变与结合能" summary="轻核聚变放能，铁峰之后吸能；能量来自结合能差。"></game-learn>
 </view>

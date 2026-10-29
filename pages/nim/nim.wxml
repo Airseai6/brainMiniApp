@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">三堆石子，轮流从任意一堆拿走至少一颗。普通模式拿最后一颗者赢；「取最后者输」反过来。</view>
 
+  <game-rules text="把每堆数量写成二进制，做异或。异或和为 0 的局面是留给对手的必败态；不为 0 时，总能把某一堆取到让异或和变成 0。" example="3、4、5 的**异或和**是 2；从 3 颗那堆拿 2 颗，变成 1、4、5，异或和就变成 0。"></game-rules>
+
   <view class="seg-row">
     <view class="seg warm {{mode === 'normal' ? 'active' : ''}}" data-mode="normal" bindtap="setMode">普通模式</view>
     <view class="seg warm {{mode === 'misere' ? 'active' : ''}}" data-mode="misere" bindtap="setMode">取最后者输</view>
@@ -48,5 +50,8 @@
 
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <game-rules title="能学到什么 · 博弈论与异或" text="把每堆数量写成二进制，做异或。异或和为 0 的局面是留给对手的必败态；不为 0 时，总能把某一堆取到让异或和变成 0。" example="3、4、5 的**异或和**是 2；从 3 颗那堆拿 2 颗，变成 1、4、5，异或和就变成 0。"></game-rules>
+  
+
+
+  <game-learn concept="博弈论与异或" summary="把局面写成异或和，0 留给对手；胜负由结构决定，不是运气。"></game-learn>
 </view>

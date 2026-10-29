@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">三个壶容量不同，每次只能装满、倒空或互倒。没有刻度，靠状态变化量出目标。</view>
 
+  <game-rules text="每个壶里的水量是一个状态，倒水就是状态之间的边。量出目标 = 在状态图上找一条最短路；BFS 会一层层扩展，找到步数最少的走法。" example="3、5、8 三个壶：装满 8 倒入 5，8 号壶**剩 3**；把 5 倒空，再把 3 倒进 5……" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+
   <view class="mode-row">
     <view class="mini-tab {{mode === 'daily' ? 'active' : ''}}" bindtap="startDaily">每日</view>
     <view class="mini-tab {{mode === 'practice' ? 'active' : ''}}" bindtap="startPractice">练习</view>
@@ -56,5 +58,8 @@
     <view class="btn-primary" bindtap="newPuzzle">换一题</view>
   </view>
 
-  <game-rules title="能学到什么 · 状态图与 BFS" text="每个壶里的水量是一个状态，倒水就是状态之间的边。量出目标 = 在状态图上找一条最短路；BFS 会一层层扩展，找到步数最少的走法。" example="3、5、8 三个壶：装满 8 倒入 5，8 号壶**剩 3**；把 5 倒空，再把 3 倒进 5……" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  
+
+
+  <game-learn concept="状态图与 BFS" summary="倒水就是状态转移；BFS 找到的是最少步数。"></game-learn>
 </view>

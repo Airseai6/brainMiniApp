@@ -1,6 +1,5 @@
 Component({
   properties: {
-    title: { type: String, value: '' },
     text: { type: String, value: '' },
     example: { type: String, value: '' },
     tip: { type: String, value: '' }

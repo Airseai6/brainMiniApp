@@ -16,6 +16,10 @@ view, text, button {
 
 game-rules {
   display: block;
+}
+
+game-learn {
+  display: block;
   margin-top: auto;
 }
 

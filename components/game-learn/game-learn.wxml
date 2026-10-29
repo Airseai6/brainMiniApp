@@ -1,0 +1,7 @@
+<view class="learn">
+  <view class="learn-head">
+    <text class="learn-icon">🧠</text>
+    <text class="learn-title">能学到什么 · {{concept}}</text>
+  </view>
+  <view class="learn-summary">{{summary}}</view>
+</view>

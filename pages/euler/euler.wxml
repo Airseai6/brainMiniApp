@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">每条边只走一次，能不能把所有边一次走完？先数每个点连了几条边。</view>
 
+  <game-rules text="奇度点有 0 个或 2 个，才可能一笔画走完；超过 2 个，无论怎么试都走不通。柯尼斯堡七桥有四个奇度点。" example="七桥图有 **4 个奇度点**，超过 2 个，所以怎么走都会剩边。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+
   <view class="seg-row">
     <view class="seg warm {{level.id === 'ring' ? 'active' : ''}}" data-id="ring" bindtap="setLevel">折线环</view>
     <view class="seg warm {{level.id === 'bridges' ? 'active' : ''}}" data-id="bridges" bindtap="setLevel">七桥</view>
@@ -39,5 +41,8 @@
   </view>
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <game-rules title="能学到什么 · 欧拉路径与奇偶度" text="奇度点有 0 个或 2 个，才可能一笔画走完；超过 2 个，无论怎么试都走不通。柯尼斯堡七桥有四个奇度点。" example="七桥图有 **4 个奇度点**，超过 2 个，所以怎么走都会剩边。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  
+
+
+  <game-learn concept="欧拉路径与奇偶度" summary="数奇度点；0 个或 2 个奇度点才可能一笔画。"></game-learn>
 </view>

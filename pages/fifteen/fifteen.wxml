@@ -9,6 +9,8 @@
   </view>
   <view class="game-lead">1–8 和一个空格，只能把空格旁边的数字滑进来。把 1–8 按顺序排好。</view>
 
+  <game-rules text="看逆序数的奇偶：每次左右滑不改变逆序数，上下滑会改变 3 或 5 对——奇偶和空格行一起变。开局三秒就能判断。" example="**逆序数**和空格行号对不上时，怎么滑都拼不回；先算奇偶，再决定要不要重开。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+
   <view class="status-line">
     <text class="status-strong">步数 {{moves}}</text>
     <text>{{win ? '拼回去了' : '空格旁边的数字才能滑'}}</text>
@@ -32,5 +34,8 @@
   </view>
   <view wx:if="{{hint}}" class="hint-box">{{hint}}</view>
 
-  <game-rules title="能学到什么 · 不变量与可解性" text="看逆序数的奇偶：每次左右滑不改变逆序数，上下滑会改变 3 或 5 对——奇偶和空格行一起变。开局三秒就能判断。" example="**逆序数**和空格行号对不上时，怎么滑都拼不回；先算奇偶，再决定要不要重开。" tip="（没看懂没关系，上手玩一下就会了）"></game-rules>
+  
+
+
+  <game-learn concept="不变量与可解性" summary="先找不变量；逆序数的奇偶决定这局能不能还原。"></game-learn>
 </view>
