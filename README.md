@@ -1,4 +1,8 @@
-# 大脑保健操 · 微信小程序
+﻿# 大脑保健操 · 微信小程序
+
+![CI](https://github.com/Airseai6/brainMiniApp/actions/workflows/ci.yml/badge.svg)
+![Release](https://img.shields.io/github/v/release/Airseai6/brainMiniApp)
+
 
 一个「每天 3 分钟，打一局高能思维关卡」的微信小程序。
 
@@ -69,3 +73,4 @@ node --test tests/logic.test.mjs tests/games.test.mjs tests/new-games.test.mjs t
 ## License
 
 未指定。代码仅用于本项目，未经许可请勿商用或再分发。
+
