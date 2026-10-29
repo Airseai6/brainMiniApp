@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="kicker">反直觉系列 · 02</view>
+  <view class="kicker">思维闯关 · 02</view>
   <view class="title">数字侦探</view>
   <view class="subtitle">4 位数字，6 次机会。A = 数字和位置都对；B = 数字对但位置不对。用排除法，不信运气。</view>
 

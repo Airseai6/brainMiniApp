@@ -1,7 +1,7 @@
 <view class="container">
   <view class="kicker">ABOUT · v{{version}}</view>
   <view class="title">大脑保健操</view>
-  <view class="subtitle">每天 3 分钟，做一个反直觉的小数学题。不刷题，不排名，不用注册。</view>
+  <view class="subtitle">每天 3 分钟，做一个高能小数学题。不刷题，不排名，不用注册。</view>
 
   <view class="card">
     <view class="h">为什么叫保健操</view>

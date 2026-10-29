@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="kicker">反直觉系列 · 03</view>
+  <view class="kicker">思维闯关 · 03</view>
   <view class="title">最后一颗</view>
   <view class="subtitle">三堆石子，轮流从任意一堆拿走至少一颗。普通模式拿最后一颗者赢；「取最后者输」模式反过来。AI 用二进制异或，每一手都把你留在必败态。</view>
 

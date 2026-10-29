@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="kicker">反直觉系列 · 08</view>
+  <view class="kicker">思维闯关 · 08</view>
   <view class="title">围堵狐狸</view>
   <view class="subtitle">六个路口的环路。你每回合封一个路口，狐狸沿未封的路移动一步；狐狸无路可走你就赢，它踏进洞口就你输。</view>
 

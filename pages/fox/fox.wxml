@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="kicker">反直觉系列 · 01</view>
+  <view class="kicker">思维闯关 · 01</view>
   <view class="title">抓狐狸</view>
   <view class="subtitle">五个洞，一只狐狸。每天只能查一个洞；你查完，狐狸会沿相邻的洞跑掉。路径上有必胜策略，环上却不一定。</view>
 

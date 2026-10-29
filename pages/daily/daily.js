@@ -47,6 +47,6 @@ Page({
   },
 
   onShareAppMessage() {
-    return { title: '今天的反直觉数学题，你能答对吗？', path: '/pages/daily/daily' };
+    return { title: '今天的高能数学题，你能答对吗？', path: '/pages/daily/daily' };
   }
 });

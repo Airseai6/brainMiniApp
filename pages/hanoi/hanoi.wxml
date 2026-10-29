@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="kicker">反直觉系列 · 04</view>
+  <view class="kicker">思维闯关 · 04</view>
   <view class="title">汉诺塔 · 最少步</view>
   <view class="subtitle">三根柱子，大盘不能压小盘。把整座塔从 A 搬到 C，最少要 2ⁿ−1 步。提示会直接告诉你下一步。</view>
 

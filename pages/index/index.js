@@ -51,6 +51,6 @@ Page({
   },
 
   onShareAppMessage() {
-    return { title: '每天 3 分钟，做一个反直觉的思维小题', path: '/pages/index/index' };
+    return { title: '每天 3 分钟，做一个高能思维小题', path: '/pages/index/index' };
   }
 });

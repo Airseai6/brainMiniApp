@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="kicker">反直觉系列 · 07</view>
+  <view class="kicker">思维闯关 · 07</view>
   <view class="title">24点</view>
   <view class="subtitle">四个数各用一次，只允许 + − × ÷ 和括号，结果必须正好是 24。有些牌必须经过分数——只肯用整数就走不通。</view>
 

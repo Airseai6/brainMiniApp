@@ -11,7 +11,7 @@
 
   <view class="daily-card" bindtap="openDaily">
     <view class="daily-kicker">每日一题 · {{today}}</view>
-    <view class="daily-title">今天先做一道反直觉小题</view>
+    <view class="daily-title">今天先闯一关</view>
     <view class="daily-desc">不用注册，答完就看解释；连续答题会记录天数。</view>
     <view class="daily-btn">开始答题 →</view>
   </view>

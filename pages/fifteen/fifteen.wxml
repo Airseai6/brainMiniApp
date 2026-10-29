@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="kicker">反直觉系列 · 05</view>
+  <view class="kicker">思维闯关 · 05</view>
   <view class="title">十五数码</view>
   <view class="subtitle">1–8 和一个空格，只能把空格旁边的数字滑进来。有一半局面永远拼不回去——先看出这一局有没有解。</view>
 
