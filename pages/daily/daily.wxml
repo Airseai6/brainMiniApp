@@ -31,5 +31,4 @@
   </view>
 
   <view class="streak">连续答对：{{streak}} 天</view>
-  <view class="bank-note">题库 {{bankSize}} 题 · 同一天全站同一题</view>
 </view>

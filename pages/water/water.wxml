@@ -60,5 +60,6 @@
   <view wx:if="{{showRules}}" class="rule-box">
     <view class="rule-title">能学到什么 · 状态图与 BFS</view>
     <view class="rule-text">每个壶里的水量是一个状态，倒水就是状态之间的边。量出目标 = 在状态图上找一条最短路；BFS 会一层层扩展，找到步数最少的走法。</view>
+    <view class="rule-example">例：3、5、8 三个壶：装满 8 倒入 5，8 号壶剩 3；把 5 倒空，再把 3 倒进 5……</view>
   </view>
 </view>

@@ -39,5 +39,6 @@
   <view class="rule-box">
     <view class="rule-title">能学到什么 · 顶点割与追逃</view>
     <view class="rule-text">狐狸在最短路树上选对你最不利的方向。封路口就是在删边；你要做的是把它的所有出边都删掉。</view>
+    <view class="rule-example">例：狐狸在 3 号点、洞口在 6 号点，封住它们之间的必经点，就能把路径切断。</view>
   </view>
 </view>

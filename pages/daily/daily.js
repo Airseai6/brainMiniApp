@@ -1,4 +1,4 @@
-const { getDailyQuestion, checkAnswer, BANK } = require('../../utils/daily');
+const { getDailyQuestion, checkAnswer } = require('../../utils/daily');
 
 Page({
   data: {
@@ -7,8 +7,7 @@ Page({
     answered: false,
     correct: false,
     streak: 0,
-    letters: ['A', 'B', 'C', 'D'],
-    bankSize: BANK.length
+    letters: ['A', 'B', 'C', 'D']
   },
 
   onLoad() {

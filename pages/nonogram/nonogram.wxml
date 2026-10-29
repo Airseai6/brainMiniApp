@@ -43,5 +43,6 @@
   <view class="rule-box">
     <view class="rule-title">能学到什么 · 约束推理与图像</view>
     <view class="rule-text">一行 5 格，线索「3」表示三个连续涂色；「1 2」表示先一个、空至少一格、再两个。先找最长段。</view>
+    <view class="rule-example">例：行线索「1 2」表示先连续涂 1 格，至少空 1 格，再连续涂 2 格。</view>
   </view>
 </view>

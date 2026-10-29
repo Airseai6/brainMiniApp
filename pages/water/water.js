@@ -20,11 +20,11 @@ Page({
     if (mode && typeof mode === 'object') mode = this.data.mode;
     const m = mode || this.data.mode || 'daily';
     this.puzzle = m === 'daily' ? water.dailyPuzzle(new Date()) : water.randomPuzzle();
+    this.jugs = this.puzzle.caps.map(() => 0);
     this.setData({
       mode: m,
       caps: this.puzzle.caps,
       target: this.puzzle.target,
-      jugs: this.puzzle.caps.map(() => 0),
       selected: -1,
       moves: 0,
       won: false,
@@ -39,7 +39,7 @@ Page({
   toggleRules() { this.setData({ showRules: !this.data.showRules }); },
 
   render() {
-    const jugs = this.data.jugs.map((amount, i) => ({
+    const jugs = this.jugs.map((amount, i) => ({
       amount,
       cap: this.data.caps[i],
       percent: Math.round((amount / this.data.caps[i]) * 100),
@@ -62,7 +62,7 @@ Page({
       this.render();
       return;
     }
-    const r = water.pour(this.data.jugs, this.data.caps, this.data.selected, idx);
+    const r = water.pour(this.jugs, this.data.caps, this.data.selected, idx);
     if (!r.ok) {
       wx.showToast({ title: r.error, icon: 'none' });
       this.setData({ hint: r.error });
@@ -74,7 +74,7 @@ Page({
   fillSelected() {
     if (this.data.won) return;
     if (this.data.selected < 0) { wx.showToast({ title: '先选一个壶', icon: 'none' }); return; }
-    const r = water.fill(this.data.jugs, this.data.caps, this.data.selected);
+    const r = water.fill(this.jugs, this.data.caps, this.data.selected);
     if (!r.ok) { wx.showToast({ title: r.error, icon: 'none' }); return; }
     this.afterAction(r.jugs, r.text);
   },
@@ -82,16 +82,16 @@ Page({
   emptySelected() {
     if (this.data.won) return;
     if (this.data.selected < 0) { wx.showToast({ title: '先选一个壶', icon: 'none' }); return; }
-    const r = water.empty(this.data.jugs, this.data.caps, this.data.selected);
+    const r = water.empty(this.jugs, this.data.caps, this.data.selected);
     if (!r.ok) { wx.showToast({ title: r.error, icon: 'none' }); return; }
     this.afterAction(r.jugs, r.text);
   },
 
   afterAction(jugs, text) {
+    this.jugs = jugs;
     const moves = this.data.moves + 1;
     const won = water.isSolved(jugs, this.data.target);
     this.setData({
-      jugs,
       moves,
       selected: -1,
       won,
@@ -104,13 +104,13 @@ Page({
 
   showHint() {
     if (this.data.won) return;
-    const hint = water.nextHint(this.data.jugs, this.data.caps, this.data.target);
+    const hint = water.nextHint(this.jugs, this.data.caps, this.data.target);
     this.setData({ hint: hint ? `下一步：${hint}` : '已经量到了。' });
   },
 
   reset() {
+    this.jugs = this.data.caps.map(() => 0);
     this.setData({
-      jugs: this.data.caps.map(() => 0),
       selected: -1,
       moves: 0,
       won: false,

@@ -47,5 +47,6 @@
   <view class="rule-box">
     <view class="rule-title">能学到什么 · 条件概率</view>
     <view class="rule-text">一开始选中概率 1/3，没选中 2/3。主持人打开一只羊，不会改变原门的 1/3，只是把另一边的 2/3 集中到剩下那扇门。</view>
+    <view class="rule-example">例：跑 1000 局：坚持原门大约中 333 次，换门大约中 667 次。</view>
   </view>
 </view>

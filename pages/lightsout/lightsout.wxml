@@ -48,5 +48,6 @@
   <view wx:if="{{showRules}}" class="rule-box">
     <view class="rule-title">能学到什么 · 奇偶性与模 2 线性代数</view>
     <view class="rule-text">每盏灯只有亮/灭两种状态，点两次等于没点。把每个格子看成 0/1 变量，整盘就是一个模 2 的线性方程组；先点后点不重要，重要的是每个格子点奇数次还是偶数次。</view>
+    <view class="rule-example">例：同一格点两次等于没点；先点哪个后点哪个不影响最终亮灭，只影响中间状态。</view>
   </view>
 </view>

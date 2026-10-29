@@ -12,7 +12,7 @@
 }
 
 .title {
-  font-size: 52rpx;
+  font-size: 44rpx;
   line-height: 1.25;
   font-weight: 800;
   color: #ffffff;
@@ -209,3 +209,4 @@
   text-align: center;
   white-space: pre-line;
 }
+

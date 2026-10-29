@@ -161,6 +161,15 @@
   margin-top: 8rpx;
 }
 
+.rule-example {
+  margin-top: 10rpx;
+  padding-left: 12rpx;
+  border-left: 3rpx solid rgba(240, 163, 58, .55);
+  color: #b9c4d6;
+  font-size: 21rpx;
+  line-height: 1.7;
+}
+
 .press {
   opacity: .72;
   transform: scale(.98);

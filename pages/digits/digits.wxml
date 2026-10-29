@@ -77,5 +77,6 @@
   <view wx:if="{{showRules}}" class="rule-box">
     <view class="rule-title">能学到什么 · 信息论与排除法</view>
     <view class="rule-text">普通模式有 5040 个候选。每次反馈都在切掉不可能的分支；6 次足够从 5040 缩到 1。不是猜得准，是排除得对。</view>
+    <view class="rule-example">例：猜 1234 得到 1A2B，说明 1 个数字位置对、2 个数字对但位置错；下一猜就优先保留这 3 个数字。</view>
   </view>
 </view>

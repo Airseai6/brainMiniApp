@@ -1,7 +1,7 @@
 <view class="container">
   <view class="kicker">BRAIN GYM · 每天 3 分钟</view>
-  <view class="title">每天 3 分钟，<text style="color:#f0a33a;">打一局高能</text></view>
-  <view class="subtitle">有的关卡每局新题，有的适合慢慢想。先选能反复玩的，再看经典解谜。</view>
+  <view class="title">每天 3 分钟，<text style="color:#f0a33a;">来一局高能思维</text></view>
+  <view class="subtitle">有的关卡每局新题，适合反复挑战；有的关卡想通一次，适合慢慢品味。</view>
 
   <view class="stats">
     <view class="stat"><text class="stat-num">{{streak}}</text><text class="stat-label">连续天数</text></view>
@@ -21,21 +21,21 @@
       <text class="quick-emoji">📅</text>
       <view class="quick-main">
         <text class="quick-title">每日一练</text>
-        <text class="quick-desc">今天 3 个可重复玩的关卡</text>
+        <text class="quick-desc">今天 3 个可复玩关卡</text>
       </view>
     </view>
     <view class="quick" bindtap="openRandom">
       <text class="quick-emoji">🎲</text>
       <view class="quick-main">
         <text class="quick-title">随机体验</text>
-        <text class="quick-desc">只从可重复玩的关卡里抽</text>
+        <text class="quick-desc">只从可复玩关卡里抽</text>
       </view>
     </view>
   </view>
 
   <view class="section-head">
-    <text class="section-title">一直能玩 · {{replayGames.length}}</text>
-    <text class="section-sub">每局答案/牌面都变化</text>
+    <text class="section-title">反复挑战 · {{replayGames.length}}</text>
+    <text class="section-sub">每局新题，反复练手</text>
   </view>
   <view class="grid">
     <view wx:for="{{replayGames}}" wx:key="key" class="game-card" data-key="{{item.key}}" bindtap="openGame">
@@ -45,12 +45,13 @@
       </view>
       <view class="game-name">{{item.name}}</view>
       <view class="game-desc">{{item.desc}}</view>
-      <view class="game-foot"><text class="native">可重复</text></view>
+      <view class="game-foot"><text class="native">可复玩</text></view>
     </view>
   </view>
 
   <view class="section-head classic-head">
     <text class="section-title">经典解谜 · {{classicGames.length}}</text>
+    <text class="section-sub">玩一次，明白一个道理</text>
   </view>
   <view class="grid">
     <view wx:for="{{classicGames}}" wx:key="key" class="game-card classic" data-key="{{item.key}}" bindtap="openGame">
@@ -65,6 +66,6 @@
   </view>
 
   <view class="footer">
-    <text>不刷题，不排名，不用注册。\n日常随机只抽能反复玩的关卡。</text>
+    <text>不刷题，不排名，不用注册。\n随机只抽可复玩关卡。</text>
   </view>
 </view>

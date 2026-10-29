@@ -51,5 +51,6 @@
   <view class="rule-box">
     <view class="rule-title">能学到什么 · 博弈论与异或</view>
     <view class="rule-text">把每堆数量写成二进制，做异或。异或和为 0 的局面是留给对手的必败态；不为 0 时，总能把某一堆取到让异或和变成 0。</view>
+    <view class="rule-example">例：3、4、5 的异或和是 2；从 3 颗那堆拿 2 颗，变成 1、4、5，异或和就变成 0。</view>
   </view>
 </view>

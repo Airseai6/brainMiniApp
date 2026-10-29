@@ -35,5 +35,6 @@
   <view class="rule-box">
     <view class="rule-title">能学到什么 · 不变量与可解性</view>
     <view class="rule-text">看逆序数的奇偶：每次左右滑不改变逆序数，上下滑会改变 3 或 5 对——奇偶和空格行一起变。开局三秒就能判断。</view>
+    <view class="rule-example">例：逆序数和空格行号对不上时，怎么滑都拼不回；先算奇偶，再决定要不要重开。</view>
   </view>
 </view>

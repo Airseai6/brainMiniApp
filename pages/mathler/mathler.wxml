@@ -53,5 +53,6 @@
   <view wx:if="{{showRules}}" class="rule-box">
     <view class="rule-title">能学到什么 · 等式结构与反馈搜索</view>
     <view class="rule-text">一次猜测会同时排除很多可能：绿色锁定位置，黄色缩小符号范围。6 次不是靠运气，是把“哪些等式还成立”一步步缩小。</view>
+    <view class="rule-example">例：隐藏式是 23+45=68；猜 20+40=60，逐位会得到绿/黄/灰反馈，帮你缩小每一位。</view>
   </view>
 </view>
